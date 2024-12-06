@@ -1,0 +1,318 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  margin:0px;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+h1, h2, h3 {
+  font-family: 'Monigue';
+  font-family: 'Neue Regrade';
+}
+  
+
+.navbar-logo {
+  display: flex;
+  background-color: aqua;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+
+}
+
+@media (max-width: 768px) {
+  .navbar {
+      height: 60px; 
+  }
+}
+
+  
+  
+  .hero {
+    display: flex;
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+  
+  .hero-image{
+    display: flex;   
+    position: absolute;
+    background-image: url('/shapeHero.png');
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-size: screen;
+    background-position: center; 
+    z-index: -1;
+  }
+
+  .hero-background {
+    display: flex;
+    position: fixed;
+    background-image: url(/background.png);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-position: center; 
+    background-attachment: fixed; 
+    animation: zoomBackground 20s infinite; 
+    z-index: -1; 
+  }
+  
+  @keyframes zoomBackground {
+    0% {
+      background-size: 100%;
+    }
+    50% {
+      background-size: 120%;
+    }
+    100% {
+      background-size: 100%;
+    }
+  }
+
+  
+  .hero-content {
+    display: flex;
+    position: relative;
+    justify-content: right;
+    align-items: center;
+    height: 110vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: -10vh;
+
+    z-index: 2;
+  }
+
+ 
+  .hero-title {
+    font-size: 150px;
+    justify-content: center;
+    text-align: right;
+    font-family: 'Monigue'; src: url('/fonts/Monigue.otf');
+    font-weight: 200;
+    z-index: 2;
+  
+  }
+  
+  .hero-creative {
+    display: flex;
+    position: absolute;
+    font-size: 95px;
+    transform: scaleX(130%);
+    margin-top: 53vh;
+    font-weight: 200;
+    text-align: justify;
+    font-family: 'Monigue'; src: url('/fonts/Monigue.otf');
+    justify-content: center;
+    align-content: center;
+
+    z-index: 2;
+    
+  }
+  
+  .hero-developer {
+    display: flex;
+    position: absolute;
+    font-size: 95px;
+    transform: scaleX(110%);
+    margin-top: 62vh;
+    font-weight: 200;
+    text-align: justify;
+    font-family: 'Monigue'; src: url('/fonts/Monigue.otf');
+    justify-content: center;
+    align-content: center;
+    z-index: 2;
+    
+  }
+
+  .hero-photographer {
+    display: flex;
+    position: absolute;
+    font-size: 80px;
+    transform: scaleX(95%);
+    margin-top: 71vh;
+    font-weight: 200;
+    text-align: justify;
+    font-family: 'Monigue'; src: url('/fonts/Monigue.otf');
+    justify-content: center;
+    align-content: center;
+
+    z-index: 2;
+    
+  }
+  .graphics {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    min-height: 89vh;
+    width: 100%;
+    z-index: 1;
+
+  }
+
+
+  .portal{
+    display: flex;
+    position: absolute;
+    background-image: url('/portal.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: -9rem;
+    z-index: 2;
+
+  }
+
+  .button-container {
+    display: flex;
+    background-color: transparent;
+    border: none;                
+    top: 10vh;                                          
+    justify-content: center;
+    align-items: center;
+
+          
+  }
+  
+  .button-dev {
+    background: WHITE;
+    width: 150px;
+    height: 70px;
+    box-shadow: #000000 10px 10px 0px;
+    font-size: 2rem;
+    font-family: 'Monigue'; src: url('/fonts/Monigue.otf');
+    font-weight: 100;
+   
+  }
+  
+  .button-creative {
+    background: WHITE;
+    width: 200px;
+    height: 70px;
+    font-family: 'Neue Regrade'; src: url('/my-website/src/app/fonts/Neue\ Regrade\ Light.otf');
+    border-radius: 20px;
+    margin-top: 10vh;
+    font-size: 2rem;
+    font-weight: 100;
+  }
+
+  .portal-mini {
+    display: flex;
+    position: absolute;
+    height: 100px;
+    right: 0px;
+    top: 700px;
+    z-index: 2;
+  
+  }
+
+  .portal-mini1 {
+    display: flex;
+    position: absolute;
+    margin-right: 10%;
+    height: 100px;
+    left: 0px;
+    top: 700px;
+    transform: rotate(180deg);
+    z-index: 2;
+  
+  }
+
+
+  .aboutme {
+    display: flex;
+    position: relative;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+
+  .aboutme-title {
+    display: flex;
+    position: relative;
+    font-weight: 200;
+   
+    font-family: 'Monigue'; src:url('/my-website/src/app/fonts/Monigue.otf'); 
+    font-size: 90px;
+    top: -90;
+    transform: scaleX(120%) scaleY(120%);
+   
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .portal1{
+    display: flex;
+    position: absolute;
+    background-image: url('/portal.png');
+    width: 80px;
+    height: 75px;
+    left: 210px;
+    background-repeat: no-repeat;
+    top: 32vh;
+  
+
+    z-index: 1;
+
+  }
+
+  .aboutme-subtitle{
+    display: flex;
+    position: absolute;
+    width: 80%;
+    height: 200px;
+    font-family: 'Neue Regrade Light'; src:url('/my-website/src/app/fonts/Neue\ Regrade\ Light.otf'); 
+    font-size: 16px;
+    line-height: 1.5;
+    top: 43vh;
+    overflow: scroll;
+    text-align: justify;
+  }
+
+  .portal2{
+    display: flex;
+    position: absolute;
+    width: 60px;
+    top: -3vh;
+  }
+
+  .more-projects {
+    display: flex;
+    position: relative;
+    height: 40vh;
+    background-color: greenyellow;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+  }
+
+  .more-projects-title {
+    display: flex;
+    position: absolute;
+    color: black;
+    font-family: 'Neue Regrade'; src:url('/my-website/src/app/fonts/Neue\ Regrade\ Light.otf'); 
+    font-size: 15px;
+    text-align: center;
+    text-transform: lowercase;
+  }
