@@ -5,12 +5,17 @@ import ContactSection from "./ContactSection";
 import { Navbar } from "./Navbar";
 import "./globals.css";
 import HeroSection from "./HeroSection";
-import GraphicsSection from "./GraphicSection";
-import MenuPage from "./MenuPage";
+import GraphicsSection from "./graphics/graphic";
+
 import MoreProjects from "./MoreProjects";
-import ThreeDViewer from "./ThreeDViewer";
+
+
 
 function App() {
+  
+
+
+
   return (
     <>
       <Navbar />

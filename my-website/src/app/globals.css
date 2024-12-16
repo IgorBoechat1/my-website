@@ -394,8 +394,8 @@ h3 {
   width: 50px;
   height: 80px;
   clip-path: url(#star-clip);
-  margin-left: 70px;
-  margin-top: -97vh;
+  margin-left: 100px;
+  margin-top: -66vh;
   transform: scale(6);
 
   z-index: 10;
@@ -418,8 +418,9 @@ h3 {
 
 }
 
-.button-container {
+.buttons {
   display: flex;
+  flex-direction: column;
   background-color: transparent;
   border: none;
   top: 10vh;
@@ -440,6 +441,18 @@ h3 {
   font-weight: 100;
 
 }
+
+.creative-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+}
+
+.creative-section.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .button-dev:hover {
   background: #ffffff;
