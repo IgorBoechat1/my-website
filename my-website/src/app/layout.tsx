@@ -1,15 +1,28 @@
-import { Navbar } from "./Navbar";
+// src/app/layout.tsx
+'use client';
 
+import React from "react";
+import { Navbar } from "@/components/Navbar";
+import Providers from "@/components/Providers";
+import "./globals.css";
 
-
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="/globals.css" />
+        <title>Your Website</title>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body>{children}</body>
+      <body>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
+        <footer>
+          <p>© 2024 Your Company. All rights reserved.</p>
+        </footer>
+      </body>
     </html>
   );
-<footer></footer>
 }

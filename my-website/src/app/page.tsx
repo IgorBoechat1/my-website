@@ -1,34 +1,25 @@
+'use client';
+
 import React from "react";
-import AboutSection from "./AboutSection";
-import ProjectsSection from "./project-section/ProjectSection";
-import ContactSection from "./ContactSection";
-import { Navbar } from "./Navbar";
+import HeroSection from "../components/HeroSection";
+import GraphicsSection from "../components/GraphicSection";
+import AboutSection from "../components/AboutSection";
+import MoreProjects from "../components/MoreProjects";
+import ProjectsSection from "../components/project-section/ProjectSection";
+import ContactSection from "../components/ContactSection";
 import "./globals.css";
-import HeroSection from "./HeroSection";
-import GraphicsSection from "./graphics/graphic";
 
-import MoreProjects from "./MoreProjects";
-
-
-
-function App() {
-  
-
-
-
+const HomePage = () => {
   return (
     <>
-      <Navbar />
       <HeroSection />
       <GraphicsSection />
       <AboutSection />
       <MoreProjects />
-      
       <ProjectsSection />
-
       <ContactSection />
     </>
   );
-}
+};
 
-export default App;
+export default HomePage;

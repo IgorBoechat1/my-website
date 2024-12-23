@@ -1,11 +1,10 @@
+// src/app/components/GraphicsSection.tsx
 'use client';
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const DefaultSection = () => {
-
-
   return (
     <div>
       <div className="four-pointed-star-graphic">
@@ -19,19 +18,25 @@ const DefaultSection = () => {
 
 const GraphicsSection = () => {
   const router = useRouter();
-  
+  const [animationClass, setAnimationClass] = useState("");
+
+  const handleNavigation = (url: string) => {
+    setAnimationClass("page-exit");
+    setTimeout(() => {
+      router.push(url);
+    }, 500); // Duração da animação
+  };
 
   return (
-    <section id="graphics" className="graphics">
+    <section className="graphics">
       <div className="buttons">
-        <button className="button-dev" onClick={() => router.push("/graphics/dev")}>
+        <button className="button-dev" onClick={() => handleNavigation("/dev")}>
           /DEV
         </button>
-        <button className="button-creative" onClick={() => router.push("/graphics/creative")}>
+        <button className="button-creative" onClick={() => handleNavigation("/creative")}>
           CREATIVE
         </button>
       </div>
-
       <DefaultSection />
     </section>
   );
