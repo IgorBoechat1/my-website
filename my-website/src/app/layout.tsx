@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 'use client';
 
 import React from "react";
@@ -9,9 +8,8 @@ import "./globals.css";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-<link rel="stylesheet" href="/src/app/globals.css" />     
-       <head>
-        <title>Your Website</title>
+      <head>
+        <title>Igor Boechat</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
