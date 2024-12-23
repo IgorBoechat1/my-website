@@ -6,6 +6,7 @@ module.exports = {
       {
         source: '/old-page',
         destination: '/new-page',
+        distDir: 'build',
         permanent: true,
       },
     ];

@@ -8,10 +8,13 @@ import MoreProjects from "../components/MoreProjects";
 import ProjectsSection from "../components/project-section/ProjectSection";
 import ContactSection from "../components/ContactSection";
 import "./globals.css";
+import App from "next/app";
+import AppRoutes from "@/app/Routes";
 
 const HomePage = () => {
   return (
     <>
+      <AppRoutes />
       <HeroSection />
       <GraphicsSection />
       <AboutSection />
