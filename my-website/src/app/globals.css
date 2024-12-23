@@ -26,6 +26,26 @@ h3 {
 
 }
 
+@font-face {
+  font-family: Neue Regrade;
+  src: url('my-website/src/fonts/Neue Regrade Variable.ttf') format(".ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Monigue;
+  src: url('my-website/src/fonts/Monigue.otf') format(".otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Ultraprint;
+  src: url('my-website/src/fonts/ultraprint.otf') format(".otf");
+  font-weight: 400;
+  font-style: normal;
+}
 
 .burger {
   cursor: pointer;
@@ -206,7 +226,7 @@ h3 {
   justify-content: right;
   position: absolute;
   font-family: 'Neue Regrade';
-  
+  src: url('/fonts/Neue Regrade Medium.otf');
   justify-items: center;
   line-height: 8px;
   font-size: 20px;
@@ -235,6 +255,8 @@ h3 {
   top: -80px;
   position: relative;
   flex-direction: column;
+  font-family: Monigue;
+  src: url('/fonts/Monigue.otf');
   align-items: center;
   justify-content: center;
 
