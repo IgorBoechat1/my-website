@@ -33,7 +33,7 @@
     "**/*.ts", // Include all TypeScript files
     "**/*.tsx", // Include all TSX files
     ".next/types/**/*.ts" // Include generated types from Next.js
-  ],
+, "next.config.js"  ],
   "exclude": [
     "node_modules" // Exclude node_modules
   ]
