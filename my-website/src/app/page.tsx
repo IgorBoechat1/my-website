@@ -4,6 +4,7 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import GraphicsSection from "../components/GraphicSection";
 import AboutSection from "../components/AboutSection";
+import "./globals.css";
 import MoreProjects from "../components/MoreProjects";
 import ProjectsSection from "../components/project-section/ProjectSection";
 import ContactSection from "../components/ContactSection";

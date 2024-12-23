@@ -2,6 +2,11 @@
 module.exports = {
     // Enable React Strict Mode to help catch potential issues in development
     reactStrictMode: true,
+
+    content: [
+        './pages/**/*.{js,ts,jsx,tsx}',
+        './components/**/*.{js,ts,jsx,tsx}',
+      ],
   
     // SWC minification (default in Next.js)
     swcMinify: true,
