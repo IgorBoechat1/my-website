@@ -1,4 +1,3 @@
-// src/app/components/GraphicsSection.tsx
 'use client';
 
 import React, { useState } from "react";
@@ -18,13 +17,16 @@ const DefaultSection = () => {
 
 const GraphicsSection = () => {
   const router = useRouter();
-  const [animationClass, setAnimationClass] = useState("");
+  const [animationClass, setAnimationClass] = useState(""); // Corrected state
 
   const handleNavigation = (url: string) => {
-    setAnimationClass("page-exit");
+    if (animationClass === "page-exit") {
+      setAnimationClass(""); // Reset animation class
+    }
+    setAnimationClass("page-exit"); // Update the animation state
     setTimeout(() => {
       router.push(url);
-    }, 500); // Duração da animação
+    }, 500); // Duration of the animation
   };
 
   return (

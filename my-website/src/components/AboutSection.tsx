@@ -1,9 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import ThreeDViewer from './ThreeDViewer';
 
 const AboutSection = () => {
-  const [showParticles, setShowParticles] = useState(false); // State to control particle visibility
+  
 
   
 
@@ -25,7 +25,7 @@ const AboutSection = () => {
         </div>
         </h3>
         <div className="aboutme-model">
-          <ThreeDViewer modelPath="/scanIgor.glb" showParticles={showParticles} />
+          <ThreeDViewer modelPath="/scanIgor.glb" />
         </div>
       </div>
     </section>

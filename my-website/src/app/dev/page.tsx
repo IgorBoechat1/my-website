@@ -2,7 +2,7 @@
 'use client';
 
 import React from "react";
-import RootLayout from "../layout";
+
 import DevSection from "./Dev";
 
 const DevPage = () => {

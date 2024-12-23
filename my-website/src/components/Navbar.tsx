@@ -35,10 +35,6 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
-  interface MenuPageProps {
-    isVisible: boolean;
-    setIsToggled: React.Dispatch<React.SetStateAction<boolean>>;
-  }
 
   return (
     <section id="navbar" className="navbar">

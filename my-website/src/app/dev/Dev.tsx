@@ -13,7 +13,7 @@ const DevSection = () => {
         description="saddz<fzvsfdvs"
         date="JANUARY DECEMBER 2024"
         techStack="VIDEOGRAPHY PRODUCTION"
-        imageUrl="./FG_project.jpg"
+        imageUrl="/FG_project.jpg"
         backgroundStyle="white"
         star={<Star
           paths={["M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"]}

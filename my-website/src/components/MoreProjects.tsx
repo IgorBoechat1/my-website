@@ -1,13 +1,10 @@
 'use client';
 import React from "react";
-import { useState } from "react";
+
 
 const MoreProjects = () => {
-  const [showParticles, setShowParticles] = useState(true);
 
-  const toggleState = () => {
-    setShowParticles((prev) => !prev);
-  };
+
 
   return (
     <div className="more-projects">
@@ -24,7 +21,7 @@ const MoreProjects = () => {
           ></path>
         </svg>
       </div>
-      <div className="four-pointed-star-transition" onClick={toggleState} style={{ cursor: "pointer" }}>
+      <div className="four-pointed-star-transition" style={{ cursor: "pointer" }}>
         <svg width="40" height="80" xmlns="http://www.w3.org/2000/svg">
           <path
             id="star-clip-transition"
