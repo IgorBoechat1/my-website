@@ -38,10 +38,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           className="project-card__image"
           width={600}
           height={400}
-          layout="intrinsic"
         />
       </div>
-
       <div className="project-card__info">
         <time className="project-card__date">{date}</time>
         <div className="star-container__date">
