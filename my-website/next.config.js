@@ -1,9 +1,5 @@
-// next.config.ts
-
-
 module.exports = {
-  reactStrictMode: true,
-  
+  experimental: {
+    appDir: true,
+  },
 };
-
-
