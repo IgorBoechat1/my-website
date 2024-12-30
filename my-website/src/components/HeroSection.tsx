@@ -12,7 +12,8 @@ const HeroSection = () => {
         {/* ShapeHero Image */}
         <div className="absolute inset-0 z-10 flex items-center justify-center scale-100 sm:scale-110 md:scale-125 lg:scale-150">
           <Image
-            src="/shapehero.png"
+            
+            src="/shapehero.png?v=1"
             alt="Hero Shape"
             className="object-contain"
             width={1200}

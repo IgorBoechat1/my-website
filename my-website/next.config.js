@@ -14,6 +14,10 @@ const nextConfig = {
     return config;
   },
 
+  images: {
+    domains: [],
+  },
+
   // Redirects configuration
   async redirects() {
     return [
