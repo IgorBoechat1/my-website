@@ -33,11 +33,11 @@ const MenuPage = ({ isVisible, setIsToggled }: MenuPageProps) => {
   };
 
   return (
-    <div className={`menu-page ${isVisible ? "visible" : ""}`}>
-      <ul className="navbar-menu-items">
-        <button className="navbar-menu-item" onClick={scrollToAbout}>ABOUT</button>
-        <button className="navbar-menu-item" onClick={scrollToProjects}>PROJECTS</button>
-        <button className="navbar-menu-item" onClick={scrollToContact}>CONTACT</button>
+    <div className={`menu-page absolute w-full top-0 left-0 bg-[#C7F24F] ${isVisible ? "translate-y-0 opacity-100" : "translate-y-[-100%] opacity-0"} transition-transform duration-500 ease-out`}>
+      <ul className="navbar-menu-items flex flex-col items-end p-8 space-y-6 text-xl font-semibold">
+        <button className="navbar-menu-item text-black hover:text-gray-600" onClick={scrollToAbout}>ABOUT</button>
+        <button className="navbar-menu-item text-black hover:text-gray-600" onClick={scrollToProjects}>PROJECTS</button>
+        <button className="navbar-menu-item text-black hover:text-gray-600" onClick={scrollToContact}>CONTACT</button>
       </ul>
     </div>
   );

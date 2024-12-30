@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Star from "../components/Star";
 
-
-
 const DefaultSection = () => {
   const stars = [
     {
@@ -15,44 +13,47 @@ const DefaultSection = () => {
       strokeWidth: 1,
       color: "lightgreen",
     },
-
     // Add more stars as needed
   ];
 
   return (
     <div>
-      <Star stars={stars} svgWidth={500} svgHeight={500} />
+      <Star stars={stars} svgWidth={100} svgHeight={100} />
     </div>
   );
 };
 
-
-
-
-
-const GraphicsSection = () => {  const router = useRouter();
-  const [animationClass, setAnimationClass] = useState(""); // Corrected state
+const GraphicsSection = () => {
+  const router = useRouter();
+  const [animationClass, setAnimationClass] = useState("");
 
   const handleNavigation = (url: string) => {
     if (animationClass === "page-exit") {
-      setAnimationClass(""); // Reset animation class
+      setAnimationClass("");
     }
-    setAnimationClass("page-exit"); // Update the animation state
+    setAnimationClass("page-exit");
     setTimeout(() => {
       router.push(url);
     }, 500); // Duration of the animation
   };
 
   return (
-    <section className="graphics">
-      <div className="buttons">
-        <button className="button-dev" onClick={() => handleNavigation("/dev")}>
+    <section className="graphics relative min-h-[90vh]  bg-[#e6e6e6] z-80">
+      <div className="buttons absolute flex flex-col items-center mt-[60vw] w-full">
+        <button
+className="button-dev bg-white w-[170px] text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] h-[80px] text-3xl font-[100] border-2 border-black transition-all duration-500 hover:bg-black hover:text-white"
+onClick={() => handleNavigation("/dev")}
+        >
           /DEV
         </button>
-        <button className="button-creative" onClick={() => handleNavigation("/creative")}>
+        <button
+          className="button-creative bg-white w-[200px] text-black h-[80px] rounded-[20px] mt-[10vh] text-4xl font-light border-2 border-black transition-all duration-500 hover:bg-[#C7F24F] hover:text-white"
+          onClick={() => handleNavigation("/creative")}
+        >
           CREATIVE
         </button>
       </div>
+
       <DefaultSection />
     </section>
   );

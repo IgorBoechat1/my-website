@@ -22,18 +22,22 @@ const ProjectsSection: React.FC = () => {
       star: [
         <Star
           key="gramaxo-star-1"
-          paths={["M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"]}
-          positions={[{ left: "85px", top: "-65px" }]}
-          scale={[0.2]}
-          strokeWidth={[1]}
-          color="black"
+          stars={[
+            {
+              path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+              position: { left: "85px", top: "-65px" },
+              scale: 0.2,
+              strokeWidth: 1,
+              color: "black",
+            },
+          ]}
           svgWidth={50}
           svgHeight={80}
         />
       ],
       techStack: "VIDEOGRAPHY PRODUCTION",
       imageUrl: "/FG_project.jpg",
-      backgroundStyle: "white", // No need for type assertion if `backgroundStyle` is typed correctly
+      backgroundStyle: "white", 
     },
     {
       title: "FOODBALL",
@@ -46,11 +50,15 @@ const ProjectsSection: React.FC = () => {
       star: [
         <Star
           key="foodball-star-1"
-          paths={["M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"]}
-          positions={[{ left: "25px", top: "-63px" }]}
-          scale={[0.2]}
-          strokeWidth={[1]}
-          color="white"
+          stars={[
+            {
+              path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+              position: { left: "25px", top: "-63px" },
+              scale: 0.2,
+              strokeWidth: 1,
+              color: "transparent",
+            },
+          ]}
           svgWidth={50}
           svgHeight={80}
         />
@@ -59,7 +67,7 @@ const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="projects-section">
+    <section id="projects" className="w-screen mb-22">
       {projects.map((project) => (
         <ProjectCard
           key={project.title}

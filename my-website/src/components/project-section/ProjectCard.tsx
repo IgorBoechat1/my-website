@@ -1,9 +1,8 @@
 import React from "react";
-import Image from "next/image"; // Import Image from next/image
+import Image from "next/image";
 
 interface StarProps {
   color: string; // Define the expected prop type for color
-  // Add other props that Star needs if necessary
 }
 
 interface ProjectCardProps {
@@ -25,44 +24,63 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   backgroundStyle,
   star,
 }) => {
-  const starColor = backgroundStyle === "white" ? "black" : "white";
+  // Conditional text color and border color based on background style
+  const textColor = backgroundStyle === "white" ? "text-black" : "text-white";
+  const starOutlineColor = backgroundStyle === "white" ? "border-black" : "border-white";
 
   return (
     <article
-      className={`project-card ${backgroundStyle === "white" ? "white-background" : "transparent-background"}`}
+      className={` relative project-card ${backgroundStyle === "white" ? "white-background" : "transparent-background"} relative`}
     >
-      <div className="project-card__image-container">
-        <Image
-          src={imageUrl}
-          alt={`Preview of the project titled ${title}`}
-          className="project-card__image"
-          width={600}
-          height={400}
-        />
+      {/* Image Container */}
+      <div className="project-card__image-container w-full relative overflow-hidden">
+        <div className="relative w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
+          <Image
+            src={imageUrl}
+            alt={`Preview of the project titled ${title}`}
+            className="object-cover w-full h-full transition-transform duration-500 transform hover:scale-110"
+            width={600}
+            height={400}
+          />
+        </div>
       </div>
-      <div className="project-card__info">
-        <time className="project-card__date">{date}</time>
-        <div className="star-container__date">
-          {/* Assuming star is a single element */}
-          {Array.isArray(star)
-            ? star.map((singleStar, index) => (
-                <React.Fragment key={index}>
-                  {React.cloneElement(singleStar, { color: starColor })}
-                </React.Fragment>
-              ))
-            : React.isValidElement(star)
-            ? React.cloneElement(star, { color: starColor })
-            : null}
+
+      {/* Content Area */}
+      <div className="project-card__info relative p-6">
+        {/* Date */}
+        <h3 className={`absolute mt-[-30] left-16 text-sm md:text-base lg:text-lg ${textColor}`}>
+          {date}
+        </h3>
+
+  <div className="absolute flex items-center justify-center top-[-40] right-[300] scale-[35%]">
+        <svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+          <path
+            id="star-clip-more"
+            fill="transparent"
+            stroke="#000000"
+            strokeWidth="0.5"
+            d="M20,16 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"
+          ></path>
+        </svg>
+      </div>
+
+        {/* Title */}
+        <div className="absolute mt-4 top-0 ">
+          <h1 className={`project-card__title ${textColor} font-medium mt-16 text-2xl sm:text-3xl md:text-4xl lg:text-5xl`}>
+            {title}
+          </h1>
         </div>
-        <h2 className="project-card__title">{title}</h2>
 
-        <div className="star-container__tech">
-          <p className="project-card__tech-stack">{techStack}</p>
+        {/* Tech Stack */}
+        <div className="star-container__tech mt-16">
+          <h3 className={`project-card__tech-stack ${textColor}`}>{techStack}</h3>
         </div>
 
-        {description && <p className="project-card__description">{description}</p>}
+        {/* Description */}
+        {description && <h3 className={`project-card__description ${textColor}`}>{description}</h3>}
 
-        <button type="button" className="project-card__button" aria-label={`More information about ${title}`}>
+        {/* Button */}
+        <button type="button" className={`border-2 border-black project-card__button ${textColor}`} aria-label={`More information about ${title}`}>
           MORE INFO
         </button>
       </div>
