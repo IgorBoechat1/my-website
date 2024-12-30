@@ -76,30 +76,32 @@ const ProjectCard: React.FC<ProjectProps> = ({
           </h1>
         </div>
 
-        {/* Tech Stack */}
-        <div className="mt-2 flex items-center mb-10 space-x-2">
-          {techStack.split(" ").map((word, index) => (
-            <React.Fragment key={index}>
-              <h3 className={`text-xs sm:text-sm ${textColor}`}>{word}</h3>
-              
-              {/* Add Star between words */}
-              {index < techStack.split(" ").length - 1 && star && star[1] && (
-                <div className="scale-[30%]">
-                  {React.cloneElement(star[1], {
-                    stars: star[1].props.stars.map((s: StarType) => ({
-                      ...s,
-                      color: starColor,
-                    })),
-                  })}
-                </div>
-              )}
-            </React.Fragment>
-          ))}
+        <div className="mt-[-30] ml-5 flex items-center overflow-visible"> {/* Removed w-screen and no horizontal space */}
+  {techStack.split(" ").map((word, index) => (
+    <React.Fragment key={index}>
+      <h3 className={`text-xs sm:text-sm ${textColor} ml-[-15] inline-block`}> {/* No margin-right and inline-block */}
+        {word}
+      </h3>
+
+      {/* Add Star between words */}
+      {index < techStack.split(" ").length - 1 && star && star[1] && (
+        <div className="scale-[15%] ml-[-20px] inline-block"> {/* Reduced scale and inline-block for no line breaks */}
+          {React.cloneElement(star[1], {
+            stars: star[1].props.stars.map((s: StarType) => ({
+              ...s,
+              color: starColor,
+            })),
+          })}
         </div>
+      )}
+    </React.Fragment>
+  ))}
+</div>
+
 
         {/* Description */}
         {description && (
-          <div className="mt-4">
+          <div className="mt-1 mb-12">
             <h3 className={`text-sm sm:text-base ${textColor}`}>{description}</h3>
           </div>
         )}

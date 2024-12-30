@@ -45,6 +45,20 @@ const ProjectsSection: React.FC = () => {
           svgWidth={80}
           svgHeight={100}
         />,
+        <Star
+          key="gramaxo-star-2"
+          stars={[
+            {
+              path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+              position: { left: "50px", top: "-45px" },
+              scale: 0.2,
+              strokeWidth: 1,
+              color: "blue",
+            },
+          ]}
+          svgWidth={80}
+          svgHeight={100}
+        />,
       ],
       techStack: "Videography, Production, Architecture",
       imageUrl: "/FG_project.jpg", // Ensure you have the correct image path
@@ -55,7 +69,7 @@ const ProjectsSection: React.FC = () => {
       description:
         "Brief project description goes here. It can be a bit longer to showcase a sample of the project's description text.",
       date: "February 2024",
-      starCount: 1, // Defining how many stars
+      starCount: 2, // Defining how many stars
       star: [
         <Star
           key="foodbal-star"
@@ -71,6 +85,20 @@ const ProjectsSection: React.FC = () => {
           svgWidth={80}
           svgHeight={100}
         />,
+        <Star
+        key="foodbal-star"
+        stars={[
+          {
+            path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+            position: { left: "40px", top: "-30px" },
+            scale: 0.2,
+            strokeWidth: 1,
+            color: "green",
+          },
+        ]}
+        svgWidth={80}
+        svgHeight={100}
+      />,
       ],
       techStack: "Web Development",
       imageUrl: "/foodball_project.png", // Adjust the image URL as needed
