@@ -25,13 +25,13 @@ const HeroSection = () => {
           <h1 className="text-igor sm:text-igor md:text-igor lg:text-igor xl:text-igor font-primary text-right opacity-90 leading-tight" style={{ lineHeight: '0.9' }}>
             HELLO,<br /> I&#39;M IGOR
           </h1>
-          <h1 className="text-digital sm:text-digtal md:text-digital lg:text-digital text-digital font-primary opacity-90 text-right">
+          <h1 className="sm:text-digtal md:text-digital lg:text-digital text-digital font-primary opacity-90 text-right">
             DIGITAL
           </h1>
-          <h1 className="text-creative sm:text-creative md:text-creative lg:text-creative text-creative font-primary opacity-90 text-right">
+          <h1 className=" sm:text-creative md:text-creative lg:text-creative text-creative font-primary opacity-90 text-right">
             CREATIVE
           </h1>
-          <h1 className="text-dev sm:text-dev md:text-dev lg:text-dev text-dev font-primary opacity-90 text-right">
+          <h1 className="sm:text-dev md:text-dev lg:text-dev text-dev font-primary opacity-90 text-right">
             DEVELOPER
           </h1>
         </div>

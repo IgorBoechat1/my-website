@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import Star from "../../components/Star"; // Import the Star component
+import Star from "../Star";
 
 interface Project {
   title: string;
@@ -9,7 +9,15 @@ interface Project {
   techStack: string;
   imageUrl: string;
   backgroundStyle: "white" | "transparent";
-  star?: React.ReactElement | React.ReactElement[];
+  star?: React.ReactElement<{ stars: StarType[] }>[];
+}
+
+interface StarType {
+  path: string;
+  position: { left: string; top: string };
+  scale: number;
+  strokeWidth: number;
+  color: string;
 }
 
 const ProjectsSection: React.FC = () => {
@@ -21,49 +29,32 @@ const ProjectsSection: React.FC = () => {
       date: "JANUARY DECEMBER 2024",
       star: [
         <Star
-          key="gramaxo-star-1"
+          key="gramaxo-star"
           stars={[
             {
               path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
               position: { left: "85px", top: "-65px" },
               scale: 0.2,
               strokeWidth: 1,
-              color: "black",
+              color: "red", // Custom color for this star
+            },
+            {
+              path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+              position: { left: "50px", top: "-45px" },
+              scale: 0.2,
+              strokeWidth: 1,
+              color: "blue", // Custom color for this star
             },
           ]}
-          svgWidth={50}
-          svgHeight={80}
-        />
+          svgWidth={80}
+          svgHeight={100}
+        />,
       ],
       techStack: "VIDEOGRAPHY PRODUCTION",
       imageUrl: "/FG_project.jpg",
       backgroundStyle: "white",
     },
-    {
-      title: "FOODBALL",
-      description:
-        "SIMPLE GAME DEVELOPED DURING SOME BOOTCAMP DAYS. INSPIRED BY HEAD SOCCER GAME, WE HAVE IMPLEMENTED PHYSICS TO THE BALL.",
-      date: "OCTOBER 2024",
-      techStack: "JAVA GITHUB",
-      imageUrl: "/foodball_project.png",
-      backgroundStyle: "transparent",
-      star: [
-        <Star
-          key="foodball-star-1"
-          stars={[
-            {
-              path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
-              position: { left: "25px", top: "-63px" },
-              scale: 0.2,
-              strokeWidth: 1,
-              color: "transparent",
-            },
-          ]}
-          svgWidth={50}
-          svgHeight={80}
-        />
-      ],
-    },
+    // Additional projects
   ];
 
   return (

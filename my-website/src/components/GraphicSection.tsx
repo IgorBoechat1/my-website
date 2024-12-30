@@ -12,6 +12,7 @@ const DefaultSection = () => {
       scale: 6,
       strokeWidth: 1,
       color: "lightgreen",
+      backgroundColor: "transparent", // Add this property
     },
     // Add more stars as needed
   ];

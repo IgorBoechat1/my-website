@@ -1,18 +1,25 @@
 import React from "react";
 import Image from "next/image";
-import { StarProps } from "../../components/Star"; // Import the StarProps type if used
 
-interface ProjectCardProps {
+interface StarType {
+  path: string;
+  position: { left: string; top: string };
+  scale: number;
+  strokeWidth: number;
+  color: string;
+}
+
+interface ProjectProps {
   title: string;
   description: string;
   date: string;
   techStack: string;
   imageUrl: string;
   backgroundStyle: "white" | "transparent";
-  star?: React.ReactElement<StarProps> | React.ReactElement<StarProps>[]; // Accepts multiple or a single Star element
+  star?: React.ReactElement<{ stars: StarType[] }>[];
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard: React.FC<ProjectProps> = ({
   title,
   description,
   date,
@@ -21,12 +28,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   backgroundStyle,
   star,
 }) => {
-  const textColor = backgroundStyle === "white" ? "text-black" : "text-white";
-  const starOutlineColor = backgroundStyle === "white" ? "border-[var(--starOutline)]" : "border-[var(--starOutline)]";
+  const isWhiteBackground = backgroundStyle === "white";
+  const textColor = isWhiteBackground ? "text-black" : "text-white";
+  const starColor = isWhiteBackground ? "black" : "white";
 
   return (
     <article
-      className={`relative project-card ${backgroundStyle === "white" ? "bg-white" : "bg-transparent"}`}
+      className={`relative project-card ${
+        isWhiteBackground ? "bg-white" : "bg-transparent"
+      }`}
     >
       {/* Image Container */}
       <div className="project-card__image-container w-full overflow-hidden">
@@ -51,15 +61,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
           {/* Dynamic Star(s) */}
           <div className="ml-10 scale-[40%]">
-          {star && Array.isArray(star) ? (
-            <>
-              {star.map((starElement, index) => (
-                <React.Fragment key={index}>{starElement}</React.Fragment>
+            {star &&
+              Array.isArray(star) &&
+              star.map((starElement, index) => (
+                <React.Fragment key={index}>
+                  {React.cloneElement(starElement, {
+                    stars: starElement.props.stars.map((s: StarType) => ({
+                      ...s,
+                      color: starColor,
+                    })),
+                  })}
+                </React.Fragment>
               ))}
-            </>
-          ) : (
-            star
-          )}
           </div>
         </div>
 
@@ -83,7 +96,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* Button */}
         <button
           type="button"
-          className={`font-medium mt-4 text-xs border-1  project-card__button ${textColor}`}
+          className={`font-medium mt-4 text-xs border-1 project-card__button ${textColor}`}
           aria-label={`More information about ${title}`}
         >
           MORE INFO

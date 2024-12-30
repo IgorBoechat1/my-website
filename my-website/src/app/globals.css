@@ -65,13 +65,6 @@ body {
   --starOutline: var(--starOutlineBlack); /* Use black outline for dark theme */
 }
 
-.star-outline-white {
-  @apply border-[var(--starOutlineWhite)];
-}
-
-.star-outline-black {
-  @apply border-[var(--starOutlineBlack)];
-}
 
 h1, h2 {
 font-family: var(--font-primary);

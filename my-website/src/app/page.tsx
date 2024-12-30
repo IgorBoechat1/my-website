@@ -8,7 +8,7 @@ import AboutSection from "../components/AboutSection";
 import MoreProjects from "../components/MoreProjects";
 import ProjectsSection from "../components/project-section/ProjectSection";
 import ContactSection from "../components/ContactSection";
-
+import '@/app/globals.css';
 const HomePage = () => {
   return (
     <>

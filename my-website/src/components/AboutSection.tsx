@@ -14,7 +14,7 @@ const AboutSection = () => {
     </h1>
   
     {/* Content */}
-      <h3 className="font-[Neue Regrade] text-[12px] text-justify text-center uppercase z-50">
+      <h3 className="font-[Neue Regrade] text-[12px] text-center uppercase z-50">
         A constantly evolving creative, exploring the combination of visual art and programming. Currently delving into full-stack development.<br />
         Combining visual acuity and programming, constantly seek to innovate, creating digital solutions that unite aesthetics and technology.
       </h3>
@@ -24,10 +24,10 @@ const AboutSection = () => {
         </svg>
         </div>
         <div className="absolute flex justify-center items-center w-full h-[60vh] z-0 bg-transparent">
-        {/*
+        
 
 <ThreeDViewer modelPath="/scanIgor.glb" />
-        */}
+        
 </div>
       </div>
     </section>

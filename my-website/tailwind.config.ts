@@ -1,4 +1,3 @@
-import type { Config } from 'tailwindcss';
 
 export default {
   content: [
@@ -20,14 +19,14 @@ export default {
         secondary: ['Neue Regrade', 'sans-serif'],
       },
       fontSize: {
-        hero: '30vw', // Hero section size
+        hero: '30vw',
         igor: '35vw',
         digital: '37vw',
         creative: '30vw',
         dev: '25vw',
-        large: '5rem', // Large headings
-        medium: '3rem', // Medium headings
-        small: '1.5rem', // Small text
+        large: '5rem',
+        medium: '3rem',
+        small: '1.5rem',
       },
       keyframes: {
         zoomBackground: {
@@ -41,5 +40,5 @@ export default {
       },
     },
   },
-  plugins:  [],
-} satisfies Config;
+  plugins: [],
+}
