@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import Star from "../../components/Star";
+import Star from "../../components/Star"; // Import the Star component
 
 interface Project {
   title: string;
@@ -17,7 +17,7 @@ const ProjectsSection: React.FC = () => {
     {
       title: "FUNDACAO GRAMAXO",
       description:
-        "INSTITUTIONAL VIDEOS FOR THE FUNDAÇÃO GRAMAXO, HIGHLIGHTING ÁLVARO SIZA’S ARCHITECTURE AND ITS CONNECTION WITH NATURE. IT AIMS TO SHOWCASE THE SPACE’S ARTISTIC SIGNIFICANCE, CAPTURING THE BEAUTY OF ITS DESIGN AND HARMONY WITH THE SURROUNDING LANDSCAPE.",
+        "INSTITUTIONAL VIDEOS FOR THE FUNDAÇÃO GRAMAXO, HIGHLIGHTING ÁLVARO SIZA’S ARCHITECTURE AND ITS CONNECTION WITH NATURE.",
       date: "JANUARY DECEMBER 2024",
       star: [
         <Star
@@ -37,12 +37,12 @@ const ProjectsSection: React.FC = () => {
       ],
       techStack: "VIDEOGRAPHY PRODUCTION",
       imageUrl: "/FG_project.jpg",
-      backgroundStyle: "white", 
+      backgroundStyle: "white",
     },
     {
       title: "FOODBALL",
       description:
-        "SIMPLE GAME DEVELOPED DURING SOME BOOTCAMP DAYS. INSPIRED BY HEAD SOCCER GAME, WE HAVE IMPLEMENTED PHYSICS TO THE BALL, SCORE AND PLAYER MOVEMENT.",
+        "SIMPLE GAME DEVELOPED DURING SOME BOOTCAMP DAYS. INSPIRED BY HEAD SOCCER GAME, WE HAVE IMPLEMENTED PHYSICS TO THE BALL.",
       date: "OCTOBER 2024",
       techStack: "JAVA GITHUB",
       imageUrl: "/foodball_project.png",

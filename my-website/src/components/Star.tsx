@@ -7,6 +7,10 @@ interface StarProps {
     scale: number;
     strokeWidth: number;
     color: string;
+    backgroundColor: string;
+      star?: React.ReactElement<StarProps> | React.ReactElement<StarProps>[]; // Specify the type for React element with props
+    
+    
   }[];
   svgWidth: number;
   svgHeight: number;

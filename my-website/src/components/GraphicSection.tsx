@@ -38,16 +38,19 @@ const GraphicsSection = () => {
   };
 
   return (
-    <section className="graphics relative min-h-[90vh]  bg-[#e6e6e6] z-80">
-      <div className="buttons absolute flex flex-col items-center mt-[60vw] w-full">
+    <section className="graphics relative min-h-[80vh] bg-[#e6e6e6] z-80 px-4 sm:px-8 md:px-16">
+      <div className="buttons absolute flex flex-col items-center mt-[65vw] w-full sm:mt-[50vw] md:mt-[30vw]">
+        {/* /DEV Button */}
         <button
-className="button-dev bg-white w-[170px] text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] h-[80px] text-3xl font-[100] border-2 border-black transition-all duration-500 hover:bg-black hover:text-white"
-onClick={() => handleNavigation("/dev")}
+          className="button-dev bg-white w-[170px] text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] h-[80px] text-3xl font-[100] border-2 border-black transition-all duration-500 hover:bg-black hover:text-white"
+          onClick={() => handleNavigation("/dev")}
         >
           /DEV
         </button>
+        
+        {/* CREATIVE Button */}
         <button
-          className="button-creative bg-white w-[200px] text-black h-[80px] rounded-[20px] mt-[10vh] text-4xl font-light border-2 border-black transition-all duration-500 hover:bg-[#C7F24F] hover:text-white"
+          className="button-creative bg-white w-[200px] text-black h-[80px] rounded-[20px] mt-[10vh] text-4xl font-light border-2 border-black transition-all duration-500 hover:bg-[#C7F24F] hover:text-white sm:mt-[5vh] lg:mt-[10vh]"
           onClick={() => handleNavigation("/creative")}
         >
           CREATIVE

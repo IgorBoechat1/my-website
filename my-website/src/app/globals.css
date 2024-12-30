@@ -22,6 +22,8 @@
   --foreground: #171717;
   --font-primary: 'Monigue', sans-serif;
   --font-secondary: 'Neue Regrade', sans-serif;
+  --starOutlineWhite: #ffffff;
+  --starOutlineBlack: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,31 +32,45 @@
     --foreground: #ededed;
   }
 }
+html, body {
+  height: 100%; /* Ensure that the body fills the viewport */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Ensures box-sizing is consistent */
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
   background-image: url('/background.png');
-  background-attachment: fixed; /* Ensures it doesn't scroll */
-  background-position: center center;
-  background-size: cover; /* Ensures
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--background, #f0f0f0);
+  color: var(--foreground, #333);
+  font-family: var(--font-primary, 'Arial', sans-serif);
+  --starOutline: var(--starOutlineWhite); /* Default to white outline */
 
-  /* Custom Properties */
-  background-color: var(--background, #f0f0f0); /* Default fallback */
-  color: var(--foreground, #333);              /* Default fallback */
-  font-family: var(--font-primary, 'Arial', sans-serif); /* Fallback font stack */
   font-weight: 300;
-  font-size: 30px; /* Default root font size */
-  line-height: 1.6; /* Improves readability */
-
-  /* Smooth transitions for theme changes */
+  font-size: 30px;
+  line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
-
-  /* Enhance user experience */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  min-height: 100vh; /* Ensure the body is constrained to the viewport height */
+}
+
+[data-theme="dark"] {
+  --starOutline: var(--starOutlineBlack); /* Use black outline for dark theme */
+}
+
+.star-outline-white {
+  @apply border-[var(--starOutlineWhite)];
+}
+
+.star-outline-black {
+  @apply border-[var(--starOutlineBlack)];
 }
 
 h1, h2 {
@@ -80,133 +96,16 @@ p {
   }
 }
 
-/* Base Styles */
-.project-card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  font-family: 'Neue Regrade Light';
-  color: var(--foreground);
-  background-color: var(--background);
-  overflow: hidden;
-}
-
-/* White Background Modifier */
 .white-background {
-  --foreground: #121212;
-  --background: #ffffff;
+  background-color: white; /* White background */
 }
 
-.white-background * {
-  color: var(--foreground) !important;
-  opacity: 100%;
+.transparent-background {
+  background-color: transparent; /* Transparent background */
 }
 
-/* Media Query for Mobile */
-@media (max-width: 768px) {
-  /* Project Image */
-  .project-card__image {
-    width: 100%;
-    position: relative;
-    height: 30vh;
-    color: var(--foreground);
-    background-color: var(--background);
-    filter: grayscale(100%);
-    transition: filter 0.3s ease-in-out;
-  }
-
-  .project-card__image:hover {
-    filter: grayscale(0%);
-  }
-
-  /* Project Info Section */
-  .project-card__info {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 40px 0 400px 20px; /* Adjusted for readability */
-    height: 10vh;
-  }
-
-  /* Date */
-  .project-card__date {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    width: 300px;
-    height: 30px;
-    position: absolute;
-    margin: -15px 0 0 50px;
-    text-transform: uppercase;
-  }
-
-  /* Title */
-  .project-card__title {
-    font-size: 50px;
-    margin: 10px 0;
-    font-weight: bold;
-    font-style: uppercase;
-    color: inherit;
-  }
-
-  /* Description */
-  .project-card__description {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 25px;
-    color: inherit;
-  }
-
-  /* Tech Stack */
-  .project-card__tech-stack {
-    font-size: 14px;
-    margin-top: -10px;
-    word-spacing: 40px;
-    position: relative;
-    display: inline-block;
-    color: #aaaaaa;
-  }
-
-  .star-container__tech-stack{
-    display: flex;
-    width: 100%;
-    position: absolute;
-    scale: 1;
-  }
-
-  .star-container__date{
-    display: flex;
-    width: 100%;
-    position: absolute;
-    margin-left: 150px;
-    margin-bottom: 100px;
-    height: 5px;
-    scale: 1;
-  }
 
 
-  
-  /* Button */
-  .project-card__button {
-    width: 110px;
-    height: 35px;
-    font-size: 14px;
-    font-weight: bold;
-    align-items: center;
-    font-family: 'Neue Regrade';
-    color: #121212;
-    background-color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  }
-
-  .project-card__button:hover {
-    background-color: #000000;
-    color: #ffffff;
-  }
-}
 
 .contacts {
   display: flex;

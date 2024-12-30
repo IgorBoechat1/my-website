@@ -24,8 +24,11 @@ const AboutSection = () => {
         </svg>
         </div>
         <div className="absolute flex justify-center items-center w-full h-[60vh] z-0 bg-transparent">
-          <ThreeDViewer modelPath="/scanIgor.glb" />
-        </div>
+        {/*
+
+<ThreeDViewer modelPath="/scanIgor.glb" />
+        */}
+</div>
       </div>
     </section>
   );

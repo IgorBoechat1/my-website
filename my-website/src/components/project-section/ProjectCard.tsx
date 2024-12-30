@@ -1,9 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
-interface StarProps {
-  color: string; // Define the expected prop type for color
-}
+import { StarProps } from "../../components/Star"; // Import the StarProps type if used
 
 interface ProjectCardProps {
   title: string;
@@ -12,7 +9,7 @@ interface ProjectCardProps {
   techStack: string;
   imageUrl: string;
   backgroundStyle: "white" | "transparent";
-  star?: React.ReactElement<StarProps> | React.ReactElement<StarProps>[]; // Specify the type for React element with props
+  star?: React.ReactElement<StarProps> | React.ReactElement<StarProps>[]; // Accepts multiple or a single Star element
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -24,17 +21,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   backgroundStyle,
   star,
 }) => {
-  // Conditional text color and border color based on background style
   const textColor = backgroundStyle === "white" ? "text-black" : "text-white";
-  const starOutlineColor = backgroundStyle === "white" ? "border-black" : "border-white";
+  const starOutlineColor = backgroundStyle === "white" ? "border-[var(--starOutline)]" : "border-[var(--starOutline)]";
 
   return (
     <article
-      className={` relative project-card ${backgroundStyle === "white" ? "white-background" : "transparent-background"} relative`}
+      className={`relative project-card ${backgroundStyle === "white" ? "bg-white" : "bg-transparent"}`}
     >
       {/* Image Container */}
-      <div className="project-card__image-container w-full relative overflow-hidden">
-        <div className="relative w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
+      <div className="project-card__image-container w-full overflow-hidden">
+        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
           <Image
             src={imageUrl}
             alt={`Preview of the project titled ${title}`}
@@ -46,44 +42,53 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
 
       {/* Content Area */}
-      <div className="project-card__info relative p-6">
-        {/* Date */}
-        <h3 className={`absolute mt-[-30] left-16 text-sm md:text-base lg:text-lg ${textColor}`}>
-          {date}
-        </h3>
+      <section className="relative">
+        <div className="project-card__info flex items-center">
+          {/* Date */}
+          <h3 className={`absolute left-24 text-xs md:text-base lg:text-lg ${textColor}`}>
+            {date}
+          </h3>
 
-  <div className="absolute flex items-center justify-center top-[-40] right-[300] scale-[35%]">
-        <svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
-          <path
-            id="star-clip-more"
-            fill="transparent"
-            stroke="#000000"
-            strokeWidth="0.5"
-            d="M20,16 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"
-          ></path>
-        </svg>
-      </div>
+          {/* Dynamic Star(s) */}
+          <div className="ml-10 scale-[40%]">
+          {star && Array.isArray(star) ? (
+            <>
+              {star.map((starElement, index) => (
+                <React.Fragment key={index}>{starElement}</React.Fragment>
+              ))}
+            </>
+          ) : (
+            star
+          )}
+          </div>
+        </div>
 
         {/* Title */}
-        <div className="absolute mt-4 top-0 ">
-          <h1 className={`project-card__title ${textColor} font-medium mt-16 text-2xl sm:text-3xl md:text-4xl lg:text-5xl`}>
+        <div className="absolute mt-[-25]">
+          <h1 className={`project-card__title ${textColor} font-medium ml-12 mt-1 text-6xl sm:text-3xl md:text-4xl lg:text-5xl`}>
             {title}
           </h1>
         </div>
+      </section>
 
+      <section className="flex relative flex-col items-start p-12">
         {/* Tech Stack */}
-        <div className="star-container__tech mt-16">
-          <h3 className={`project-card__tech-stack ${textColor}`}>{techStack}</h3>
+        <div className="star-container__tech mt-5">
+          <h3 className={`text-xs project-card__tech-stack ${textColor}`}>{techStack}</h3>
         </div>
 
         {/* Description */}
-        {description && <h3 className={`project-card__description ${textColor}`}>{description}</h3>}
+        {description && <h3 className={`mt-6 text-xs project-card__description ${textColor}`}>{description}</h3>}
 
         {/* Button */}
-        <button type="button" className={`border-2 border-black project-card__button ${textColor}`} aria-label={`More information about ${title}`}>
+        <button
+          type="button"
+          className={`font-medium mt-4 text-xs border-1  project-card__button ${textColor}`}
+          aria-label={`More information about ${title}`}
+        >
           MORE INFO
         </button>
-      </div>
+      </section>
     </article>
   );
 };
