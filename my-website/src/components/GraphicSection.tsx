@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Star from "../components/Star";
+
 
 
 const GraphicsSection = () => {

@@ -25,8 +25,8 @@ const DevSection: React.FC = () => {
     {
       title: "FUNDACAO GRAMAXO",
       description:
-        "INSTITUTIONAL VIDEOS FOR THE FUNDAÇÃO GRAMAXO, HIGHLIGHTING ÁLVARO SIZA’S ARCHITECTURE AND ITS CONNECTION WITH NATURE.",
-      date: "JANUARY DECEMBER 2024",
+        "Institutional videos showcasing the architectural work of Álvaro Siza at Fundação Gramaxo, emphasizing its relationship with nature and the surrounding environment.",
+      date: "January 2024 - December 2024",
       star: [
         <Star
           key="gramaxo-star"
@@ -50,11 +50,11 @@ const DevSection: React.FC = () => {
           svgHeight={100}
         />,
       ],
-      techStack: "VIDEOGRAPHY PRODUCTION",
-      imageUrl: "/FG_project.jpg",
+      techStack: "Videography, Production, Architecture",
+      imageUrl: "/FG_project.jpg", // Make sure the image path is correct
       backgroundStyle: "white",
     },
-    // Additional projects
+    // Other projects can go here...
   ];
 
   return (

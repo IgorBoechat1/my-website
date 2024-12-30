@@ -37,12 +37,12 @@ const ProjectCard: React.FC<ProjectProps> = ({
       className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} rounded-lg overflow-hidden shadow-lg`}
     >
       {/* Image Container */}
-      <section className="w-full overflow-hidden">
-        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
+      <section className="w-full overflow-hidden filter-bw">
+        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px] hover:color">
           <Image
             src={imageUrl}
             alt={`Preview of the project titled ${title}`}
-            className="object-cover w-full h-full transition-transform duration-500 transform hover:scale-110"
+            className="object-cover w-full h-full transition-transform duration-500 transform hover:scale-110 filter grayscale hover:grayscale-0"            
             width={600}
             height={400}
           />
@@ -102,14 +102,14 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {/* Description */}
         {description && (
           <div className="mt-1 mb-12">
-            <h3 className={`text-sm sm:text-base ${textColor}`}>{description}</h3>
+            <h3 className={`text-sm sm:text-base uppercase ${textColor}`}>{description}</h3>
           </div>
         )}
 
         {/* Button */}
         <button
           type="button"
-          className={`mt-8 py-2 px-6 bg-transparent border-2 border-current text-sm ${textColor} hover:bg-current hover:text-white transition-all duration-300`}
+          className={`mt-8 py-2 px-6 bg-transparent border-2 border-current font-secondary text-sm ${textColor} hover:bg-current hover:text-white transition-all duration-300`}
           aria-label={`More information about ${title}`}
         >
           MORE INFO

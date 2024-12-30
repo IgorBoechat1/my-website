@@ -14,15 +14,15 @@ const AboutSection = () => {
     </h1>
   
     {/* Content */}
-      <h3 className="font-[Neue Regrade] text-[12px] text-center uppercase z-50">
+      <h3 className="font-[Neue Regrade] font-semibold text-[12px] text-center line-height-2 uppercase z-50">
         A constantly evolving creative, exploring the combination of visual art and programming. Currently delving into full-stack development.<br />
         Combining visual acuity and programming, constantly seek to innovate, creating digital solutions that unite aesthetics and technology.
       </h3>
-      <div className="relative cursor-pointer top-[-220] left-[55] z-90">
+      <div className="relative cursor-pointer top-[-220]  left-[55] z-90">
         <svg width="40" height="80" xmlns="http://www.w3.org/2000/svg">
           <path
             id="star-clip-transition"
-            fill="green"
+            fill="#C7F24F"
             d="M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"
           ></path>
         </svg>
