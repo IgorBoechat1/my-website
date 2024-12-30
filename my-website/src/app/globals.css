@@ -1,6 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* globals.css */
+
+@font-face {
+  font-family: 'Monigue';
+  src: url('/fonts/Monigue.otf') format('opentype'); /* Use 'opentype' for `.otf` files */
+  font-weight: normal; /* Adjust weights as needed */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  src: url('/fonts/Neue Regrade Variable.ttf') format('truetype'); /* Use 'truetype' for `.ttf` files */
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-primary: 'Monigue', sans-serif;
+  --font-secondary: 'Neue Regrade', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -9,38 +30,39 @@
     --foreground: #ededed;
   }
 }
-
 body {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
-  color: var(--foreground);
-  z-index: -40;
+  /* Custom Properties */
+  background-color: var(--background, #f0f0f0); /* Default fallback */
+  color: var(--foreground, #333);              /* Default fallback */
+  font-family: var(--font-primary, 'Arial', sans-serif); /* Fallback font stack */
+  font-weight: 300;
+  font-size: 30px; /* Default root font size */
+  line-height: 1.6; /* Improves readability */
+
+  /* Smooth transitions for theme changes */
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Enhance user experience */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-h1,
-h2,
+h1, h2 {
+font-family: var(--font-primary);
+}
+
 h3 {
-  font-family: 'Monigue';
-  src: url('/fonts/Monigue.otf') format(".otf");
-  font-family: 'Neue Regrade';
-  src: url('/fonts/Neue Regrade Variable.ttf') format(".ttf");
+  font-family: var(--font-secondary);
+  }
+
+p {
+  font-family: var(--font-primary);
 }
-
-@font-face {
-  font-family: Neue Regrade;
-  src: url('/fonts/Neue Regrade Variable.ttf') format(".ttf");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Monigue;
-  src: url('/fonts/Monigue.otf') format(".otf");
-  font-weight: 400;
-  font-style: normal;
-}
-
-
 
 .burger {
   cursor: pointer;
@@ -88,6 +110,7 @@ h3 {
     opacity: 1;
   }
 }
+
 
 .menu-page {
   position: absolute;
@@ -244,95 +267,21 @@ h3 {
 
 
 
-.hero {
-  display: flex;
-  width: 100%;
-  top: -80px;
+.graphics {
   position: relative;
-  flex-direction: column;
-  font-family: Monigue;
-  src: url('/fonts/Monigue.otf');
-  align-items: center;
-  justify-content: center;
-
-}
-
-.hero-image {
-  display: flex;
-  position: absolute;
-  background-image: url('/shapeHero.png');
-  height: 100%;
-  width: 100%;
-  transform: rotate(90%);
-
-  top: 0;
-  background-size: screen;
-  background-position: center;
-  backdrop-filter: invert();
-  z-index: -1;
-}
-
-.hero-background {
-  display: flex;
-  background-image: url(/background.png);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  justify-content: center;
-  background-position: center;
-  background-attachment: fixed;
-  animation: zoomBackground 20s infinite;
-  z-index: -1;
-}
-
-@keyframes zoomBackground {
-  0% {
-    background-size: 100%;
-  }
-
-  50% {
-    background-size: 120%;
-  }
-
-  100% {
-    background-size: 100%;
-  }
+  
+  min-height: 80vh;
+  background-color: #e6e6e6;
+  z-index: 80;
+  
 }
 
 
-.hero-content {
-  display: flex;
-  position: relative;
-  justify-content: right;
-  align-items: center;
-  height: 240vw;
-  width: 100%;
-  flex-direction: column;
-  padding: 0;
-  color: #ededed;
- 
-
-  z-index: 0;
-}
 
 
-.hero-title {
-  display: flex;
-  font-size: 150px;
-  position: absolute;
-  justify-content: center;
-  text-align: right;
-  color: #e6e6e6;
-  margin-top: 25vh;
-  line-height: 115px;
-  width: 100%;
-  opacity: 90%;
-  font-family: 'Monigue';
-  src: url('/fonts/Monigue.otf');
-  font-weight: 200;
-  z-index: 2;
 
-}
+
+
 
 
 .burger{
@@ -343,116 +292,17 @@ h3 {
   z-index: 9;
 }
  
-.hero-creative {
-  display: flex;
-  position: absolute;
-  color: #e6e6e6;
-  font-size: 140px;
-  align-items: center;
-  text-align: center;
-  margin-top: 53vh;
-  font-weight: 200;
-  opacity: 90%;
-  text-align: justify;
-  font-family: 'Monigue';
-  src: url('/fonts/Monigue.otf');
-  justify-content: center;
-  align-content: center;
 
-  z-index: 2;
-
-}
-
-.hero-developer {
-  display: flex;
-  position: absolute;
-  font-size: 130px;
-  align-items: center;
-  text-align: center;
-  margin-top: 66vh;
-  font-weight: 200;
-  opacity: 90%;
-  text-align: justify;
-  font-family: 'Monigue';
-  src: url('/fonts/Monigue.otf');
-  justify-content: center;
-  align-content: center;
-  z-index: 2;
-
-}
-
-.hero-photographer {
-  display: flex;
-  position: absolute;
-  font-size: 110px;
-  align-items: center;
-  text-align: center;
-  color: #e6e6e6;
-  margin-top: 77vh;
-  font-weight: 200;
-  opacity: 90%;
-  text-align: justify;
-  font-family: 'Monigue';
-  src: url('/fonts/Monigue.otf');
-  justify-content: center;
-  align-content: center;
-  z-index: 2;
-
-
-}
-
-.graphics {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-  min-height: 89vh;
-  width: 100%;
-  z-index: 20;
-
-}
-
-.four-pointed-star-graphic{
-  display: flex;
-
-  width: 50px;
-  height: 80px;
-  clip-path: url(#star-clip);
-  margin-left: 50px;
-  margin-top: -75vh;
-  transform: scale(6);
-
-  z-index: 20;
-}
-
-#star-clip-graphic {
-  fill: #C7F24F;
-  align-items: center;
-  z-index: 60;
-  transition: transform 0.5s ease, fill 0.5s ease; /* Smooth transitions */
-}
-
-.portal {
-  display: flex;
-  position: absolute;
-  background-image: url('/portal.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  top: -9rem;
-  z-index: 2;
-
-}
 
 .buttons {
   display: flex;
+  position: absolute;
   flex-direction: column;
   background-color: transparent;
-  border: none;
-  top: 10vh;
-  justify-content: center;
   align-items: center;
+  margin-top: 50vw;
+  
+  
   width: 100%;
 
 }

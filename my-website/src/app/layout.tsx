@@ -1,9 +1,10 @@
+// app/layout.tsx
 'use client';
 
 import React from "react";
 import { Navbar } from "@/components/Navbar";
 import Providers from "@/components/Providers";
-import "./globals.css";
+import "./globals.css"; 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +13,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>Igor Boechat</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/globals.css"></link>
       </head>
       <body>
         <Providers>

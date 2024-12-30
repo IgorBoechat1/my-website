@@ -2,21 +2,35 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Star from "../components/Star";
+
+
 
 const DefaultSection = () => {
+  const stars = [
+    {
+      path: "M20,16 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+      position: { left: "15", top: "-45" },
+      scale: 6,
+      strokeWidth: 1,
+      color: "lightgreen",
+    },
+
+    // Add more stars as needed
+  ];
+
   return (
     <div>
-      <div className="four-pointed-star-graphic">
-        <svg width="40px" height="70px" xmlns="http://www.w3.org/2000/svg">
-          <path id="star-clip-graphic" fill="lightgreen" d="M20,16 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"></path>
-        </svg>
-      </div>
+      <Star stars={stars} svgWidth={500} svgHeight={500} />
     </div>
   );
 };
 
-const GraphicsSection = () => {
-  const router = useRouter();
+
+
+
+
+const GraphicsSection = () => {  const router = useRouter();
   const [animationClass, setAnimationClass] = useState(""); // Corrected state
 
   const handleNavigation = (url: string) => {
