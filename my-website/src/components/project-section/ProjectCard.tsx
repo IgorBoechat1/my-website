@@ -34,12 +34,10 @@ const ProjectCard: React.FC<ProjectProps> = ({
 
   return (
     <article
-      className={`relative project-card ${
-        isWhiteBackground ? "bg-white" : "bg-transparent"
-      }`}
+      className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} rounded-lg overflow-hidden shadow-lg`}
     >
       {/* Image Container */}
-      <div className="project-card__image-container w-full overflow-hidden">
+      <section className="w-full overflow-hidden">
         <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
           <Image
             src={imageUrl}
@@ -49,54 +47,67 @@ const ProjectCard: React.FC<ProjectProps> = ({
             height={400}
           />
         </div>
-      </div>
+      </section>
 
-      {/* Content Area */}
-      <section className="relative">
-        <div className="project-card__info flex items-center">
+      {/* Content Area with Left Alignment */}
+      <section className="relative p-6 mb-20">
+        {/* Flexbox for Date and Star Alignment */}
+        <div className="flex items-center mb-[-40] ml-[-20] ">
+          {/* First Star on the Left of Date */}
+          {star && star[0] && (
+            <div className="scale-[30%]">
+              {React.cloneElement(star[0], {
+                stars: star[0].props.stars.map((s: StarType) => ({
+                  ...s,
+                  color: starColor,
+                })),
+              })}
+            </div>
+          )}
+
           {/* Date */}
-          <h3 className={`absolute left-24 text-xs md:text-base lg:text-lg ${textColor}`}>
-            {date}
-          </h3>
+          <h3 className={`text-xs mb-[5] ml-[-20]  sm:text-base ${textColor}`}>{date}</h3>
+        </div>
 
-          {/* Dynamic Star(s) */}
-          <div className="ml-10 scale-[40%]">
-            {star &&
-              Array.isArray(star) &&
-              star.map((starElement, index) => (
-                <React.Fragment key={index}>
-                  {React.cloneElement(starElement, {
-                    stars: starElement.props.stars.map((s: StarType) => ({
+        {/* Title */}
+        <div className="mt-2">
+          <h1 className={`text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-light ${textColor}`}>
+            {title}
+          </h1>
+        </div>
+
+        {/* Tech Stack */}
+        <div className="mt-2 flex items-center mb-10 space-x-2">
+          {techStack.split(" ").map((word, index) => (
+            <React.Fragment key={index}>
+              <h3 className={`text-xs sm:text-sm ${textColor}`}>{word}</h3>
+              
+              {/* Add Star between words */}
+              {index < techStack.split(" ").length - 1 && star && star[1] && (
+                <div className="scale-[30%]">
+                  {React.cloneElement(star[1], {
+                    stars: star[1].props.stars.map((s: StarType) => ({
                       ...s,
                       color: starColor,
                     })),
                   })}
-                </React.Fragment>
-              ))}
-          </div>
-        </div>
-
-        {/* Title */}
-        <div className="absolute mt-[-25]">
-          <h1 className={`project-card__title ${textColor} font-medium ml-12 mt-1 text-6xl sm:text-3xl md:text-4xl lg:text-5xl`}>
-            {title}
-          </h1>
-        </div>
-      </section>
-
-      <section className="flex relative flex-col items-start p-12">
-        {/* Tech Stack */}
-        <div className="star-container__tech mt-5">
-          <h3 className={`text-xs project-card__tech-stack ${textColor}`}>{techStack}</h3>
+                </div>
+              )}
+            </React.Fragment>
+          ))}
         </div>
 
         {/* Description */}
-        {description && <h3 className={`mt-6 text-xs project-card__description ${textColor}`}>{description}</h3>}
+        {description && (
+          <div className="mt-4">
+            <h3 className={`text-sm sm:text-base ${textColor}`}>{description}</h3>
+          </div>
+        )}
 
         {/* Button */}
         <button
           type="button"
-          className={`font-medium mt-4 text-xs border-1 project-card__button ${textColor}`}
+          className={`mt-8 py-2 px-6 bg-transparent border-2 border-current text-sm ${textColor} hover:bg-current hover:text-white transition-all duration-300`}
           aria-label={`More information about ${title}`}
         >
           MORE INFO

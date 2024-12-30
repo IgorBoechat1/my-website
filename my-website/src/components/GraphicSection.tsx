@@ -24,8 +24,8 @@ const GraphicsSection = () => {
 
 
     
-    <section className="graphics relative min-h-[70vh] bg-white z-80 p-0 ">
-       <div className="absolute flex items-center justify-center left-[40%] top-[-70] transform z-50 scale-[300%]">
+    <section className="graphics overflow-hidden relative min-h-[70vh] bg-white z-80 p-0 ">
+       <div className="absolute flex items-center justify-center left-[30%] top-[-70] transform z-50 scale-[300%]">
     <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
       <path
         id="star-clip"
@@ -56,7 +56,7 @@ const GraphicsSection = () => {
 
   
 
-  <div className="absolute flex items-center justify-center right-[-40] bottom-[-45] transform z-50 scale-[100%]">
+  <div className="absolute flex items-center overflow-hidden justify-center right-[-40] bottom-[-45] transform z-50 scale-[100%]">
     <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
       <path
         id="star-clip"
