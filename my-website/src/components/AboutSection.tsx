@@ -18,11 +18,16 @@ const AboutSection = () => {
         A constantly evolving creative, exploring the combination of visual art and programming. Currently delving into full-stack development.<br />
         Combining visual acuity and programming, constantly seek to innovate, creating digital solutions that unite aesthetics and technology.
       </h3>
-      <div className='absolute flex ml-24 mb-12'>
-        <svg width="40px" height="80px" xmlns="http://www.w3.org/2000/svg">
-          <path id="star-clip-graphic-about" fill="lightgreen" d="M20,16 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"></path>
+      <div className="relative cursor-pointer top-[-220] left-[55] z-90">
+        <svg width="40" height="80" xmlns="http://www.w3.org/2000/svg">
+          <path
+            id="star-clip-transition"
+            fill="green"
+            d="M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"
+          ></path>
         </svg>
-        </div>
+      </div>
+    
         <div className="absolute flex justify-center items-center w-full h-[60vh] z-0 bg-transparent">
         
 

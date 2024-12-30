@@ -10,7 +10,6 @@ export const Navbar: React.FC = () => {
   const router = useRouter(); // Hook for navigation
 
   const handleClick = () => {
-    console.log("click");
     setIsToggled((prevState) => !prevState);
   };
 
@@ -49,15 +48,21 @@ export const Navbar: React.FC = () => {
         {/* Burger icon aligned to the right */}
         <div
           ref={burgerRef}
-          className={`burger absolute flex flex-col mt-10 items-center justify-between w-9 h-5 transition-transform duration-300 z-50 ${isToggled ? "transform rotate-45" : ""}`}
+          className={`burger absolute flex flex-col mt-10 items-center justify-between w-9 h-5 transition-all duration-500 ease-in-out z-50 ${isToggled ? "transform" : ""}`}
           onClick={handleClick}
           aria-expanded={isToggled}
           role="button"
           tabIndex={0}
         >
-          <div className="burger-line w-6 h-0.5 bg-white mb-1 transition-transform duration-1000 ease-in-out"></div>
-          <div className="burger-line w-6 h-0.5 bg-white mb-1 transition-opacity duration-500 ease-in-out"></div>
-          <div className="burger-line w-6 h-0.5 bg-white transition-transform duration-1000 ease-in-out"></div>
+          <div
+            className={`burger-line w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isToggled ? "transform rotate-45 translate-y-2" : ""}`}
+          ></div>
+          <div
+            className={`burger-line w-6 h-0.5 bg-white transition-opacity duration-500 ease-in-out ${isToggled ? "opacity-0" : ""}`}
+          ></div>
+          <div
+            className={`burger-line w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isToggled ? "transform -rotate-45 -translate-y-2" : ""}`}
+          ></div>
         </div>
 
         {/* MenuPage Component - Conditional rendering */}
