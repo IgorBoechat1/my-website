@@ -18,14 +18,14 @@ const GraphicsSection = () => {
   };
 
   return (
-    <section className="graphics overflow-hidden relative min-h-[70vh] bg-white z-80 p-0">
+    <section className="graphics overflow- relative min-h-[70vh] bg-white z-80 p-0">
       {/* Star for Transition */}
-      <div className="absolute left-0 top-[-60px] w-full h-auto flex justify-center z-10">
+      <div className="absolute left-[-20] top-[-60px] w-full h-auto flex justify-center z-80">
         <svg
           width="100"
           height="100"
           xmlns="http://www.w3.org/2000/svg"
-          className="scale-[200%] sm:scale-[250%]  md:scale-[300%] opacity-50"
+          className="scale-[200%] sm:scale-[250%]  md:scale-[300%] opacity-100"
         >
           <path
             fill="#C7F24F"
@@ -55,8 +55,8 @@ const GraphicsSection = () => {
       </div>
 
       {/* Bottom Star for Balance */}
-      <div className="absolute right-[-40px] bottom-[-45px] transform scale-[100%] z-10">
-        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+      <div className="absolute right-[0px] bottom-[-45px] transform scale-[100%] z-10">
+        <svg width="60" height="100" xmlns="http://www.w3.org/2000/svg">
           <path
             fill="#E8474D"
             strokeWidth="1"

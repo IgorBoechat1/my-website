@@ -13,7 +13,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 z-10 flex items-center justify-center scale-100 sm:scale-100 md:scale-100 lg:scale-100">
           <Image
             id="shape-hero"
-            src="/shapehero.png?v=1"
+            src="/shapeHero.png"
             alt="Hero Shape"
             className="object-contain"
             width={1200}
