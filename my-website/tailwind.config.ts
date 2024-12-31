@@ -24,6 +24,7 @@ export default {
         digital: '37vw',
         creative: '30vw',
         dev: '25vw',
+        res: '15vw',
         large: '5rem',
         medium: '3rem',
         small: '1.5rem',
