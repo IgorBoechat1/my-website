@@ -76,16 +76,16 @@ const ProjectCard: React.FC<ProjectProps> = ({
           </h1>
         </div>
 
-        <div className="mt-[-30] ml-5 flex items-center overflow-visible"> {/* Removed w-screen and no horizontal space */}
+        <div className="mt-[-30] ml-15 flex items-center overflow-visible"> {/* Removed w-screen and no horizontal space */}
   {techStack.split(" ").map((word, index) => (
     <React.Fragment key={index}>
-      <h3 className={`text-xs sm:text-sm ${textColor} ml-[-15] inline-block`}> {/* No margin-right and inline-block */}
+      <h3 className={`text-xs sm:text-sm ${textColor} ml-[1] inline-block`}> {/* No margin-right and inline-block */}
         {word}
       </h3>
 
       {/* Add Star between words */}
       {index < techStack.split(" ").length - 1 && star && star[1] && (
-        <div className="scale-[15%] ml-[-20px] inline-block"> {/* Reduced scale and inline-block for no line breaks */}
+        <div className="scale-[15%] ml-[-20px] mr-[-20px] inline-block"> {/* Reduced scale and inline-block for no line breaks */}
           {React.cloneElement(star[1], {
             stars: star[1].props.stars.map((s: StarType) => ({
               ...s,

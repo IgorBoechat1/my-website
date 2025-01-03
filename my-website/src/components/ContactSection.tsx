@@ -27,7 +27,7 @@ const ContactSection = () => {
       </h3>
 
       {/* Star */}
-      <div className="absolute top-56 left-1/2 transform -translate-x-1/2 scale-150">
+      <div className="absolute top-56 left-1/2 transform -translate-x-1/2 scale-125">
         <svg width="40" height="80" xmlns="http://www.w3.org/2000/svg">
           <path
             id="star-clip-contact"
@@ -37,7 +37,7 @@ const ContactSection = () => {
         </svg>
       </div>
 
-      <div className="relative flex flex-col items-center justify-center mt-96 scale-[3]">
+      <div className="relative flex flex-col items-center justify-center mt-36 scale-[2]">
 
       {/* Buttons */}
       <button

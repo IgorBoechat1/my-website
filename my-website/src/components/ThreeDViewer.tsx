@@ -48,35 +48,52 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
       controls.current.dampingFactor = 0.1;
       controls.current.enableZoom = false;
 
+     
+
       const loader = new GLTFLoader();
       loader.load(
         modelPath,
         (gltf) => {
-          if (!gltf.scene) return;
-
-          originalModel.current = gltf.scene;
-          originalModel.current.scale.set(1.8, 1.8, 1.8);
-          originalModel.current.traverse((obj: THREE.Object3D) => {
-            if ((obj as THREE.Mesh).isMesh && (obj as THREE.Mesh).material) {
-              const material = (obj as THREE.Mesh).material as THREE.MeshStandardMaterial;
-              material.transparent = true;
-              material.opacity = 0.0;
+          if (!gltf.scene) {
+            console.error("Model scene is undefined");
+            return;
+          }
+      
+          const model = gltf.scene;
+      
+          // Particle Material
+          const particleMaterial = new THREE.PointsMaterial({
+            color: 0x00ff00, // Set particle color
+            size: 0.02, // Particle size
+          });
+      
+          model.traverse((obj: THREE.Object3D) => {
+            if ((obj as THREE.Mesh).isMesh) {
+              const mesh = obj as THREE.Mesh;
+              const geometry = mesh.geometry;
+      
+              // Create particle system from geometry vertices
+              const particles = new THREE.Points(geometry, particleMaterial);
+      
+              // Scale and position particles
+              particles.scale.set(1.8, 1.8, 1.8);
+              particles.position.copy(mesh.position);
+      
+              // Add particles to the scene
+              scene.current?.add(particles);
             }
           });
-
-          scene.current?.add(originalModel.current); // Use optional chaining
+      
+          console.log("Particles created from model geometry.");
         },
         undefined,
         (error) => console.error("Error loading model:", error)
       );
+      
 
       const animate = () => {
+        console.log("Rendering frame");
         animationFrameId.current = requestAnimationFrame(animate);
-      
-        // Update controls
-        controls.current?.update();
-      
-        // Check for nullability before using `scene.current`, `camera.current`, and `renderer.current`
         if (scene.current && camera.current && renderer.current) {
           renderer.current.render(scene.current, camera.current);
         }
