@@ -19,6 +19,7 @@ interface Project {
   backgroundStyle: "white" | "transparent";
   starCount: number; // New property to define how many stars
   star?: React.ReactElement<{ stars: StarType[] }>[];
+  slug: string;
 }
 
 const ProjectsSection: React.FC = () => {
@@ -26,6 +27,7 @@ const ProjectsSection: React.FC = () => {
     {
       title: "FUNDAÇÃO GRAMAXO",
       description:
+  
         "Institutional videos showcasing the architectural work of Álvaro Siza at Fundação Gramaxo, emphasizing its relationship with nature and the surrounding environment.",
       date: "JANUARY 2024 - DECEMBER 2024",
       starCount: 2, // Defining how many stars
@@ -63,11 +65,11 @@ const ProjectsSection: React.FC = () => {
       techStack: "VIDEOGRAPHY, PRODUCTION, ARCHITECTURE",
       imageUrl: "/FG_project.jpg", // Ensure you have the correct image path
       backgroundStyle: "white",
+      slug: "fundacao-gramaxo",
     },
     {
-      title: "FOODBAL",
-      description:
-        "Brief project description goes here. It can be a bit longer to showcase a sample of the project's description text.",
+      title: "FOODBALL",
+      description: "Game developed during 1 week of Code For All bootcamp. Using Java, Simple GFX",
       date: "FEBRUARY 2024",
       starCount: 2, // Defining how many stars
       star: [
@@ -104,6 +106,7 @@ const ProjectsSection: React.FC = () => {
       techStack: "JAVA WEB DEVELOPMENT",
       imageUrl: "/foodball_project.png", // Adjust the image URL as needed
       backgroundStyle: "transparent",
+      slug: "foodbal",
     },
     {
       title: "HECATRAIL",
@@ -144,6 +147,7 @@ const ProjectsSection: React.FC = () => {
       techStack: "TYPESCRIPT REACT NEXT.JS",
       imageUrl: "/hecatrail.png", // Update with actual image URL
       backgroundStyle: "white",
+      slug: "hecatrail",
     },
 
 
@@ -153,6 +157,7 @@ const ProjectsSection: React.FC = () => {
         "A captivating release video for Muratto's 2024 wall design collection. Muratto, a renowned Portuguese brand in natural surface design, is celebrated for its dynamic and innovative cork wall coverings. This project encompassed scripting, filming, and editing to highlight their latest offerings.",
       date: "JANUARY 2024",
       starCount: 2,
+      
       star: [
         <Star
           key="muratto-star-1"
@@ -186,6 +191,7 @@ const ProjectsSection: React.FC = () => {
       techStack: "SCRIPTING FILMING EDITING",
       imageUrl: "/muratto.png",
       backgroundStyle: "transparent",
+      slug: "muratto",
     }
     
     
@@ -203,6 +209,7 @@ const ProjectsSection: React.FC = () => {
           imageUrl={project.imageUrl}
           backgroundStyle={project.backgroundStyle}
           star={project.star}
+          slug={project.slug}
         />
       ))}
     </section>

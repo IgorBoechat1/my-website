@@ -23,7 +23,7 @@ const HeroSection = () => {
 
         {/* Text Content */}
         <div className="relative z-20 flex flex-col items-center justify-center text-[#ededed] mt-40 mb-40 sm:px-8 md:px-16 lg:px-32 xl:px-40" style={{ lineHeight: '0.8' }}>
-          <h1 className="text-igor sm:text-large md:text-dev lg:text-res justify-center font-primary min-w-full text-right opacity-90 leading-tight" style={{ lineHeight: '0.9' }}>
+          <h1 className="text-igor sm:text-large md:text-dev lg:text-res justify-center font-primary min-w-full text-center opacity-90 leading-tight" style={{ lineHeight: '0.9' }}>
             HELLO,<br /> I&#39;M IGOR
           </h1>
           <h1 className="sm:text-digtal md:text-res lg:text-res text-digital font-primary opacity-90 text-right">

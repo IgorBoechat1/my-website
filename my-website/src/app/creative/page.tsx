@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import DevSection from "./Dev";
+import Creative from "@/app/creative/Creative";
 
-const DevPage = () => {
+const CreativePage = () => {
   const [isEntering, setIsEntering] = useState(false);
 
   useEffect(() => {
@@ -12,10 +12,10 @@ const DevPage = () => {
   }, []);
 
   return (
-    <div className={isEntering ? "animate-slide-right" : ""}>
-      <DevSection />
+    <div className={isEntering ? "animate-slide-left" : ""}>
+      <Creative />
     </div>
   );
 };
 
-export default DevPage;
+export default CreativePage;

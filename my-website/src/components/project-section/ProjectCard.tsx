@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import "@/app/globals.css";
 
 interface StarType {
   path: string;
@@ -16,7 +18,8 @@ interface ProjectProps {
   techStack: string;
   imageUrl: string;
   backgroundStyle: "white" | "transparent";
-  star?: React.ReactElement<{ stars: StarType[] }>[];
+  slug: string; // Slug for dynamic routing
+  starElement?: React.ReactNode; // Dynamic star element
 }
 
 const ProjectCard: React.FC<ProjectProps> = ({
@@ -26,94 +29,82 @@ const ProjectCard: React.FC<ProjectProps> = ({
   techStack,
   imageUrl,
   backgroundStyle,
-  star,
+  slug,
+  starElement,
 }) => {
   const isWhiteBackground = backgroundStyle === "white";
   const textColor = isWhiteBackground ? "text-black" : "text-white";
-  const starColor = isWhiteBackground ? "black" : "white";
+
+  // Helper to insert stars between words
+  const insertStars = (text: string, starElement: React.ReactNode) => {
+    const words = text.split(" ");
+    return words.flatMap((word, index) => [
+      <span key={`word-${index}`} className="inline-block">
+        {word}
+      </span>,
+      index < words.length - 1 && (
+        <span key={`star-${index}`} className="mx-1">
+          {starElement}
+        </span>
+      ),
+    ]);
+  };
 
   return (
     <article
       className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} rounded-lg overflow-hidden shadow-lg`}
     >
-      {/* Image Container */}
-      <section className="w-full overflow-hidden filter-bw">
-        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px] hover:color">
+      {/* Image Section */}
+      <section className="w-full overflow-hidden">
+        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
           <Image
             src={imageUrl}
             alt={`Preview of the project titled ${title}`}
-            className="object-cover w-full h-full transition-transform duration-500 transform hover:scale-110 filter grayscale hover:grayscale-0"            
+            className="object-cover w-full h-full transition-all duration-500 transform grayscale hover:grayscale-0"
             width={600}
             height={400}
           />
         </div>
       </section>
 
-      {/* Content Area with Left Alignment */}
+      {/* Project Details Section */}
       <section className="relative p-6 mb-20">
-        {/* Flexbox for Date and Star Alignment */}
-        <div className="flex items-center mb-[-40] ml-[-20] ">
-          {/* First Star on the Left of Date */}
-          {star && star[0] && (
-            <div className="scale-[30%]">
-              {React.cloneElement(star[0], {
-                stars: star[0].props.stars.map((s: StarType) => ({
-                  ...s,
-                  color: starColor,
-                })),
-              })}
-            </div>
-          )}
-
-          {/* Date */}
-          <h3 className={`text-xs mb-[5] ml-[-20]  sm:text-base ${textColor}`}>{date}</h3>
+        {/* Date with Star */}
+        <div className="flex items-center mb-2">
+          <div className="mr-2">{starElement}</div>
+          <h3 className={`text-xs sm:text-base ${textColor}`}>{date}</h3>
         </div>
 
         {/* Title */}
-        <div className="mt-2">
-          <h1 className={`text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-light ${textColor}`}>
-            {title}
-          </h1>
+        <h1 className={`text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-light ${textColor}`}>
+          {insertStars(title, starElement)}
+        </h1>
+
+        {/* Tech Stack */}
+        <div className="mt-3 flex font-secondary items-center">
+          {techStack.split(" ").map((word, index) => (
+            <span key={index} className={`text-xs sm:text-sm ${textColor} ml-2 inline-block`}>
+              {word}
+            </span>
+          ))}
         </div>
-
-        <div className="mt-[-30] ml-15 flex items-center overflow-visible"> {/* Removed w-screen and no horizontal space */}
-  {techStack.split(" ").map((word, index) => (
-    <React.Fragment key={index}>
-      <h3 className={`text-xs sm:text-sm ${textColor} ml-[1] inline-block`}> {/* No margin-right and inline-block */}
-        {word}
-      </h3>
-
-      {/* Add Star between words */}
-      {index < techStack.split(" ").length - 1 && star && star[1] && (
-        <div className="scale-[15%] ml-[-20px] mr-[-20px] inline-block"> {/* Reduced scale and inline-block for no line breaks */}
-          {React.cloneElement(star[1], {
-            stars: star[1].props.stars.map((s: StarType) => ({
-              ...s,
-              color: starColor,
-            })),
-          })}
-        </div>
-      )}
-    </React.Fragment>
-  ))}
-</div>
-
 
         {/* Description */}
-        {description && (
-          <div className="mt-1 mb-12">
-            <h3 className={`text-sm sm:text-base uppercase ${textColor}`}>{description}</h3>
-          </div>
-        )}
+        <div className="mt-5">
+          <h3 className={`text-sm sm:text-base uppercase ${textColor}`}>
+            {insertStars(description, starElement)}
+          </h3>
+        </div>
 
-        {/* Button */}
-        <button
-          type="button"
-          className={`mt-8 py-2 px-6 bg-transparent border-2 border-current font-secondary text-sm ${textColor} hover:bg-current hover:text-white transition-all duration-300`}
-          aria-label={`More information about ${title}`}
-        >
-          MORE INFO
-        </button>
+        {/* More Info Button */}
+        <Link href={`/projects/${slug}`} passHref>
+          <button
+            className={`mt-8 py-2 px-6 bg-transparent border-2 border-current font-secondary text-sm ${textColor} hover:bg-current hover:text-white transition-all duration-300`}
+            aria-label={`More information about ${title}`}
+          >
+            MORE INFO
+          </button>
+        </Link>
       </section>
     </article>
   );

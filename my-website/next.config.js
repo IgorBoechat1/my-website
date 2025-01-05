@@ -8,6 +8,8 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
 
+  
+
   // Webpack customization (optional)
   webpack(config, { isServer }) {
     // You can modify the Webpack config here if needed
@@ -29,5 +31,13 @@ const nextConfig = {
     ];
   },
 };
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
+
+module.exports = withMDX({
+  reactStrictMode: true,
+});
 
 module.exports = nextConfig;

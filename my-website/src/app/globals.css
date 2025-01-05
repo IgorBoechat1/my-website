@@ -25,7 +25,6 @@
   --starOutlineWhite: #ffffff;
   --starOutlineBlack: #000000;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -97,6 +96,11 @@ p {
   background-color: transparent; /* Transparent background */
 }
 
-
+.markdown-content {
+  font-family: 'Neue Regrade';
+  src: url('/fonts/Neue Regrade Variable.ttf') format('truetype'); /* Use 'truetype' for `.ttf` files */
+  font-weight: normal;
+  font-style: normal;
+}
 
 

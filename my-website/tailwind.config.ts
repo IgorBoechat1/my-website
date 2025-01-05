@@ -35,9 +35,19 @@ export default {
           '50%': { backgroundSize: '120%' },
           '100%': { backgroundSize: '100%' },
         },
+        slideLeft: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideRight: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
       animation: {
         zoomBackground: 'zoomBackground 20s infinite',
+        'slide-left': 'slideLeft 1s ease-out forwards',
+        'slide-right': 'slideRight 1s ease-out forwards',
       },
     },
   },
