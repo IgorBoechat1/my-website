@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
-
-
 interface ProjectProps {
   title: string;
   description: string;
@@ -47,8 +44,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
       className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} rounded-lg overflow-hidden shadow-lg`}
     >
       {/* Image Section */}
-      <section className="w-full overflow-hidden">
-        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
+      <section className="w-full overflow-hidden ">
+        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px] grayscale hover:filter-none transition-all duration-500">
           <Image
             src={imageUrl}
             alt={`Preview of the project titled ${title}`}

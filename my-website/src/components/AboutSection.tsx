@@ -11,8 +11,19 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative flex flex-col items-center justify-center bg-transparent h-[75vh] w-full"
+      className="relative flex flex-col items-center justify-center bg-transparent min-h-[95vh] w-full"
     >
+       <div className="absolute flex items-center top-[-55] left-[-65] transform z-50 scale-[300%]">
+    <svg width="115" height="115" xmlns="http://www.w3.org/2000/svg">
+      <path
+        id="star-clip"
+        fill="#E8474D"
+        stroke="transparent"
+        strokeWidth="0.5"
+        d="M60,16 c0,20,-20,40,-40,40 c20,0,40,20,40,40 c0,-20,20,-40,40,-40 c-20,0,-40,-20,-40,-40 z"
+        ></path>
+    </svg>
+  </div>
       {/* Title */}
       <div className="absolute flex flex-col items-center w-[80%] z-102">
         <h1
@@ -24,10 +35,10 @@ const AboutSection: React.FC = () => {
 
         {/* Star Button */}
         <div
-          className="cursor-pointer absolute top-[35%] left-[67%] transform -translate-x-1/2 -translate-y-1/2 z-90"
+          className="cursor-pointer absolute flex-col justify-center mt-32 right-28 z-90"
           onClick={toggleRenderMode}
         >
-          <svg width="40" height="80" xmlns="http://www.w3.org/2000/svg">
+          <svg width="50" height="60" xmlns="http://www.w3.org/2000/svg">
             <path
               id="star-clip-transition"
               fill="#C7F24F"
@@ -51,8 +62,8 @@ const AboutSection: React.FC = () => {
       </div>
 
       {/* Bottom Star for Balance */}
-      <div className="absolute center right-0 bottom-[-45] transform scale-[100%] z-10">
-        <svg width="60" height="100" xmlns="http://www.w3.org/2000/svg">
+      <div className="absolute center right-0 bottom-[0] transform scale-[100%] z-100">
+        <svg width="60" height="55" xmlns="http://www.w3.org/2000/svg">
           <path
             fill="#E8474D"
             strokeWidth="1"

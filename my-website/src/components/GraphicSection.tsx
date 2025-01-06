@@ -19,12 +19,12 @@ const GraphicsSection = () => {
       className={`graphics relative overflow-  min-h-[70vh] bg-white z-80 p-0 transition-transform duration-500 ${isExiting ? "translate-x-full" : ""}`}
     >
       {/* Star for Transition */}
-      <div className="absolute left-[-20] top-[-60] w-full h-auto flex justify-center z-80">
+      <div className="absolute left-[-20] top-0 w-full h-auto flex justify-center z-80">
         <svg
           width="100"
-          height="100"
+          height="225"
           xmlns="http://www.w3.org/2000/svg"
-          className="scale-[200%] sm:scale-[250%] md:scale-[300%] opacity-100"
+          className="scale-[200%] sm:scale-[250%] md:scale-[200%] opacity-100"
         >
           <path
             fill="#C7F24F"
