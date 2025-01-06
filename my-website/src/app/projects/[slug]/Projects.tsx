@@ -30,8 +30,8 @@ const projectData: Record<string, Project> = {
     readme: "README content here...",
     slug: "foodball",
   },
- 
- 
+
+
   "fashion-film-hotel-tipografia-do-conto": {
     title: "Fashion Film - Hotel Tipografia do Conto",
     description: "A graduation project showcasing garments produced by ESAD Fashion students in Porto, Portugal, integrating creativity, technique, and visual aesthetics.",
@@ -54,16 +54,16 @@ This fashion film is a synthesis of my technical and artistic knowledge, showcas
 `,
     slug: "fashion-film-hotel-tipografia-do-conto",
   },
- 
- 
+
+
   "hecatrail": {
-  title: "Hecatrail - Safety and Interaction in Mountain Trails",
-  description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
-  date: "Final Project - Code for All Bootcamp",
-  techStack: "React, TypeScript, Tailwind CSS, Leaflet",
-  imageUrl: "/hecatrail.png",
-  backgroundStyle: "transparent",
-  readme: `Hecatrail was developed as part of the final project for the Code for All “MakeITReal” bootcamp, with the goal of creating an application that would have a positive social impact within just three days. Inspired by one of Portugal’s significant challenges — safety in rural and mountainous areas — we created a solution that combines trails and rural tourism with technology. Our application won 1st place at the event.
+    title: "Hecatrail - Safety and Interaction in Mountain Trails",
+    description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
+    date: "Final Project - Code for All Bootcamp",
+    techStack: "React, TypeScript, Tailwind CSS, Leaflet",
+    imageUrl: "/hecatrail.png",
+    backgroundStyle: "transparent",
+    readme: `Hecatrail was developed as part of the final project for the Code for All “MakeITReal” bootcamp, with the goal of creating an application that would have a positive social impact within just three days. Inspired by one of Portugal’s significant challenges — safety in rural and mountainous areas — we created a solution that combines trails and rural tourism with technology. Our application won 1st place at the event.
 
 Hecatrail is an application that allows:
 - Real-time alerts and reports during trail visits.
@@ -86,17 +86,17 @@ Project Differentiators:
 
 Main Objective:
 To make mountains safer and more accessible for everyone by integrating technology and collective awareness, bridging the gap between those who live in the mountains and those who visit them. Hecatrail is an example of how programming can be used to solve real-world problems and create solutions that benefit both society and the environment.`,
-  slug: "hecatrail",
-},
+    slug: "hecatrail",
+  },
 
-"title-scene-carrie": {
-  title: "Title Scene - Carrie",
-  description: "Academic project recreating the unsettling atmosphere of the iconic scene from 'Carrie' with viscous liquids and mannequin to emphasize discomfort and strangeness.",
-  date: "Academic Period",
-  techStack: "Creative Direction, Cinematography, Editing",
-  imageUrl: "/carrie.png",
-  backgroundStyle: "transparent",
-  readme: `This academic project aimed to create a Title Scene for the film "Carrie", focusing on recreating the disturbing and unsettling atmosphere of the iconic scene where the protagonist's dress is stained with blood.
+  "title-scene-carrie": {
+    title: "Title Scene - Carrie",
+    description: "Academic project recreating the unsettling atmosphere of the iconic scene from 'Carrie' with viscous liquids and mannequin to emphasize discomfort and strangeness.",
+    date: "Academic Period",
+    techStack: "Creative Direction, Cinematography, Editing",
+    imageUrl: "/carrie.png",
+    backgroundStyle: "transparent",
+    readme: `This academic project aimed to create a Title Scene for the film "Carrie", focusing on recreating the disturbing and unsettling atmosphere of the iconic scene where the protagonist's dress is stained with blood.
 To achieve this, we used mixed techniques with viscous liquids and a mannequin, exploring textures and smooth movements to convey feelings of strangeness and discomfort. The art direction was carefully planned, with close-ups and framing that captured the visual impact of the scene. Additionally, an in-depth typography study was conducted to recreate the aesthetic of the film’s period, ensuring visual and narrative fidelity.
 **Personal Contributions:**
 - **Creative Direction:** Concept and development of the overall project aesthetic.
@@ -107,8 +107,8 @@ To achieve this, we used mixed techniques with viscous liquids and a mannequin, 
 - Lens: 50mm
 Outcome:
 This project explored the combination of visual and narrative techniques to convey specific emotions, demonstrating the ability to translate symbolic elements of the film into an impactful visual language. The use of physical materials and directorial choices emphasized the discomforting sensation characteristic of "Carrie".`,
-  slug: "title-scene-carrie",
-},
+    slug: "title-scene-carrie",
+  },
 
 
 
@@ -192,10 +192,20 @@ const ProjectPage = () => {
           <h1 className="sm:text-xl font-primary text-white">README:</h1>
 
           {/* MDX Rendering */}
-          <h3 className="markdown-content max-w-full gap-12 text-gray-100 overflow-scroll ">
-            <MDXRemote {...mdxSource} />
-          </h3>
+          <div className={`markdown-content max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
+            <MDXRemote {...mdxSource} components={{
+              p: ({ children }) => <p className="font-secondary">{children}</p>,
+              h1: ({ children }) => <h1 className="font-secondary">{children}</h1>,
+              h2: ({ children }) => <h2 className="font-secondary">{children}</h2>,
+              h3: ({ children }) => <h3 className="font-secondary">{children}</h3>,
+              // Add other HTML tags you want to style
+            }} />
+          </div>
+
+
+
         </div>
+
       </section>
     </article>
   );
