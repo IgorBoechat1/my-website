@@ -4,9 +4,6 @@ import React from "react";
 import ThreeDViewer from "./ThreeDViewer";
 
 const AboutSection: React.FC = () => {
-  const toggleRenderMode = () => {
-    // You can add logic later if needed
-  };
 
   return (
     <section
@@ -33,19 +30,7 @@ const AboutSection: React.FC = () => {
           A BIT MORE<br />ABOUT ME
         </h1>
 
-        {/* Star Button */}
-        <div
-          className="cursor-pointer absolute flex-col justify-center mt-32 right-28 z-90"
-          onClick={toggleRenderMode}
-        >
-          <svg width="50" height="60" xmlns="http://www.w3.org/2000/svg">
-            <path
-              id="star-clip-transition"
-              fill="#C7F24F"
-              d="M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z"
-            ></path>
-          </svg>
-        </div>
+      
 
         {/* Description */}
         <h3 className="font-[Neue Regrade] font-semibold text-[13px] mb-8 text-justify line-height-4 uppercase mt-12 max-w-[500px] z-50">

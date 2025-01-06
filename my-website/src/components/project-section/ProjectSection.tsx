@@ -92,6 +92,44 @@ const ProjectsSection: React.FC = () => {
       backgroundStyle: "transparent",
       slug: "muratto",
     },
+
+    {
+      title: "Fashion Film - Hotel Tipografia do Conto",
+      description: "A graduation project showcasing garments produced by ESAD Fashion students in Porto, Portugal, integrating creativity, technique, and visual aesthetics.",
+      date: "May 2023",
+      stars: [
+        {
+          path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+          position: { left: "10px", top: "-10px" },
+          scale: 1,
+          strokeWidth: 0.2,
+          color: "white",
+        },
+      ],
+      techStack: "Video Production Cinematography",
+      imageUrl: "/fashionfilm.png",
+      backgroundStyle: "transparent",
+      slug: "fashion-film-hotel-tipografia-do-conto",
+    },
+
+    {
+      title: "Title Scene - Carrie",
+      description: "Academic project recreating the unsettling atmosphere of the iconic blood scene from 'Carrie' using viscous liquids and mannequin to convey discomfort.",
+      date: "Academic Period",
+      stars: [
+        {
+          path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+          position: { left: "10px", top: "-10px" },
+          scale: 1,
+          strokeWidth: 0.2,
+          color: "white",
+        },
+      ],
+      techStack: "Creative Direction, Cinematography, Editing",
+      imageUrl: "/carrie.png",
+      backgroundStyle: "transparent",
+      slug: "title-scene-carrie",
+    }
   ];
 
   return (

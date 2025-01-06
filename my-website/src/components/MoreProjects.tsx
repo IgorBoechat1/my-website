@@ -7,7 +7,7 @@ const MoreProjects = () => {
     <section className="relative flex-row w-full h-[25vh] bg-[#C7F24F]  font-light z-0">
      
 
-  <div className="absolute flex flex-col items-center mt-[48] w-full z-102">
+  <div className="absolute flex flex-col items-center mt-[25%] w-full z-102">
       <h3 className="absolute  text-black text-center text-[20px]  justify-center lowercase font-[Neue Regrade]">
         Find my most recent <br /> projects below
       </h3>
@@ -16,7 +16,7 @@ const MoreProjects = () => {
 
 
       {/* Transition Star */}
-      <div className="absolute cursor-pointer right-[35vw] top-[-1vw] transform -translate-x-1/2 -translate-y-1/2 justify-center   z-90">
+      <div className="absolute cursor-pointer right-[35%] top-[-2%] transform -translate-x-1/2 -translate-y-1/2 justify-center   z-90">
         <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
           <path
             id="star-clip-transition"
