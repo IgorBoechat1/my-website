@@ -16,7 +16,7 @@ const MoreProjects = () => {
 
 
       {/* Transition Star */}
-      <div className="absolute cursor-pointer left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center   z-90">
+      <div className="absolute cursor-pointer right-[35vw] top-[-1vw] transform -translate-x-1/2 -translate-y-1/2 justify-center   z-90">
         <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
           <path
             id="star-clip-transition"

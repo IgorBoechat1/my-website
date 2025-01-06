@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => {
       id="about"
       className="relative flex flex-col items-center justify-center bg-transparent min-h-[95vh] w-full"
     >
-       <div className="absolute flex items-center top-[-55] left-[-65] transform z-50 scale-[300%]">
+       <div className="absolute flex items-center top-[-55px] left-[-65px] transform z-50 scale-[200%]">
     <svg width="115" height="115" xmlns="http://www.w3.org/2000/svg">
       <path
         id="star-clip"

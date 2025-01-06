@@ -30,7 +30,88 @@ const projectData: Record<string, Project> = {
     readme: "README content here...",
     slug: "foodball",
   },
-  // Add more projects as necessary
+ 
+ 
+  "fashion-film-hotel-tipografia-do-conto": {
+    title: "Fashion Film - Hotel Tipografia do Conto",
+    description: "A graduation project showcasing garments produced by ESAD Fashion students in Porto, Portugal, integrating creativity, technique, and visual aesthetics.",
+    date: "May 2023",
+    techStack: "Video Production Cinematography",
+    imageUrl: "/fashionfilm.png",
+    backgroundStyle: "transparent",
+    readme: `This fashion film was created as a graduation project for the Escola Superior de Artes e Design (ESAD) in partnership with the Fashion program. The goal was to showcase the garments produced by the students that year, integrating creativity, technique, and visual aesthetics into a high-quality video.
+The chosen location was the iconic Hotel Tipografia do Conto, in Porto, Portugal, whose unique architecture and design provided the perfect setting to highlight the fashion creations.
+Personal Contributions
+In this project, I took on the following responsibilities:
+Direction: Conceiving the visual narrative and guiding the creative process.
+Cinematography: Operating the camera and defining compositions.
+Lighting: Planning and executing the lighting to create atmosphere and emphasize the details of the garments.
+Post-Production: Video editing, including color grading and final adjustments.
+Equipment Used
+Camera: Sony a6300
+Lens: 50mm
+This fashion film is a synthesis of my technical and artistic knowledge, showcasing my ability to merge fashion, cinema, and visual storytelling to create an immersive and captivating experience.
+`,
+    slug: "fashion-film-hotel-tipografia-do-conto",
+  },
+ 
+ 
+  "hecatrail": {
+  title: "Hecatrail - Safety and Interaction in Mountain Trails",
+  description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
+  date: "Final Project - Code for All Bootcamp",
+  techStack: "React, TypeScript, Tailwind CSS, Leaflet",
+  imageUrl: "/hecatrail.png",
+  backgroundStyle: "transparent",
+  readme: `Hecatrail was developed as part of the final project for the Code for All “MakeITReal” bootcamp, with the goal of creating an application that would have a positive social impact within just three days. Inspired by one of Portugal’s significant challenges — safety in rural and mountainous areas — we created a solution that combines trails and rural tourism with technology. Our application won 1st place at the event.
+
+Hecatrail is an application that allows:
+- Real-time alerts and reports during trail visits.
+- Animal sightings.
+- Fires.
+- Closed trails.
+- Simplified communication in emergencies, allowing users to directly call emergency services with one click.
+
+The name Hecatrail is inspired by the Greek goddess Hecate, the protector of mountains, symbolizing our mission to make mountainous areas safer. Our goal is to promote dynamic interaction between visitors and locals, ensuring both personal and collective safety while maintaining a connection with nature.
+
+Technologies Used:
+- Frontend: React, TypeScript, Tailwind CSS
+- Maps and Geolocation: Leaflet
+- Database: Utilization of additional frameworks to create an efficient and responsive online database
+
+Project Differentiators:
+- **Interactivity**: Real-time reporting and alert system.
+- **Usability**: Intuitive and responsive interface for all users.
+- **Social Impact**: Promotes safety and environmental preservation, facilitating quick actions in critical situations like fires and emergencies.
+
+Main Objective:
+To make mountains safer and more accessible for everyone by integrating technology and collective awareness, bridging the gap between those who live in the mountains and those who visit them. Hecatrail is an example of how programming can be used to solve real-world problems and create solutions that benefit both society and the environment.`,
+  slug: "hecatrail",
+},
+
+"title-scene-carrie": {
+  title: "Title Scene - Carrie",
+  description: "Academic project recreating the unsettling atmosphere of the iconic scene from 'Carrie' with viscous liquids and mannequin to emphasize discomfort and strangeness.",
+  date: "Academic Period",
+  techStack: "Creative Direction, Cinematography, Editing",
+  imageUrl: "/carrie.png",
+  backgroundStyle: "transparent",
+  readme: `This academic project aimed to create a Title Scene for the film "Carrie", focusing on recreating the disturbing and unsettling atmosphere of the iconic scene where the protagonist's dress is stained with blood.
+To achieve this, we used mixed techniques with viscous liquids and a mannequin, exploring textures and smooth movements to convey feelings of strangeness and discomfort. The art direction was carefully planned, with close-ups and framing that captured the visual impact of the scene. Additionally, an in-depth typography study was conducted to recreate the aesthetic of the film’s period, ensuring visual and narrative fidelity.
+**Personal Contributions:**
+- **Creative Direction:** Concept and development of the overall project aesthetic.
+- **Cinematography:** Camera operation, capturing close-ups and smooth movements to highlight the details of the scene.
+- **Editing and Post-Production:** Visual treatment, addition of effects, and integration of typography to compose the final Title Scene.
+**Equipment Used:**
+- Camera: Sony a6300
+- Lens: 50mm
+Outcome:
+This project explored the combination of visual and narrative techniques to convey specific emotions, demonstrating the ability to translate symbolic elements of the film into an impactful visual language. The use of physical materials and directorial choices emphasized the discomforting sensation characteristic of "Carrie".`,
+  slug: "title-scene-carrie",
+},
+
+
+
 };
 
 // Dynamic Page Component
@@ -71,7 +152,7 @@ const ProjectPage = () => {
   const textColor = isWhiteBackground ? "text-black" : "text-white";
 
   return (
-    <article className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden`}>
+    <article className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24`}>
       {/* Image Section */}
       <section className="w-full overflow-hidden">
         <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
@@ -94,7 +175,7 @@ const ProjectPage = () => {
 
         <div className="mt-3 flex flex-wrap gap-2">
           {techStack.split(",").map((tech: string, index: number) => (
-            <span key={index} className={`text-xs sm:text-sm ${textColor} ml-2 inline-block px-2 py-1`}>
+            <span key={index} className={`text-xs sm:text-sm ${textColor} ml-2 inline-block font-secondary px-2 py-1`}>
               {tech.trim()}
             </span>
           ))}
@@ -108,12 +189,12 @@ const ProjectPage = () => {
 
         {/* MDX Content */}
         <div className="mt-8 max-w-full overflow-hidden">
-          <h1 className="sm:text-xl font-secondary text-gray-900">README:</h1>
+          <h1 className="sm:text-xl font-primary text-white">README:</h1>
 
           {/* MDX Rendering */}
-          <div className="markdown-content max-w-full gap-12 text-gray-900 overflow-scroll font font-secondary">
+          <h3 className="markdown-content max-w-full gap-12 text-gray-100 overflow-scroll ">
             <MDXRemote {...mdxSource} />
-          </div>
+          </h3>
         </div>
       </section>
     </article>
