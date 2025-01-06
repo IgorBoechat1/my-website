@@ -7,7 +7,7 @@ const MoreProjects = () => {
     <section className="relative flex-row w-full h-[25vh] bg-[#C7F24F]  font-light z-0">
      
 
-  <div className="absolute flex flex-col items-center mt-[25%] w-full z-102">
+  <div className="absolute flex flex-col items-center mt-[15%] w-full z-102">
       <h3 className="absolute  text-black text-center text-[20px]  justify-center lowercase font-[Neue Regrade]">
         Find my most recent <br /> projects below
       </h3>
