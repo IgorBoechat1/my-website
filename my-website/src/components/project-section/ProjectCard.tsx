@@ -1,15 +1,8 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import "@/app/globals.css";
 
-interface StarType {
-  path: string;
-  position: { left: string; top: string };
-  scale: number;
-  strokeWidth: number;
-  color: string;
-}
+
+
 
 interface ProjectProps {
   title: string;
@@ -18,10 +11,9 @@ interface ProjectProps {
   techStack: string;
   imageUrl: string;
   backgroundStyle: "white" | "transparent";
-  slug: string; // Slug for dynamic routing
-  starElement?: React.ReactNode; // Dynamic star element
+  slug: string;
+  star?: React.ReactNode;
 }
-
 const ProjectCard: React.FC<ProjectProps> = ({
   title,
   description,
@@ -30,7 +22,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
   imageUrl,
   backgroundStyle,
   slug,
-  starElement,
+  star,
 }) => {
   const isWhiteBackground = backgroundStyle === "white";
   const textColor = isWhiteBackground ? "text-black" : "text-white";
@@ -43,7 +35,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {word}
       </span>,
       index < words.length - 1 && (
-        <span key={`star-${index}`} className="mx-1">
+        <span key={`star-${index}`} className="mx-1 mt-[-8] scale-75">
           {starElement}
         </span>
       ),
@@ -60,7 +52,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
           <Image
             src={imageUrl}
             alt={`Preview of the project titled ${title}`}
-            className="object-cover w-full h-full transition-all duration-500 transform grayscale hover:grayscale-0"
+            className="object-cover w-full h-full transition-transform duration-500 transform hover:scale-110"
             width={600}
             height={400}
           />
@@ -71,29 +63,23 @@ const ProjectCard: React.FC<ProjectProps> = ({
       <section className="relative p-6 mb-20">
         {/* Date with Star */}
         <div className="flex items-center mb-2">
-          <div className="mr-2">{starElement}</div>
+          <div className="mr-1 transform scale-75 mt-[-10]">{star}</div>
           <h3 className={`text-xs sm:text-base ${textColor}`}>{date}</h3>
         </div>
 
         {/* Title */}
         <h1 className={`text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-light ${textColor}`}>
-          {insertStars(title, starElement)}
+          {title}
         </h1>
 
-        {/* Tech Stack */}
-        <div className="mt-3 flex font-secondary items-center">
-          {techStack.split(" ").map((word, index) => (
-            <span key={index} className={`text-xs sm:text-sm ${textColor} ml-2 inline-block`}>
-              {word}
-            </span>
-          ))}
+        {/* Tech Stack with Stars */}
+        <div className={`mt-0 flex font-secondary  text-xs sm:text-base items-center ${textColor}`}>
+          {insertStars(techStack, star)}
         </div>
 
         {/* Description */}
         <div className="mt-5">
-          <h3 className={`text-sm sm:text-base uppercase ${textColor}`}>
-            {insertStars(description, starElement)}
-          </h3>
+          <h3 className={`text-sm sm:text-base uppercase ${textColor}`}>{description}</h3>
         </div>
 
         {/* More Info Button */}

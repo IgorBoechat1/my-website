@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Creative from "@/app/creative/Creative";
+import "@/app/globals.css";
 
 const CreativePage = () => {
   const [isEntering, setIsEntering] = useState(false);

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -19,14 +19,9 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
   const particles = useRef<THREE.Mesh[]>([]); // Store particle mesh objects
   const animationFrameId = useRef<number>(0);
 
-  const colors = [
-    "#7F9A33", "#667C29", "#4F6020", "#384416", "#21280D",
-    "#270D0B", "#431613", "#5F1F1B", "#7B2621", "#982E29", "#B63831", "#D24039"
-  ];
-
   const rotationSpeed = 0.005; // Adjust this value to control the speed of the camera orbit
 
-  const initializeScene = () => {
+  const initializeScene = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
 
@@ -47,7 +42,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
 
     // Orbit controls setup, but with no rotation or zooming
     setupControls();
-  };
+  }, []);
 
   const addLightsToScene = () => {
     const directionalLight = new THREE.DirectionalLight(0xBB3D36, 1);
@@ -67,7 +62,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
     controls.current.autoRotate = false; // Disable auto-rotation
   };
 
-  const loadModel = (modelPath: string) => {
+  const loadModel = useCallback((modelPath: string) => {
     const loader = new GLTFLoader();
     loader.load(
       modelPath,
@@ -80,14 +75,15 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
 
         // Apply transparency to the model material
         model.traverse((child) => {
-          if (child.isMesh) {
+          // Check if child is a Mesh before accessing isMesh and material
+          if (child instanceof THREE.Mesh) {
             const material = new THREE.MeshBasicMaterial({
               color: 0xffffff, // Base color for transparency
               transparent: true,
               opacity: 0.2, // Adjust transparency
               depthWrite: false, // Ensure particles are visible in front
             });
-            child.material = material;
+            child.material = material; // Assign the new material
           }
         });
 
@@ -100,7 +96,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
         console.error("Error loading model:", error);
       }
     );
-  };
+  }, []);
 
   const createParticlesFromModel = (model: THREE.Object3D) => {
     const geometry = new THREE.SphereGeometry(0.005, 6, 6); // Small particles for hologram effect
@@ -114,7 +110,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
 
     // Traverse the model to sample surface points for particles
     model.traverse((obj) => {
-      if (obj.isMesh) {
+      if (obj instanceof THREE.Mesh) {
         const sampler = new MeshSurfaceSampler(obj).build();
         const numParticles = 5000; // Reduce the number of particles for better performance
         for (let i = 0; i < numParticles; i++) {
@@ -132,7 +128,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
     });
   };
 
-  const animate = () => {
+  const animate = useCallback(() => {
     if (scene.current && renderer.current && camera.current) {
       // Camera orbital animation with slower speed
       const time = Date.now() * 0.0002 * rotationSpeed; // Slower rotation speed
@@ -155,36 +151,44 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
       renderer.current.render(scene.current, camera.current);
       animationFrameId.current = requestAnimationFrame(animate);
     }
-  };
+  }, []);
 
   useEffect(() => {
+    // Initialize the scene and load model
     initializeScene();
     loadModel(modelPath);
-
+  
     // Start the animation loop
     animate();
-
+  
     // Handle window resize
+    const container = containerRef.current; // Store container in a local variable
+    const handleResize = () => {
+      if (!container || !camera.current || !renderer.current) return;
+      camera.current.aspect = container.clientWidth / container.clientHeight;
+      camera.current.updateProjectionMatrix();
+      renderer.current.setSize(container.clientWidth, container.clientHeight);
+    };
+  
     window.addEventListener("resize", handleResize);
-
+  
     return () => {
+      // Cleanup function
       window.removeEventListener("resize", handleResize);
+  
+      // Cancel animation frame
       cancelAnimationFrame(animationFrameId.current);
-      if (renderer.current && containerRef.current) {
-        containerRef.current.removeChild(renderer.current.domElement);
+  
+      // Ensure the container is still available before trying to remove the renderer
+      if (renderer.current && container) {
+        container.removeChild(renderer.current.domElement);
       }
+  
+      // Dispose of resources properly
       controls.current?.dispose();
       renderer.current?.dispose();
     };
-  }, [modelPath]);
-
-  const handleResize = () => {
-    const container = containerRef.current;
-    if (!container || !camera.current || !renderer.current) return;
-    camera.current.aspect = container.clientWidth / container.clientHeight;
-    camera.current.updateProjectionMatrix();
-    renderer.current.setSize(container.clientWidth, container.clientHeight);
-  };
+  }, [modelPath, initializeScene, loadModel, animate]);
 
   return (
     <div

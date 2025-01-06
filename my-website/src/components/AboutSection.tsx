@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import ThreeDViewer from "./ThreeDViewer";
 
 const AboutSection: React.FC = () => {
-  const [renderMode, setRenderMode] = useState<"particles" | "original">("original");
-
   const toggleRenderMode = () => {
-    setRenderMode((prevMode) => (prevMode === "original" ? "particles" : "original"));
+    // You can add logic later if needed
   };
 
   return (
