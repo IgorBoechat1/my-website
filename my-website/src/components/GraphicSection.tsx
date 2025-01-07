@@ -18,27 +18,13 @@ const GraphicsSection = () => {
     <section
       className={`graphics relative overflow-  min-h-[70vh] bg-white z-80 p-0 transition-transform duration-500 ${isExiting ? "translate-x-full" : ""}`}
     >
-      {/* Star for Transition */}
-      <div className="absolute left-[-20] top-0 w-full h-auto flex justify-center z-80">
-        <svg
-          width="100"
-          height="225"
-          xmlns="http://www.w3.org/2000/svg"
-          className="scale-[200%] sm:scale-[250%] md:scale-[200%] opacity-100"
-        >
-          <path
-            fill="#C7F24F"
-            strokeWidth="0.5"
-            d="M60,16 c0,20,-20,40,-40,40 c20,0,40,20,40,40 c0,-20,20,-40,40,-40 c-20,0,-40,-20,-40,-40 z"
-          ></path>
-        </svg>
-      </div>
+      
 
       {/* Buttons */}
-      <div className="buttons relative flex flex-col items-center justify-center min-h-[90vh] w-full">
+      <div className="buttons relative flex flex-col items-center gap-24 justify-center min-h-[90vh] w-full">
         {/* /DEV Button */}
         <button
-          className="button-dev bg-white w-[180px] mt-14 text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] h-[88px] text-5xl font-[100] border-2 border-black transition-all duration-500 hover:bg-black hover:text-white"
+          className="button-dev bg-white w-[180px] mt-14 text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] h-[88px] text-5xl font-[100] border-2 border-black transition-all duration-500 hover:bg-black hover:text-white scale-[150%] lg:scale-[200%]"
           onClick={() => handleNavigation("/dev")}
         >
           /DEV
@@ -46,7 +32,7 @@ const GraphicsSection = () => {
 
         {/* CREATIVE Button */}
         <button
-          className="button-creative bg-white w-[186px] text-black h-[88px] rounded-[20px] mt-[5vh] text-4xl font-light font-secondary border-2 border-black transition-all duration-500 hover:bg-[#C7F24F] hover:text-5xl hover:font-primary sm:mt-[5vh] lg:mt-[10vh]"
+          className="button-creative bg-white w-[186px] text-black h-[88px] rounded-[20px] mt-12 text-4xl font-light font-secondary border-2 border-black transition-all duration-500 hover:bg-[#C7F24F] hover:text-5xl hover:font-primary sm:mt-[5vh] lg:mt-[10vh] scale-[150%] lg:scale-[200%]"
           onClick={() => handleNavigation("/creative")}
         >
           CREATIVE

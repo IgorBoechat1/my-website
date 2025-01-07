@@ -10,17 +10,7 @@ const AboutSection: React.FC = () => {
       id="about"
       className="relative flex flex-col items-center justify-center bg-transparent min-h-[95vh] w-full"
     >
-       <div className="absolute flex items-center top-[-55px] left-[-65px] transform z-50 scale-[200%]">
-    <svg width="115" height="115" xmlns="http://www.w3.org/2000/svg">
-      <path
-        id="star-clip"
-        fill="#E8474D"
-        stroke="transparent"
-        strokeWidth="0.5"
-        d="M60,16 c0,20,-20,40,-40,40 c20,0,40,20,40,40 c0,-20,20,-40,40,-40 c-20,0,-40,-20,-40,-40 z"
-        ></path>
-    </svg>
-  </div>
+   
       {/* Title */}
       <div className="absolute flex flex-col items-center w-[80%] z-102">
         <h1
@@ -46,16 +36,7 @@ const AboutSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom Star for Balance */}
-      <div className="absolute center right-0 bottom-[0] transform scale-[100%] z-100">
-        <svg width="60" height="55" xmlns="http://www.w3.org/2000/svg">
-          <path
-            fill="#E8474D"
-            strokeWidth="1"
-            d="M60,16 c0,20,-20,40,-40,40 c20,0,40,20,40,40 c0,-20,20,-40,40,-40 c-20,0,-40,-20,-40,-40 z"
-          ></path>
-        </svg>
-      </div>
+      
     </section>
   );
 };
