@@ -37,7 +37,7 @@ export const Navbar: React.FC = () => {
   return (
     <section id="navbar" className="navbar fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black bg-opacity-50">
       <button
-        className="navbar-content fixed top-0 left-0 text-white text-xl font-light mt-8 ml-8"
+        className="navbar-content fixed top-0 left-0 text-white font-light mt-8 ml-12"
         onClick={handleNavbarClick}
       >
         igor b.

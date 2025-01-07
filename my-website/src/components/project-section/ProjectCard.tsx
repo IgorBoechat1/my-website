@@ -32,7 +32,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {word}
       </span>,
       index < words.length - 1 && (
-        <span key={`star-${index}`} className="mx-1 mt-[-3%] scale-75">
+        <span key={`star-${index}`} className="mx-1 mt-[-2.5%] scale-75">
           {starElement}
         </span>
       ),
@@ -70,7 +70,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         </h1>
 
         {/* Tech Stack with Stars */}
-        <div className={`mt-0 flex font-secondary  text-xs sm:text-base items-center ${textColor}`}>
+        <div className={`mt-0 flex font-secondary uppercase text-xs sm:text-base items-center ${textColor}`}>
           {insertStars(techStack, star)}
         </div>
 
@@ -82,7 +82,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {/* More Info Button */}
         <Link href={`/projects/${slug}`} passHref>
           <button
-            className={`mt-8 py-2 px-6 bg-transparent border-2 border-current font-secondary text-sm ${textColor} hover:bg-current hover:text-white transition-all duration-300`}
+            className={`mt-8 py-2 px-6 bg-transparent border-2 border-current font-secondary text-sm ${textColor} hover:bg-current hover:${textColor} hover:text-black transition-all duration-300`}
             aria-label={`More information about ${title}`}
           >
             MORE INFO
