@@ -11,6 +11,7 @@ interface ProjectProps {
   slug: string;
   star?: React.ReactNode;
 }
+
 const ProjectCard: React.FC<ProjectProps> = ({
   title,
   description,
@@ -23,6 +24,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
 }) => {
   const isWhiteBackground = backgroundStyle === "white";
   const textColor = isWhiteBackground ? "text-black" : "text-white";
+  const hoverBgColor = isWhiteBackground ? "hover:bg-black" : "hover:bg-white";
+  const hoverTextColor = isWhiteBackground ? "hover:text-white" : "hover:text-black";
 
   // Helper to insert stars between words
   const insertStars = (text: string, starElement: React.ReactNode) => {
@@ -32,7 +35,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {word}
       </span>,
       index < words.length - 1 && (
-        <span key={`star-${index}`} className="mx-1 mt-[-2.5%] scale-75">
+        <span key={`star-${index}`} className="mx-1 mt-[-3%] scale-80">
           {starElement}
         </span>
       ),
@@ -60,7 +63,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
       <section className="relative p-6 mb-20">
         {/* Date with Star */}
         <div className="flex items-center mb-2">
-          <div className="mr-1 transform scale-75 mt-[-10]">{star}</div>
+          <div className="mr-1 transform scale-100 mt-[-12]">{star}</div>
           <h3 className={`text-xs sm:text-base ${textColor}`}>{date}</h3>
         </div>
 
@@ -82,7 +85,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {/* More Info Button */}
         <Link href={`/projects/${slug}`} passHref>
           <button
-            className={`mt-8 py-2 px-6 bg-transparent border-2 border-current font-secondary text-sm ${textColor} hover:bg-current hover:${textColor} hover:text-black transition-all duration-300`}
+            className={`mt-8 py-2 px-6 bg-transparent border-2 border-current font-secondary text-sm ${textColor} ${hoverBgColor} ${hoverTextColor} transition-all duration-300`}
             aria-label={`More information about ${title}`}
           >
             MORE INFO
