@@ -45,6 +45,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
   return (
     <article
       className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} rounded-lg overflow-hidden shadow-lg`}
+      
     >
       {/* Image Section */}
       <section className="w-full overflow-hidden ">

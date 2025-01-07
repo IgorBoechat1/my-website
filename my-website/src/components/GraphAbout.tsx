@@ -4,7 +4,9 @@ import AboutSection from './AboutSection';
 
 const GraphAbout: React.FC = () => {
     return (
-        <div className="relative graph-about-container flex flex-col lg:flex-row justify-between">
+        <div className="relative graph-about-container flex flex-col lg:flex-row justify-between"
+    >
+            
             <div className="graphic-section flex-1 w-full lg:w-1/2 order-1 lg:order-2">
                 <GraphicSection />
             </div>

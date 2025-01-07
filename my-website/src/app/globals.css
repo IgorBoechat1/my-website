@@ -92,12 +92,12 @@ p {
 /* Media query for small screens */
 @media (max-width: 768px) {
   body {
-    background-image: url('/background.png'); /* Different background for small screens */
+    background-image: url('/background-small.png'); /* Different background for small screens */
     background-attachment: fixed;
 
     background-position: center;
     background-size: cover;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
   }
 }
 

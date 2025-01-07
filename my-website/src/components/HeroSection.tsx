@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center p-1">
+    <section className="min-h-screen flex items-center justify-center p-0">
       <section
         id="hero"
         className="relative min-h-screen flex flex-col items-center justify-center bg-fixed bg-center bg-cover"
-        style={{ backgroundImage: "url('/background.png')" }}
+
       >
         {/* ShapeHero Image */}
         <div className="absolute inset-0 z-10 flex items-center justify-center scale-100 sm:scale-100 md:scale-100 lg:scale-100">
