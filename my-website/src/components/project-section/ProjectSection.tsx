@@ -108,7 +108,7 @@ const ProjectsSection: React.FC = () => {
       ],
       techStack: "Video Production Cinematography",
       imageUrl: "/fashionfilm.png",
-      backgroundStyle: "transparent",
+      backgroundStyle: "white",
       slug: "fashion-film-hotel-tipografia-do-conto",
     },
 

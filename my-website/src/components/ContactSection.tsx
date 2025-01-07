@@ -11,8 +11,13 @@ const ContactSection = () => {
     window.open("https://www.github.com/igorboechat1");
   };
 
-  const handleClick2 = () => {
-    window.open("https://www.github.com/igorboechat1");
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/CV_IgorBoechat.pdf';
+    link.download = 'CV_IgorBoechat.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -54,7 +59,7 @@ const ContactSection = () => {
       </button>
 
       <button className="absolute bottom-2/4  transform -translate-y-1/2  sm:text-2xl md:text-3xl font-light text-black hover:text-black-300 bg-transparent border-2 border-transparent px-4 py-2" 
-      onClick={handleClick2}
+      onClick={handleDownloadCV}
       >
         CV</button> 
         </div>

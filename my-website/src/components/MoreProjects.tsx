@@ -1,22 +1,16 @@
-'use client';
 import React from "react";
 
 const MoreProjects = () => {
   return (
-
-    <section className="relative flex-row w-full h-[25vh] bg-[#C7F24F]  font-light z-0">
-     
-
-  <div className="absolute flex flex-col items-center mt-[15%] w-full z-102">
-      <h3 className="absolute  text-black text-center text-[20px]  justify-center lowercase font-[Neue Regrade]">
-        Find my most recent <br /> projects below
-      </h3>
+    <section className="relative flex-row w-full h-[25vh] bg-[#C7F24F] font-light z-0">
+      <div className="absolute flex flex-col items-center mt-[20%] sm:mt-[15%] md:mt-[8%] lg:mt-[5%] w-full z-102">
+        <h3 className="absolute text-black text-center text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] justify-center lowercase font-[Neue Regrade]">
+          Find my most recent <br /> projects below
+        </h3>
       </div>
 
-
-
       {/* Transition Star */}
-      <div className="absolute cursor-pointer right-[35%] top-[-2%] transform -translate-x-1/2 -translate-y-1/2 justify-center   z-90">
+      <div className="absolute cursor-pointer right-[35%] top-[-2%] transform -translate-x-1/2 -translate-y-1/2 justify-center z-90">
         <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
           <path
             id="star-clip-transition"
@@ -26,8 +20,6 @@ const MoreProjects = () => {
         </svg>
       </div>
     </section>
- 
-    
   );
 };
 
