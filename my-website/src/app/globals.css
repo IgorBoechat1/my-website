@@ -93,6 +93,11 @@ p {
 @media (max-width: 768px) {
   body {
     background-image: url('/background.png'); /* Different background for small screens */
+    background-attachment: fixed;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
   }
 }
 
