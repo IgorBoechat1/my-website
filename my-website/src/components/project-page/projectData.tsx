@@ -1,27 +1,22 @@
 'use client'; // This ensures this component is treated as a client-side component.
 
-import React, { useState, useEffect } from "react";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { serialize } from "next-mdx-remote/serialize";
-import Image from "next/image";
-import { useRouter, useParams } from "next/navigation"; // Correct import for App Router
 
-// Define the Project data structure
-type Project = {
+interface Project {
   title: string;
   description: string;
   date: string;
   techStack: string;
   imageUrl: string[];
-  backgroundStyle: "transparent" | "white";
+  backgroundStyle: string;
   readme: string;
   slug: string;
-};
+  videoUrl: number ;
+}
+
 
 // Mock project data
-const projectData: Record<string, Project> = {
+export const projectData: Record<string, Project> = {
   foodball: {
     title: "FOODBALL",
     description: "Game developed during 1 week of Code For All bootcamp. Using Java, Simple GFX",
@@ -29,6 +24,7 @@ const projectData: Record<string, Project> = {
     techStack: "JAVA WEB DEVELOPMENT",
     imageUrl: ["/foodball_project.png"],
     backgroundStyle: "transparent",
+    videoUrl: 1045418067,
     readme: `
 # FOODBALL
 
@@ -54,6 +50,7 @@ This project was developed as part of a one-week bootcamp at Code For All. The g
 This project demonstrates the ability to quickly develop a functional game within a limited timeframe, showcasing skills in Java programming and game development.
 `,
     slug: "foodball",
+    
   },
 
   "fashion-film-hotel-tipografia-do-conto": {
@@ -62,6 +59,7 @@ This project demonstrates the ability to quickly develop a functional game withi
     date: "May 2023",
     techStack: "Video Production Cinematography",
     imageUrl: ["/fashionfilm.png"],
+    videoUrl: 1045418067,
     backgroundStyle: "transparent",
     readme: `
 # Fashion Film - Hotel Tipografia do Conto
@@ -94,6 +92,8 @@ This fashion film is a synthesis of my technical and artistic knowledge, showcas
     date: "DECEMBER 2024",
     techStack: "React TypeScript TailwindCSS Leaflet IPMA",
     imageUrl: ["/hecagif.gif","/hecatrail.png", "/map.png", "/radialmenu.png"],
+    videoUrl: 1045418067,
+
     backgroundStyle: "transparent",
     readme: `
 # Hecatrail - Safety and Interaction in Mountain Trails
@@ -126,6 +126,7 @@ Hecatrail is an application that allows:
 To make mountains safer and more accessible for everyone by integrating technology and collective awareness, bridging the gap between those who live in the mountains and those who visit them. Hecatrail is an example of how programming can be used to solve real-world problems and create solutions that benefit both society and the environment.
 `,
     slug: "hecatrail",
+    
   },
 
   "fundacao-gramaxo": {
@@ -134,6 +135,8 @@ To make mountains safer and more accessible for everyone by integrating technolo
     date: "January 2024 - December 2024",
     techStack: "Videography, Production, Architecture",
     imageUrl: ["/FG_project.jpg",],
+    videoUrl: 1045418067,
+
     backgroundStyle: "transparent",
     readme: `# Work Experience
 
@@ -177,6 +180,8 @@ Fundação Gramaxo is a renowned organization based in Maia, Portugal. The found
     date: "Academic Period",
     techStack: "Creative Direction, Cinematography, Editing",
     imageUrl: ["/carrie.png",],
+    videoUrl: 1045418067,
+
     backgroundStyle: "transparent",
     readme: `
 # Title Scene - Carrie
@@ -211,6 +216,8 @@ This project explored the combination of visual and narrative techniques to conv
     date: "DECEMBER 2023",
     techStack: "DIRECTING FILMING EDITING",
     imageUrl: [ "/muratto.png"],
+    videoUrl: 1045417578,
+
     backgroundStyle: "transparent",
     readme: `
     ## Overview
@@ -229,129 +236,6 @@ This project was conceptualized and directed by [Your Name], driving the creativ
 - Corkbark Collection: Highlighting the raw, organic elegance of cork, emphasizing its natural textures and unique aesthetic appeal.
 `,
     slug: "muratto",
-
   },
   
 };
-
-// Define responsive breakpoints for the Carousel
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1    
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
-};
-
-const ProjectPage = () => {
-  const router = useRouter();
-  const params = useParams();
-  const { slug } = params; // Access slug using router.params (for App Router)
-
-  // State for the project data
-  const [project, setProject] = useState<Project | null>(null);
-  const [mdxSource, setMdxSource] = useState<MDXRemoteSerializeResult | null>(null); // Correctly typed
-
-  // Fetch the project data and serialize MDX content when the component mounts
-  useEffect(() => {
-    const fetchProjectData = async () => {
-      if (!slug) return; // Prevent errors if slug is undefined initially
-
-      const fetchedProject = projectData[slug as string];
-      if (!fetchedProject) {
-        // Handle 404 if project not found
-        router.push('/404');
-        return;
-      }
-      setProject(fetchedProject);
-      const mdxSerialized = await serialize(fetchedProject.readme);
-      setMdxSource(mdxSerialized);
-    };
-
-    fetchProjectData();
-  }, [slug, router]); // Dependency array ensures it runs when `slug` changes
-
-  if (!project || !mdxSource) {
-    return <div>Loading...</div>; // Placeholder loading state
-  }
-
-  const { title, description, date, techStack, imageUrl, backgroundStyle } = project;
-  const isWhiteBackground = backgroundStyle === "white";
-  const textColor = isWhiteBackground ? "text-black" : "text-white";
-
-  return (
-    <article className={`relative flex flex-col lg:flex-row  p-12 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24  w-full`}>
-      
-      {/* Image Section */}
-      <section className="w-full lg:w-[70vw] overflow-hidden">
-        <Carousel responsive={responsive} className="w-full">
-          {imageUrl.map((url, index) => (
-            <div key={index} className="w-full h-screen  lg:h-[70vh]">
-              <Image
-                src={url}
-                alt={`Preview of the project titled ${title}`}
-                className="object-cover lg:object-contain w-full h-full transition-transform duration-500 transform hover:scale-110"
-                width={1920}
-                height={1080}
-              />
-            </div>
-          ))}
-        </Carousel>
-      </section>
-
-      {/* Project Details Section */}
-      <section className="relative flex flex-col p-6 mb-12 max-w-screen lg:w-[70vw]  uppercase gap-12 filter bg-black bg-opacity-50">
-         <h3 className={`text-3xl  sm:text-xl md:text-5xl lg:text-7xl flex text-center justify-center font-light ${textColor} font-primary`}>
-          {title}
-        </h3>
-          <div className="flex flex-col  ">
-
-       
-        <h3 className={`text-[15px] mb-2 lg:text-[25px] flex justify-center ${textColor} font-secondary`}>{date}</h3>
-          {techStack.split(",").map((tech: string, index: number) => (
-            <span key={index} className={`text-[15px] lg:text-[20px] flex justify-center ${textColor} ml-2 inline-block font-extrabold font-secondary px-2 py-1`}>
-              {tech.trim()}
-            </span>
-          ))}
-       
-
-      
-          <h3 className={`text-[12px] lg:text-[16px] flex justify-center text-center uppercase mb-12 ${textColor} font-secondary`}>
-            {description}
-          </h3>
-        </div>
-
-
-
-        <div className="mt-0 max-w-full overflow-hidden">
-          <h1 className="sm:text-[42px] flex justify-center font-primary text-white">README</h1>
-          <div className={`markdown-content text-[14px] md:text-[18px] max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
-            <MDXRemote {...mdxSource} components={{
-              p: ({ children }) => <p className="font-secondary">{children}</p>,
-              h1: ({ children }) => <h1 className="font-secondary">{children}</h1>,
-              h2: ({ children }) => <h2 className="font-secondary">{children}</h2>,
-              h3: ({ children }) => <h3 className="font-secondary">{children}</h3>,
-              // Add other HTML tags you want to style
-            }} />
-          </div>
-
-          {/* MDX Rendering */}
-        </div>
-        {/* MDX Content */}
-      </section>
-    </article>
-  );
-};
-
-export default ProjectPage;

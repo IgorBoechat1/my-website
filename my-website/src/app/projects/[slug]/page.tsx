@@ -1,8 +1,8 @@
 'use client'; // This ensures that the component is treated as a client-side component
 
 import React, { useState, useEffect } from "react";
-import ProjectPage from "./Projects";
 import "@/app/globals.css";
+import ProjectPage from "@/components/project-page/ProjectPage";
 
 const ProjectsPage = () => {
   const [isEntering, setIsEntering] = useState(false);
