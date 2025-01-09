@@ -8,8 +8,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import VimeoVideo from "@/components/VimeoVideo"; // Correct import for VimeoVideo component
 import Image from "next/image";
 import { useRouter, useParams } from "next/navigation"; // Correct import for App Router
-import { projectData } from "@/components/project-page/projectData"; // Import project data and Project type
-
+import { Project, projectData } from "@/app/projects/[slug]/projectData"; // Correct import for project data
 // Define responsive breakpoints for the Carousel
 const responsive = {
   superLargeDesktop: {
@@ -110,7 +109,7 @@ const ProjectPage = () => {
            {/* Vimeo Video */}
            {videoUrl && (
           <div className="mt-5 flex justify-center">
-            <VimeoVideo videoId={videoUrl} />
+            <VimeoVideo videoId={videoUrl.toString()} />
           </div>
         )}
 

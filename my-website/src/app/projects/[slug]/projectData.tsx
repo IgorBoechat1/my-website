@@ -2,7 +2,7 @@
 
 import 'react-multi-carousel/lib/styles.css';
 
-interface Project {
+export interface Project {
   title: string;
   description: string;
   date: string;
@@ -11,7 +11,7 @@ interface Project {
   backgroundStyle: string;
   readme: string;
   slug: string;
-  videoUrl: number ;
+  videoUrl: number;
 }
 
 
@@ -239,3 +239,5 @@ This project was conceptualized and directed by [Your Name], driving the creativ
   },
   
 };
+
+export default projectData;
