@@ -91,7 +91,7 @@ This fashion film is a synthesis of my technical and artistic knowledge, showcas
     description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
     date: "DECEMBER 2024",
     techStack: "React TypeScript TailwindCSS Leaflet IPMA",
-    imageUrl: ["/hecagif.gif","/hecatrail.png", "/map.png", "/radialmenu.png"],
+    imageUrl: ["/hecatrail.png", "/map.png", "/radialmenu.png"],
     videoUrl: 1045418067,
 
     backgroundStyle: "transparent",
