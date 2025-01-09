@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import { serialize } from "next-mdx-remote/serialize";
 import Image from "next/image";
 import { useRouter, useParams } from "next/navigation"; // Correct import for App Router
@@ -12,7 +14,7 @@ type Project = {
   description: string;
   date: string;
   techStack: string;
-  imageUrl: string;
+  imageUrl: string[];
   backgroundStyle: "transparent" | "white";
   readme: string;
   slug: string;
@@ -25,7 +27,7 @@ const projectData: Record<string, Project> = {
     description: "Game developed during 1 week of Code For All bootcamp. Using Java, Simple GFX",
     date: "OCTOBER 2024",
     techStack: "JAVA WEB DEVELOPMENT",
-    imageUrl: "/foodball_project.png",
+    imageUrl: ["/foodball_project.png"],
     backgroundStyle: "transparent",
     readme: `
 # FOODBALL
@@ -59,7 +61,7 @@ This project demonstrates the ability to quickly develop a functional game withi
     description: "A graduation project showcasing garments produced by ESAD Fashion students in Porto, Portugal, integrating creativity, technique, and visual aesthetics.",
     date: "May 2023",
     techStack: "Video Production Cinematography",
-    imageUrl: "/fashionfilm.png",
+    imageUrl: ["/fashionfilm.png"],
     backgroundStyle: "transparent",
     readme: `
 # Fashion Film - Hotel Tipografia do Conto
@@ -89,9 +91,9 @@ This fashion film is a synthesis of my technical and artistic knowledge, showcas
   "hecatrail": {
     title: "Hecatrail - Safety and Interaction in Mountain Trails",
     description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
-    date: "Final Project - Code for All Bootcamp",
-    techStack: "React, TypeScript, Tailwind CSS, Leaflet",
-    imageUrl: "/hecatrail.png",
+    date: "DECEMBER 2024",
+    techStack: "React TypeScript TailwindCSS Leaflet IPMA",
+    imageUrl: ["/hecagif.gif","/hecatrail.png", "/map.png", "/radialmenu.png"],
     backgroundStyle: "transparent",
     readme: `
 # Hecatrail - Safety and Interaction in Mountain Trails
@@ -131,7 +133,7 @@ To make mountains safer and more accessible for everyone by integrating technolo
     description: "Institutional videos showcasing the architectural work of Álvaro Siza at Fundação Gramaxo, emphasizing its relationship with nature and the surrounding environment.",
     date: "January 2024 - December 2024",
     techStack: "Videography, Production, Architecture",
-    imageUrl: "/FG_project.jpg",
+    imageUrl: ["/FG_project.jpg",],
     backgroundStyle: "transparent",
     readme: `# Work Experience
 
@@ -174,7 +176,7 @@ Fundação Gramaxo is a renowned organization based in Maia, Portugal. The found
     description: "Academic project recreating the unsettling atmosphere of the iconic scene from 'Carrie' with viscous liquids and mannequin to emphasize discomfort and strangeness.",
     date: "Academic Period",
     techStack: "Creative Direction, Cinematography, Editing",
-    imageUrl: "/carrie.png",
+    imageUrl: ["/carrie.png",],
     backgroundStyle: "transparent",
     readme: `
 # Title Scene - Carrie
@@ -202,10 +204,56 @@ This project explored the combination of visual and narrative techniques to conv
 `,
     slug: "title-scene-carrie",
   },
+
+  "muratto": {
+    title: "Muratto - Sustainable Interior Design",
+    description: "A captivating release video for Muratto's 2024 wall design collection. Muratto, a renowned Portuguese brand in natural surface design, is celebrated for its dynamic and innovative cork wall coverings. This project encompassed scripting, filming, and editing to highlight their latest offerings.",    
+    date: "DECEMBER 2023",
+    techStack: "DIRECTING FILMING EDITING",
+    imageUrl: [ "/muratto.png"],
+    backgroundStyle: "transparent",
+    readme: `
+    ## Overview
+- This document outlines the details of a creative collaboration with Muratto, a Portuguese brand recognized for its innovative and sustainable cork-based design solutions. The project involved producing three videos to showcase two of their iconic collections: XL Panels and the Corkbark Collection.
+
+## About Muratto
+Muratto is a prestigious name in the realm of cork wall coverings, celebrated for transforming natural cork into exceptional design pieces. With a strong emphasis on sustainability and aesthetics, the brand redefines interior design with versatile, eco-friendly solutions. The XL Panels and Corkbark Collection epitomize their dedication to combining nature and innovation, offering sophisticated yet sustainable decor options.
+
+## Project Details
+Conceptualization & Direction:
+This project was conceptualized and directed by [Your Name], driving the creative vision and overall execution. Working with two talented partners, I led the development of the project’s narrative, ensuring that the final output resonated with Muratto's identity and brand values.
+
+## Focus Collections:
+
+- XL Panels: Featuring their modern, large-format designs that bring bold style and versatility to interior spaces.
+- Corkbark Collection: Highlighting the raw, organic elegance of cork, emphasizing its natural textures and unique aesthetic appeal.
+`,
+    slug: "muratto",
+
+  },
   
 };
 
-// Dynamic Page Component
+// Define responsive breakpoints for the Carousel
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1    
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
+
 const ProjectPage = () => {
   const router = useRouter();
   const params = useParams();
@@ -243,47 +291,52 @@ const ProjectPage = () => {
   const textColor = isWhiteBackground ? "text-black" : "text-white";
 
   return (
-    <article className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24`}>
+    <article className={`relative flex flex-col lg:flex-row  p-12 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24  w-full`}>
+      
       {/* Image Section */}
-      <section className="w-full overflow-hidden">
-        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
-          <Image
-            src={imageUrl}
-            alt={`Preview of the project titled ${title}`}
-            className="object-cover w-full h-full transition-transform duration-500 transform hover:scale-110"
-            width={600}
-            height={400}
-          />
-        </div>
+      <section className="w-full lg:w-[70vw] overflow-hidden">
+        <Carousel responsive={responsive} className="w-full">
+          {imageUrl.map((url, index) => (
+            <div key={index} className="w-full h-screen  lg:h-[70vh]">
+              <Image
+                src={url}
+                alt={`Preview of the project titled ${title}`}
+                className="object-cover lg:object-contain w-full h-full transition-transform duration-500 transform hover:scale-110"
+                width={1920}
+                height={1080}
+              />
+            </div>
+          ))}
+        </Carousel>
       </section>
 
       {/* Project Details Section */}
-      <section className="relative p-6 mb-20 uppercase gap-12">
-        <h3 className={`text-3xl sm:text-xl md:text-5xl lg:text-6xl font-light ${textColor} font-primary`}>
+      <section className="relative flex flex-col p-6 mb-12 max-w-screen lg:w-[70vw]  uppercase gap-12 filter bg-black bg-opacity-50">
+         <h3 className={`text-3xl  sm:text-xl md:text-5xl lg:text-7xl flex text-center justify-center font-light ${textColor} font-primary`}>
           {title}
         </h3>
-        <h3 className={`text-xs mb-2 sm:text-sm ${textColor} font-secondary`}>{date}</h3>
+          <div className="flex flex-col  ">
 
-        <div className="mt-3 flex flex-wrap gap-2">
+       
+        <h3 className={`text-[15px] mb-2 lg:text-[25px] flex justify-center ${textColor} font-secondary`}>{date}</h3>
           {techStack.split(",").map((tech: string, index: number) => (
-            <span key={index} className={`text-xs sm:text-sm ${textColor} ml-2 inline-block font-secondary px-2 py-1`}>
+            <span key={index} className={`text-[15px] lg:text-[20px] flex justify-center ${textColor} ml-2 inline-block font-extrabold font-secondary px-2 py-1`}>
               {tech.trim()}
             </span>
           ))}
-        </div>
+       
 
-        <div className="mt-5">
-          <h3 className={`text-xs md:text-xl uppercase mb-12 ${textColor} font-secondary`}>
+      
+          <h3 className={`text-[12px] lg:text-[16px] flex justify-center text-center uppercase mb-12 ${textColor} font-secondary`}>
             {description}
           </h3>
         </div>
 
-        {/* MDX Content */}
-        <div className="mt-8 max-w-full overflow-hidden">
-          <h1 className="sm:text-xl font-primary text-white">README:</h1>
 
-          {/* MDX Rendering */}
-          <div className={`markdown-content max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
+
+        <div className="mt-0 max-w-full overflow-hidden">
+          <h1 className="sm:text-[42px] flex justify-center font-primary text-white">README</h1>
+          <div className={`markdown-content text-[14px] md:text-[18px] max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
             <MDXRemote {...mdxSource} components={{
               p: ({ children }) => <p className="font-secondary">{children}</p>,
               h1: ({ children }) => <h1 className="font-secondary">{children}</h1>,
@@ -292,7 +345,10 @@ const ProjectPage = () => {
               // Add other HTML tags you want to style
             }} />
           </div>
+
+          {/* MDX Rendering */}
         </div>
+        {/* MDX Content */}
       </section>
     </article>
   );
