@@ -44,7 +44,7 @@ const VimeoVideo = ({ videoId }: { videoId: string }) => {
     if (videoRef.current) {
       const player = new Player(videoRef.current, {
         id: parseInt(videoId, 10), // Vimeo video ID
-        width: 720,
+        width: 640,
       });
 
       player.on("play", () => {
@@ -58,15 +58,12 @@ const VimeoVideo = ({ videoId }: { videoId: string }) => {
   }, [videoId]);
 
   return (
-    <div>
-      <div ref={videoRef}></div>
-      {videoDetails && (
-        <div>
-         
-        </div>
-      )}
+    <div className="video-container">
+      <div ref={videoRef} className="video-player"></div>
     </div>
-  );
-};
+      
+      );
+    };
+  
 
 export default VimeoVideo;

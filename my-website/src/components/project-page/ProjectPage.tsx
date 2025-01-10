@@ -66,7 +66,7 @@ const ProjectPage = () => {
   const textColor = isWhiteBackground ? "text-black" : "text-white";
 
   return (
-    <article className={`relative flex flex-col lg:flex-row  p-12 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24  w-full`}>
+    <article className={`relative flex flex-col lg:flex-row  p-8 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24  w-full`}>
       {/* Image Section */}
       <section className="w-full lg:w-[70vw] overflow-hidden">
         {/* Carousel for small screens */}
@@ -124,14 +124,17 @@ const ProjectPage = () => {
           </h3>
         </div>
 
-           {/* Vimeo Video */}
-           {videoUrl && (
-          <div className="mt-5 flex justify-center">
-            <VimeoVideo videoId={videoUrl.toString()} />
-          </div>
-        )}
 
-        <div className="mt-0 max-w-full overflow-hidden">
+      {/* Container for video and README */}
+<div className="mt-0 ">
+  {/* Vimeo Video */}
+  {videoUrl && (
+    <div className="mt-5 flex justify-center w-full">
+      <div className="w-full max-w-screen-lg">
+        <VimeoVideo videoId={videoUrl.toString()} />
+      </div>
+    </div>
+  )}
           <h1 className="sm:text-[42px] flex justify-center font-primary text-white">README</h1>
           <div className={`markdown-content text-[14px] md:text-[18px] max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
             <MDXRemote {...mdxSource} components={{
