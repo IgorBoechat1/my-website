@@ -11,7 +11,7 @@ export interface Project {
   backgroundStyle: string;
   readme: string;
   slug: string;
-  videoUrl: number;
+  videoUrl?: number;
 }
 
 
@@ -22,9 +22,9 @@ export const projectData: Record<string, Project> = {
     description: "Game developed during 1 week of Code For All bootcamp. Using Java, Simple GFX",
     date: "OCTOBER 2024",
     techStack: "JAVA WEB DEVELOPMENT",
-    imageUrl: ["/foodball_project.png"],
+    imageUrl: ["/foodball_project.png", "/food2.png", "/food3.png", "/food4.png", "/food5.png"],
     backgroundStyle: "transparent",
-    videoUrl: 1045418067,
+    
     readme: `
 # FOODBALL
 
@@ -58,7 +58,7 @@ This project demonstrates the ability to quickly develop a functional game withi
     description: "A graduation project showcasing garments produced by ESAD Fashion students in Porto, Portugal, integrating creativity, technique, and visual aesthetics.",
     date: "May 2023",
     techStack: "Video Production Cinematography",
-    imageUrl: ["/fashionfilm.png"],
+    imageUrl: [ "/fashion2.png", "/fashion3.png", "/fashion4.png", "/fashion5.png", "/fashion1.JPG"],
     videoUrl: 1045418067,
     backgroundStyle: "transparent",
     readme: `
@@ -92,7 +92,7 @@ This fashion film is a synthesis of my technical and artistic knowledge, showcas
     date: "DECEMBER 2024",
     techStack: "React TypeScript TailwindCSS Leaflet IPMA",
     imageUrl: ["/hecatrail.png", "/map.png", "/radialmenu.png"],
-    videoUrl: 1045418067,
+    videoUrl: 1045662798,
 
     backgroundStyle: "transparent",
     readme: `
@@ -133,9 +133,9 @@ To make mountains safer and more accessible for everyone by integrating technolo
     title: "Fundação Gramaxo",
     description: "Institutional videos showcasing the architectural work of Álvaro Siza at Fundação Gramaxo, emphasizing its relationship with nature and the surrounding environment.",
     date: "January 2024 - December 2024",
-    techStack: "Videography, Production, Architecture",
-    imageUrl: ["/FG_project.jpg",],
-    videoUrl: 1045418067,
+    techStack: "Videography Production Architecture",
+    imageUrl: ["/FG_project.jpg", "/fg1.jpg", "/fg2.jpg", "/fg3.jpg"],
+    videoUrl: 1045674323,
 
     backgroundStyle: "transparent",
     readme: `# Work Experience
@@ -173,14 +173,13 @@ Fundação Gramaxo is a renowned organization based in Maia, Portugal. The found
     slug: "fundacao-gramaxo",
   },
 
-
-  "title-scene-carrie": {
+  "carrie": {
     title: "Title Scene - Carrie",
     description: "Academic project recreating the unsettling atmosphere of the iconic scene from 'Carrie' with viscous liquids and mannequin to emphasize discomfort and strangeness.",
     date: "Academic Period",
     techStack: "Creative Direction, Cinematography, Editing",
-    imageUrl: ["/carrie.png",],
-    videoUrl: 1045418067,
+    imageUrl: ["/carrie.png", "/carrie1.png", "/carrie2.png", "/carrie3.png", "/carrie4.png"],
+    videoUrl: 1045670173,
 
     backgroundStyle: "transparent",
     readme: `
@@ -207,7 +206,7 @@ To achieve this, we used mixed techniques with viscous liquids and a mannequin, 
 
 This project explored the combination of visual and narrative techniques to convey specific emotions, demonstrating the ability to translate symbolic elements of the film into an impactful visual language. The use of physical materials and directorial choices emphasized the discomforting sensation characteristic of "Carrie".
 `,
-    slug: "title-scene-carrie",
+    slug: "carrie",
   },
 
   "muratto": {
@@ -215,7 +214,7 @@ This project explored the combination of visual and narrative techniques to conv
     description: "A captivating release video for Muratto's 2024 wall design collection. Muratto, a renowned Portuguese brand in natural surface design, is celebrated for its dynamic and innovative cork wall coverings. This project encompassed scripting, filming, and editing to highlight their latest offerings.",    
     date: "DECEMBER 2023",
     techStack: "DIRECTING FILMING EDITING",
-    imageUrl: [ "/muratto.png"],
+    imageUrl: [ "/muratto.png", "/cork2.png", "/cork1.png", "/cork3.png"],
     videoUrl: 1045417578,
 
     backgroundStyle: "transparent",

@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {word}
       </span>,
       index < words.length - 1 && (
-        <span key={`star-${index}`} className="mx-1 mt-[-3%] scale-80">
+        <span key={`star-${index}`} className="mx-1 mt-[-2%] scale-80">
           {starElement}
         </span>
       ),

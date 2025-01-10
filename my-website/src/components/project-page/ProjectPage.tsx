@@ -69,9 +69,27 @@ const ProjectPage = () => {
     <article className={`relative flex flex-col lg:flex-row  p-12 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24  w-full`}>
       {/* Image Section */}
       <section className="w-full lg:w-[70vw] overflow-hidden">
-        <Carousel responsive={responsive} className="w-full">
+        {/* Carousel for small screens */}
+        <div className="block lg:hidden">
+          <Carousel responsive={responsive} className="w-full">
+            {imageUrl.map((url: string, index: number) => (
+              <div key={index} className="w-full h-[30vh] lg:h-[70vh]">
+                <Image
+                  src={url}
+                  alt={`Preview of the project titled ${title}`}
+                  className="object-cover lg:object-contain w-full h-full transition-transform duration-500 transform hover:scale-110"
+                  width={1920}
+                  height={1080}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+
+        {/* Stacked images for large screens */}
+        <div className="hidden lg:block">
           {imageUrl.map((url: string, index: number) => (
-            <div key={index} className="w-full h-screen  lg:h-[70vh]">
+            <div key={index} className="w-full h-full mb-4">
               <Image
                 src={url}
                 alt={`Preview of the project titled ${title}`}
@@ -81,12 +99,12 @@ const ProjectPage = () => {
               />
             </div>
           ))}
-        </Carousel>
+        </div>
       </section>
 
       {/* Project Details Section */}
       <section className="relative flex flex-col p-6 mb-12 max-w-screen lg:w-[70vw]  uppercase gap-12 filter bg-black bg-opacity-50">
-         <h3 className={`text-3xl  sm:text-xl md:text-5xl lg:text-7xl flex text-center justify-center font-light ${textColor} font-primary`}>
+         <h3 className={`text-4xl lg:text-7xl flex text-center justify-center font-light ${textColor} font-primary`}>
           {title}
         </h3>
           <div className="flex flex-col  ">

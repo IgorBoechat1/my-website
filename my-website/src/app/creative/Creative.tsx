@@ -69,7 +69,7 @@ const Creative: React.FC = () => {
       techStack: "Creative Direction, Cinematography, Editing",
       imageUrl: "/carrie.png",
       backgroundStyle: "transparent",
-      slug: "title-scene-carrie",
+      slug: "carrie",
     }
   ];
 
@@ -96,6 +96,7 @@ const Creative: React.FC = () => {
         <ProjectCard
           key={project.slug}
           {...project} // Spread properties for cleaner code
+        
           star={<Star stars={project.stars || []} svgWidth={30} svgHeight={30} />}
         />
       ))}
