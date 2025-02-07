@@ -24,7 +24,7 @@ const GraphicsSection = () => {
       <div className="buttons relative flex flex-col items-center gap-24 justify-center min-h-[90vh] w-full">
         {/* /DEV Button */}
         <button
-          className="button-dev bg-white w-[180px] mt-14 text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] h-[88px] text-5xl font-[100] border-2 border-black transition-all duration-500 hover:bg-black hover:text-white scale-[150%] lg:scale-[200%]"
+          className="button-dev bg-white w-[150px] mt-14 text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] h-[68px] text-5xl font-[100] border-2 border-black transition-all duration-500 hover:bg-black hover:text-white scale-[150%] lg:scale-[200%]"
           onClick={() => handleNavigation("/dev")}
         >
           /DEV
@@ -32,7 +32,7 @@ const GraphicsSection = () => {
 
         {/* CREATIVE Button */}
         <button
-          className="button-creative bg-white w-[186px] text-black h-[88px] rounded-[20px] mt-12 text-4xl font-light font-secondary border-2 border-black transition-all duration-500 hover:bg-[#C7F24F] hover:text-5xl hover:font-primary sm:mt-[5vh] lg:mt-[10vh] scale-[150%] lg:scale-[200%]"
+          className="button-creative bg-white w-[168px] text-black h-[68px] rounded-[20px] mt-12 text-3xl font-light font-secondary border-2 border-black transition-all duration-500 hover:bg-[#C7F24F] hover:text-5xl hover:font-primary sm:mt-[5vh] lg:mt-[10vh] scale-[150%] lg:scale-[200%]"
           onClick={() => handleNavigation("/creative")}
         >
           CREATIVE

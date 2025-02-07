@@ -99,14 +99,48 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
   }, []);
 
   const createParticlesFromModel = (model: THREE.Object3D) => {
-    const geometry = new THREE.SphereGeometry(0.005, 6, 6); // Small particles for hologram effect
-    const material = new THREE.MeshBasicMaterial({
-      color: 0xBB3D36, // Initial particle color
+    const particleVertexShader = `
+      varying vec2 vUv;
+      varying float vNoise;
+
+      void main() {
+        vUv = uv;
+        vec3 pos = position;
+        vNoise = fract(sin(dot(pos.xy, vec2(12.9898, 78.233))) * 43758.5453);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+      }
+    `;
+
+    const particleFragmentShader = `
+      uniform float time;
+      varying vec2 vUv;
+      varying float vNoise;
+
+      void main() {
+        vec3 color = vec3(0.0);
+        float alpha = 0.7;
+
+        // Holographic color animation
+        color.r = 0.5 + 0.5 * sin(vUv.y * 10.0 + time + vNoise);
+        color.g = 0.5 + 0.5 * sin(vUv.y * 10.0 + time + vNoise + 2.0);
+        color.b = 0.5 + 0.5 * sin(vUv.y * 10.0 + time + vNoise + 4.0);
+
+        gl_FragColor = vec4(color, alpha);
+      }
+    `;
+
+    const particleMaterial = new THREE.ShaderMaterial({
+      uniforms: {
+        time: { value: 0.0 },
+      },
+      vertexShader: particleVertexShader,
+      fragmentShader: particleFragmentShader,
       transparent: true,
-      opacity: 0.7, // Slight transparency for holographic look
-      blending: THREE.AdditiveBlending, // Additive blending for glow effect
+      blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
+
+    const geometry = new THREE.SphereGeometry(0.002, 6, 6); // Smaller particles for hologram effect
 
     // Traverse the model to sample surface points for particles
     model.traverse((obj) => {
@@ -119,7 +153,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
           obj.localToWorld(sample); // Transform to world coordinates
 
           // Create particle and add to the scene
-          const particle = new THREE.Mesh(geometry, material);
+          const particle = new THREE.Mesh(geometry, particleMaterial);
           particle.position.copy(sample);
           particles.current.push(particle);
           scene.current?.add(particle);
@@ -145,6 +179,13 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
       particles.current.forEach(particle => {
         particle.rotation.x += 0.01;
         particle.rotation.y += 0.01;
+      });
+
+      // Update shader time uniform
+      scene.current.traverse((child) => {
+        if (child instanceof THREE.Mesh && child.material instanceof THREE.ShaderMaterial) {
+          child.material.uniforms.time.value = performance.now() / 1000;
+        }
       });
   
       // Render the scene

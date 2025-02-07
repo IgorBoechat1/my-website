@@ -55,13 +55,13 @@ export const Navbar: React.FC = () => {
           tabIndex={0}
         >
           <div
-            className={`burger-line w-9 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isToggled ? "transform rotate-45 translate-y-2" : ""}`}
+            className={`burger-line w-9 h-0.5 transition-transform duration-300 ease-in-out ${isToggled ? "bg-black transform rotate-45 translate-y-2" : "bg-white"}`}
           ></div>
           <div
-            className={`burger-line w-9 h-0.5 bg-white transition-opacity duration-500 ease-in-out ${isToggled ? "opacity-0" : ""}`}
+            className={`burger-line w-9 h-0.5 transition-opacity duration-500 ease-in-out ${isToggled ? "opacity-0" : "bg-white"}`}
           ></div>
           <div
-            className={`burger-line w-9 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isToggled ? "transform -rotate-45 -translate-y-2" : ""}`}
+            className={`burger-line w-9 h-0.5 transition-transform duration-300 ease-in-out ${isToggled ? "bg-black transform -rotate-45 -translate-y-2" : "bg-white"}`}
           ></div>
         </div>
 

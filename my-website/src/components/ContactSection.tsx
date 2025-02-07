@@ -27,7 +27,7 @@ const ContactSection = () => {
         CONTACT ME
       </h1>
       {/* Subtitle */}
-      <h3 className="absolute top-36 text-2xl sm:text-xl md:text-2xl font-light text-black text-center uppercase w-full">
+      <h3 className="absolute top-48 text-2xl sm:text-xl md:text-2xl font-light text-black text-center uppercase w-full">
         AVAILABLE FOR WORK
       </h3>
 
@@ -46,19 +46,19 @@ const ContactSection = () => {
 
       {/* Buttons */}
       <button
-        className="absolute top-1/2 transform -translate-y-1/2 mt-5  sm:text-2xl md:text-3xl font-light text-black hover:text-black-300 bg-transparent border-2 border-transparent px-4 py-2"
+        className="absolute top-[7vh] transform -translate-y-1/2 mt-5  sm:text-2xl md:text-3xl font-light text-black hover:text-black-300 bg-transparent border-2 border-transparent px-4 py-2"
         onClick={handleClick}
       > 
         LINKEDIN
       </button>
       <button
-        className="absolute top-3/5 transform -translate-y-1/2 mt-5 sm:text-2xl md:text-3xl font-light text-black hover:text-black-300 bg-transparent border-2 border-transparent px-4 py-2"
+        className="absolute top-[0] transform -translate-y-1/2 mt-5 sm:text-2xl md:text-3xl font-light text-black hover:text-black-300 bg-transparent border-2 border-transparent px-4 py-2"
         onClick={handleClick1}
       >
         GITHUB
       </button>
 
-      <button className="absolute bottom-2/4  transform -translate-y-1/2  sm:text-2xl md:text-3xl font-light text-black hover:text-black-300 bg-transparent border-2 border-transparent px-4 py-2" 
+      <button className="absolute  transform -translate-y-1/2  sm:text-2xl md:text-3xl font-light text-black hover:text-black-300 bg-transparent border-2 border-transparent px-4 py-2" 
       onClick={handleDownloadCV}
       >
         CV</button> 

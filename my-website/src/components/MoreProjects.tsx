@@ -2,9 +2,9 @@ import React from "react";
 
 const MoreProjects = () => {
   return (
-    <section className="relative flex-row w-full h-[25vh] bg-[#C7F24F] font-light z-0">
-      <div className="absolute flex flex-col items-center mt-[20%] sm:mt-[15%] md:mt-[8%] lg:mt-[5%] w-full z-102">
-        <h3 className="absolute text-black text-center text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] justify-center lowercase font-[Neue Regrade]">
+    <section className="relative flex-row w-full h-[30vh] sm:h-[25vh] bg-[#C7F24F] font-light z-0">
+      <div className="absolute flex flex-col items-center justify-center w-full h-full z-102">
+        <h3 className="text-black text-center text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] lowercase font-[Neue Regrade]">
           Find my most recent <br /> projects below
         </h3>
       </div>
