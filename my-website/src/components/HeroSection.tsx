@@ -13,7 +13,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-[70vh] flex items-center  justify-center p-0">
+    <section className="min-h-[70vh] flex items-center justify-center p-0">
       <section
         id="hero"
         className="relative min-h-screen mt-12 flex flex-col items-center justify-center bg-fixed bg-center bg-cover"
@@ -32,7 +32,7 @@ const HeroSection = () => {
 
         {/* First Screen */}
         <div
-          className={`relative z-20 flex flex-col  items-center justify-center text-[#ededed] min-h-[60vh] ${
+          className={`relative z-20 flex flex-col items-center justify-center text-[#ededed] min-h-[60vh] ${
             showFirstScreen ? "block" : "hidden"
           }`}
           style={{ lineHeight: "0.8" }}
@@ -41,7 +41,7 @@ const HeroSection = () => {
             HELLO,
           </h1>
           <h1 className="text-igor sm:text-igor md:text-large lg:text-res justify-center font-primary min-w-full text-center opacity-90 leading-tight" style={{ lineHeight: "0.9" }}>
-            I'M IGOR
+            I&apos;M IGOR
           </h1>
         </div>
 
