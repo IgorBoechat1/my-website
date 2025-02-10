@@ -29,7 +29,7 @@ type Project = {
 const DevSection: React.FC = () => {
   const projects: Project[] = [
     {
-      title: "Kinetic Text App",
+      title: "KINETIC TEXT APP",
       description: "A dynamic 3D text visualization tool that allows users to create animated, audio-reactive text effects. Built with Next.js, Three.js, and GLSL shaders, this project offers real-time customization of text, shaders, and animations with an interactive UI.",
       date: "JANUARY 2025",
       techStack: "Next.js Three.js GLSL TailwindCSS",
@@ -47,7 +47,7 @@ const DevSection: React.FC = () => {
       ],
     },
     {
-      title: "Flight Radar - Air Traffic Simulator",
+      title: "FLIGHT RADAR - AIR TRAFFIC SIMULATOR",
       description: "This project is an interactive air traffic simulator that generates fictitious flights over Europe and displays them on a dynamic map. It uses random coordinates to simulate aircraft movement and allows detailed information about each plane to be viewed.",
       date: "DECEMBER 2024",
       techStack: "React.js Leaflet.js Framer Motion",
@@ -65,7 +65,7 @@ const DevSection: React.FC = () => {
       ],
     },
     {
-      title: "Hecatrail - Safety and Interaction in Mountain Trails",
+      title: "HECATRAIL - TRAIL SAFETY APP",
       description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
       date: "Final Project - Code for All Bootcamp",
       techStack: "React TypeScript TailwindCSS Leaflet",

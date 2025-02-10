@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {word}
       </span>,
       index < words.length - 1 && (
-        <span key={`star-${index}`} className="mx-1 mt-[-2%] scale-80">
+        <span key={`star-${index}`} className="mx-1 mt-[-3%] scale-80">
           {starElement}
         </span>
       ),
@@ -61,7 +61,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
       </section>
 
       {/* Project Details Section */}
-      <section className="relative p-6 mb-20">
+      <section className="relative p-4 mb-20">
         {/* Date with Star */}
         <div className="flex items-center mb-2">
           <div className="mr-1 transform scale-100 mt-[-14]">{star}</div>
@@ -69,8 +69,9 @@ const ProjectCard: React.FC<ProjectProps> = ({
         </div>
 
         {/* Title */}
-        <h1 className={`text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-light ${textColor}`}>
+        <h1 className={`text-4xl sm:text-xl md:text-4xl lg:text-5xl font-light ${textColor}`}>
           {title}
+          
         </h1>
 
         {/* Tech Stack with Stars */}

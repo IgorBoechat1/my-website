@@ -35,7 +35,7 @@ const Creative: React.FC = () => {
       slug: "fundacao-gramaxo",
     },
     {
-      title: "Fashion Film - Hotel Tipografia do Conto",
+      title: "TYPETRENDS - FASHION FILM",
       description: "A graduation project showcasing garments produced by ESAD Fashion students in Porto, Portugal, integrating creativity, technique, and visual aesthetics.",
       date: "May 2023",
       stars: [
@@ -54,7 +54,7 @@ const Creative: React.FC = () => {
     },
 
     {
-      title: "Title Scene - Carrie",
+      title: "CARRIE - TITLE SCENE",
       description: "Academic project recreating the unsettling atmosphere of the iconic blood scene from 'Carrie' using viscous liquids and mannequin to convey discomfort.",
       date: "Academic Period",
       stars: [
@@ -66,7 +66,7 @@ const Creative: React.FC = () => {
           color: "green",
         },
       ],
-      techStack: "Creative Direction, Cinematography, Editing",
+      techStack: "CINEMATOGRAPHY Direction",
       imageUrl: "/carrie.png",
       backgroundStyle: "white",
       slug: "carrie",

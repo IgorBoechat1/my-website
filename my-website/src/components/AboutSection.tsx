@@ -23,7 +23,7 @@ const AboutSection: React.FC = () => {
       
 
         {/* Description */}
-        <h3 className="font-[Neue Regrade] font-semibold text-[13px] mb-4 text-justify line-height-4 uppercase mt-12 max-w-[500px] z-50">
+        <h3 className="font-[Neue Regrade] font-semibold text-[13px] mb-4 text-justify line-height-4 uppercase mt-12 max-w-[500px] z-10">
           A constantly evolving creative, exploring the combination of visual art and programming. 
           Currently delving into full-stack development.<br />
           Combining visual acuity and programming, constantly seeking to innovate, 
@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
 
         {/* 3D Viewer */}
         <div className="absolute flex justify-center items-center w-full h-[60vh] mt-36 transform z-0 bg-transparent">
-          <ThreeDViewer modelPath="/scanIgor.glb"  />
+          <ThreeDViewer modelPath="/igorscan.glb"  />
         </div>
       </div>
 

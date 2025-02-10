@@ -110,10 +110,10 @@ const ProjectPage = () => {
         </h3>
           <div className="flex flex-col">
 
-        <h3 className={`text-[15px] flex-row mb-0 lg:text-[25px] flex justify-center ${textColor} font-secondary`}>{date}</h3>
-        <div className="flex mb-16 flex-wrap justify-center">
+        <h3 className={`text-[12px] mt-[-30px] flex-row mb-12 lg:text-[25px] flex justify-center ${textColor} font-secondary`}>{date}</h3>
+        <div className="flex mb-16 mt-[-24px] flex-wrap justify-center">
           {techStack.split(",").map((tech: string, index: number) => (
-            <span key={index} className={`text-[15px] lg:text-[20px] ${textColor} ml-2 inline-block font-extrabold font-secondary px-2 py-1`}>
+            <span key={index} className={`text-[10px] lg:text-[20px] ${textColor} ml-2 inline-block font-extrabold font-secondary px-2 py-1`}>
               {tech.trim()}
             </span>
           ))}
@@ -128,7 +128,7 @@ const ProjectPage = () => {
       <div className="mt-0">
         {/* Vimeo Video */}
         {videoUrl && (
-          <div className="mt-[-20%] flex justify-center scale-[60%] w-[0px]">
+          <div className="mt-[-20%] lg:mt-0 flex justify-center scale-[60%] w-32 lg:scale-100 ">
             <div className="w-full max-w-screen-lg">
               <VimeoVideo videoId={videoUrl.toString()} />
             </div>
