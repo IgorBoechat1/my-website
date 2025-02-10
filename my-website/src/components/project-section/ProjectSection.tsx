@@ -16,7 +16,7 @@ interface Project {
 const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
-      title: "Kinetic Text App",
+      title: "KINETIC TEXT APP",
       description: "A dynamic 3D text visualization tool that allows users to create animated, audio-reactive text effects. Built with Next.js, Three.js, and GLSL shaders, this project offers real-time customization of text, shaders, and animations with an interactive UI.",
       date: "JANUARY 2025",
       stars: [
@@ -72,7 +72,7 @@ const ProjectsSection: React.FC = () => {
       slug: "hecatrail",
     },
     {
-      title: "Fashion Film - Hotel Tipografia do Conto",
+      title: "TYPETRENDS - FASHION FILM",
       description: "A graduation project showcasing garments produced by ESAD Fashion students in Porto, Portugal, integrating creativity, technique, and visual aesthetics.",
       date: "May 2023",
       stars: [
@@ -109,7 +109,7 @@ const ProjectsSection: React.FC = () => {
       slug: "fundacao-gramaxo",
     },
     {
-      title: "Title Scene - Carrie",
+      title: "CARRIE - TITLE SCENE",
       description: "Academic project recreating the unsettling atmosphere of the iconic blood scene from 'Carrie' using viscous liquids and mannequin to convey discomfort.",
       date: "JUNE 2022",
       stars: [
