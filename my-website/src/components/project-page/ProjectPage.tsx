@@ -9,6 +9,7 @@ import VimeoVideo from "@/components/VimeoVideo"; // Correct import for VimeoVid
 import Image from "next/image";
 import { useRouter, useParams } from "next/navigation"; // Correct import for App Router
 import { Project, projectData } from "@/app/projects/[slug]/projectData"; // Correct import for project data
+
 // Define responsive breakpoints for the Carousel
 const responsive = {
   superLargeDesktop: {
@@ -66,7 +67,7 @@ const ProjectPage = () => {
   const textColor = isWhiteBackground ? "text-black" : "text-white";
 
   return (
-    <article className={`relative flex flex-col lg:flex-row  p-8 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24  w-full`}>
+    <article className={`relative flex flex-col lg:flex-row  p-2 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24  w-full`}>
       {/* Image Section */}
       <section className="w-full lg:w-[70vw] overflow-hidden">
         {/* Carousel for small screens */}
@@ -129,13 +130,13 @@ const ProjectPage = () => {
 <div className="mt-0 ">
   {/* Vimeo Video */}
   {videoUrl && (
-    <div className="mt-5 flex justify-center w-full">
-      <div className="w-full max-w-screen-lg">
-        <VimeoVideo videoId={videoUrl.toString()} />
+    <div className="mt-[-20%] flex justify-center scale-[60%] w-[10px]">
+      <div className="w-12  max-w-screen-lg">
+        <VimeoVideo videoId={videoUrl.toString()}/>
       </div>
     </div>
   )}
-          <h1 className="sm:text-[42px] flex justify-center font-primary text-white">README</h1>
+          <h1 className="sm:text-[36px] flex justify-center font-primary text-white">README</h1>
           <div className={`markdown-content text-[14px] md:text-[18px] max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
             <MDXRemote {...mdxSource} components={{
               p: ({ children }) => <p className="font-secondary">{children}</p>,

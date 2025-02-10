@@ -14,7 +14,7 @@ const AboutSection: React.FC = () => {
       {/* Title */}
       <div className="absolute flex flex-col items-center w-[80%] z-102">
         <h1
-          className="relative font-light text-[90px] uppercase text-center transform scale-x-[120%] mb-5 scale-y-[120%] z-150 mt-10 leading-tight"
+          className="relative font-light text-[85px] uppercase text-center transform scale-x-[120%] mb-5 scale-y-[120%] z-150 mt-10 leading-tight"
           style={{ lineHeight: "0.8" }}
         >
           A BIT MORE<br />ABOUT ME

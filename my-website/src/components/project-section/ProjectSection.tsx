@@ -135,7 +135,7 @@ const ProjectsSection: React.FC = () => {
   return (
     <section
       id="projects"
-      className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-12 lg:px-16 py-10 "
+      className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 md:px-12 lg:px-16 py-10 "
     >
       {projects.map((project, index) => (
         <ProjectCard

@@ -13,7 +13,7 @@ const ProjectsPage = () => {
   }, []);
 
   return (
-    <div className={isEntering ? "animate-slide-left" : ""}>
+    <div className={isEntering ? "animate-slide-right" : ""}>
       <ProjectPage />
     </div>
   );

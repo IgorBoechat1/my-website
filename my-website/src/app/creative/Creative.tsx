@@ -63,12 +63,12 @@ const Creative: React.FC = () => {
           position: { left: "10px", top: "-10px" },
           scale: 1,
           strokeWidth: 0.2,
-          color: "white",
+          color: "green",
         },
       ],
       techStack: "Creative Direction, Cinematography, Editing",
       imageUrl: "/carrie.png",
-      backgroundStyle: "transparent",
+      backgroundStyle: "white",
       slug: "carrie",
     }
   ];
@@ -91,15 +91,16 @@ const Creative: React.FC = () => {
         />
       </div>
 
-      {/* Mapping through projects and rendering ProjectCard components */}
-      {projects.map((project) => (
-        <ProjectCard
-          key={project.slug}
-          {...project} // Spread properties for cleaner code
-        
-          star={<Star stars={project.stars || []} svgWidth={30} svgHeight={30} />}
-        />
-      ))}
+      {/* Grid container for project cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.slug}
+            {...project} // Spread properties for cleaner code
+            star={<Star stars={project.stars || []} svgWidth={30} svgHeight={30} />}
+          />
+        ))}
+      </div>
     </section>
   );
 };

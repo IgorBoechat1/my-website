@@ -16,7 +16,7 @@ const GraphicsSection = () => {
 
   return (
     <section
-      className={`graphics relative overflow-  min-h-[70vh] bg-white z-80  transition-transform duration-500 ${isExiting ? "translate-x-full" : ""}`}
+      className={`graphics relative overflow-  min-h-[70vh] bg-white z-80  transition-transform duration-500 ${isExiting ? "-translate-x-full" : ""}`}
     >
       
 

@@ -29,6 +29,60 @@ type Project = {
 const DevSection: React.FC = () => {
   const projects: Project[] = [
     {
+      title: "Kinetic Text App",
+      description: "A dynamic 3D text visualization tool that allows users to create animated, audio-reactive text effects. Built with Next.js, Three.js, and GLSL shaders, this project offers real-time customization of text, shaders, and animations with an interactive UI.",
+      date: "JANUARY 2025",
+      techStack: "Next.js Three.js GLSL TailwindCSS",
+      imageUrl: "/kinetic1.png",
+      backgroundStyle: "transparent", // Correctly typed
+      slug: "kinetic-text-app",
+      stars: [
+        {
+          path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+          position: { left: "10px", top: "-10px" },
+          scale: 1,
+          strokeWidth: 0.2,
+          color: "white",
+        },
+      ],
+    },
+    {
+      title: "Flight Radar - Air Traffic Simulator",
+      description: "This project is an interactive air traffic simulator that generates fictitious flights over Europe and displays them on a dynamic map. It uses random coordinates to simulate aircraft movement and allows detailed information about each plane to be viewed.",
+      date: "DECEMBER 2024",
+      techStack: "React.js Leaflet.js Framer Motion",
+      imageUrl: "/flight3.png",
+      backgroundStyle: "transparent", // Correctly typed
+      slug: "air-traffic-simulator",
+      stars: [
+        {
+          path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+          position: { left: "10px", top: "-10px" },
+          scale: 1,
+          strokeWidth: 0.2,
+          color: "white",
+        },
+      ],
+    },
+    {
+      title: "Hecatrail - Safety and Interaction in Mountain Trails",
+      description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
+      date: "Final Project - Code for All Bootcamp",
+      techStack: "React TypeScript TailwindCSS Leaflet",
+      imageUrl: "/hecatrail.png",
+      backgroundStyle: "transparent", // Correctly typed
+      slug: "hecatrail",
+      stars: [
+        {
+          path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+          position: { left: "10px", top: "-10px" },
+          scale: 1,
+          strokeWidth: 1,
+          color: "white",
+        },
+      ],
+    },
+    {
       title: "FOODBALL",
       description: "Game developed during 1 week of Code For All bootcamp. Using Java, Simple GFX",
       date: "OCTOBER 2024",
@@ -46,28 +100,11 @@ const DevSection: React.FC = () => {
         },
       ],
     },
-    {
-      title: "Hecatrail - Safety and Interaction in Mountain Trails",
-      description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
-      date: "Final Project - Code for All Bootcamp",
-      techStack: "React, TypeScript, Tailwind CSS, Leaflet",
-      imageUrl: "/hecatrail.png",
-      backgroundStyle: "transparent", // Correctly typed
-      slug: "hecatrail",
-      stars: [
-        {
-          path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
-          position: { left: "10px", top: "-10px" },
-          scale: 1,
-          strokeWidth: 1,
-          color: "white",
-        },
-      ],
-    },
+
   ];
 
   return (
-    <section id="projects" className="w-screen mt-24 mb-22">
+    <section id="projects" className="grid grid-cols-3 mt-24 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
       {projects.map((project) => (
         <ProjectCard
           key={project.title}

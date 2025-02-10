@@ -14,7 +14,6 @@ export interface Project {
   videoUrl?: number;
 }
 
-
 // Mock project data
 export const projectData: Record<string, Project> = {
   foodball: {
@@ -24,7 +23,6 @@ export const projectData: Record<string, Project> = {
     techStack: "JAVA WEB DEVELOPMENT",
     imageUrl: ["/foodball_project.png", "/food2.png", "/food3.png", "/food4.png", "/food5.png"],
     backgroundStyle: "transparent",
-    
     readme: `
 # FOODBALL
 
@@ -50,7 +48,6 @@ This project was developed as part of a one-week bootcamp at Code For All. The g
 This project demonstrates the ability to quickly develop a functional game within a limited timeframe, showcasing skills in Java programming and game development.
 `,
     slug: "foodball",
-    
   },
 
   "fashion-film-hotel-tipografia-do-conto": {
@@ -58,7 +55,7 @@ This project demonstrates the ability to quickly develop a functional game withi
     description: "A graduation project showcasing garments produced by ESAD Fashion students in Porto, Portugal, integrating creativity, technique, and visual aesthetics.",
     date: "May 2023",
     techStack: "Video Production Cinematography",
-    imageUrl: [ "/fashion2.png", "/fashion3.png", "/fashion4.png", "/fashion5.png", "/fashion1.JPG"],
+    imageUrl: ["/fashion2.png", "/fashion3.png", "/fashion4.png", "/fashion5.png", "/fashion1.JPG"],
     videoUrl: 1045418067,
     backgroundStyle: "transparent",
     readme: `
@@ -86,14 +83,13 @@ This fashion film is a synthesis of my technical and artistic knowledge, showcas
     slug: "fashion-film-hotel-tipografia-do-conto",
   },
 
-  "hecatrail": {
+  hecatrail: {
     title: "Hecatrail - Safety and Interaction in Mountain Trails",
     description: "Hecatrail is a mobile app developed in 3 days during the Code for All bootcamp, aiming to improve safety in rural and mountainous areas with real-time alerts for trail visitors.",
     date: "DECEMBER 2024",
     techStack: "React TypeScript TailwindCSS Leaflet IPMA",
     imageUrl: ["/hecatrail.png", "/map.png", "/radialmenu.png"],
     videoUrl: 1045662798,
-
     backgroundStyle: "transparent",
     readme: `
 # Hecatrail - Safety and Interaction in Mountain Trails
@@ -126,7 +122,6 @@ Hecatrail is an application that allows:
 To make mountains safer and more accessible for everyone by integrating technology and collective awareness, bridging the gap between those who live in the mountains and those who visit them. Hecatrail is an example of how programming can be used to solve real-world problems and create solutions that benefit both society and the environment.
 `,
     slug: "hecatrail",
-    
   },
 
   "fundacao-gramaxo": {
@@ -136,9 +131,9 @@ To make mountains safer and more accessible for everyone by integrating technolo
     techStack: "Videography Production Architecture",
     imageUrl: ["/FG_project.jpg", "/fg1.jpg", "/fg2.jpg", "/fg3.jpg"],
     videoUrl: 1045674323,
-
     backgroundStyle: "transparent",
-    readme: `# Work Experience
+    readme: `
+# Work Experience
 
 I worked as a photographer and videographer for Fundação Gramaxo from January to December 2024. During this period, I developed various photography and video projects across different aspects such as events, conferences, live shows, press, social media, and other streams.
 
@@ -168,19 +163,17 @@ Fundação Gramaxo is a renowned organization based in Maia, Portugal. The found
 - **Press and Social Media:** Developed visual content for press releases and social media campaigns, enhancing the foundation's online presence.
 - **Brainstorming and Content Planning:** Played a crucial role in generating and executing new ideas, contributing to the foundation's creative process.
 - **Script Writing and Directing:** Led the script writing and directing efforts for various video productions, ensuring a cohesive and professional final product.
-
-    `,
+`,
     slug: "fundacao-gramaxo",
   },
 
-  "carrie": {
+  carrie: {
     title: "Title Scene - Carrie",
     description: "Academic project recreating the unsettling atmosphere of the iconic scene from 'Carrie' with viscous liquids and mannequin to emphasize discomfort and strangeness.",
     date: "Academic Period",
     techStack: "Creative Direction, Cinematography, Editing",
     imageUrl: ["/carrie.png", "/carrie1.png", "/carrie2.png", "/carrie3.png", "/carrie4.png"],
     videoUrl: 1045670173,
-
     backgroundStyle: "transparent",
     readme: `
 # Title Scene - Carrie
@@ -209,17 +202,16 @@ This project explored the combination of visual and narrative techniques to conv
     slug: "carrie",
   },
 
-  "muratto": {
+  muratto: {
     title: "Muratto - Sustainable Interior Design",
-    description: "A captivating release video for Muratto's 2024 wall design collection. Muratto, a renowned Portuguese brand in natural surface design, is celebrated for its dynamic and innovative cork wall coverings. This project encompassed scripting, filming, and editing to highlight their latest offerings.",    
+    description: "A captivating release video for Muratto's 2024 wall design collection. Muratto, a renowned Portuguese brand in natural surface design, is celebrated for its dynamic and innovative cork wall coverings. This project encompassed scripting, filming, and editing to highlight their latest offerings.",
     date: "DECEMBER 2023",
     techStack: "DIRECTING FILMING EDITING",
-    imageUrl: [ "/muratto.png", "/cork2.png", "/cork1.png", "/cork3.png"],
+    imageUrl: ["/muratto.png", "/cork2.png", "/cork1.png", "/cork3.png"],
     videoUrl: 1045417578,
-
     backgroundStyle: "transparent",
     readme: `
-    ## Overview
+## Overview
 - This document outlines the details of a creative collaboration with Muratto, a Portuguese brand recognized for its innovative and sustainable cork-based design solutions. The project involved producing three videos to showcase two of their iconic collections: XL Panels and the Corkbark Collection.
 
 ## About Muratto
@@ -236,7 +228,92 @@ This project was conceptualized and directed by [Your Name], driving the creativ
 `,
     slug: "muratto",
   },
-  
+
+  "air-traffic-simulator": {
+    title: "Flight Radar - Air Traffic Simulator",
+    description: "This project is an interactive air traffic simulator that generates fictitious flights over Europe and displays them on a dynamic map. It uses random coordinates to simulate aircraft movement and allows detailed information about each plane to be viewed.",
+    date: "DECEMBER 2024",
+    techStack: "React.js, Next.js, Tailwind CSS, Leaflet.js, React-Leaflet, Framer Motion",
+    imageUrl: ["/flight.png",  "/flight1.png"],
+    backgroundStyle: "transparent",
+    readme: `
+# Flight Radar - Air Traffic Simulator
+
+This project is an interactive air traffic simulator that generates fictitious flights over Europe and displays them on a dynamic map. It uses random coordinates to simulate aircraft movement and allows detailed information about each plane to be viewed.
+
+## Main Features:
+
+- **Dynamic Map:** Displays aircraft locations.
+- **Random Flight Generation:** Generates random flights over Europe.
+- **Interactive Icons:** Airplane icons with random rotation.
+- **Pop-up Details:** Displays aircraft details (model, callsign, origin, ICAO24).
+- **Sidebar List:** List of aircraft with highlight for selection.
+- **Auto-scroll:** Automatically scrolls to the selected aircraft.
+- **Toggle Data:** Toggle between simulated and real data (future).
+
+## Technologies Used
+
+- **Frontend:** React.js, Next.js, Tailwind CSS
+- **Maps and Geolocation:** Leaflet.js, React-Leaflet
+- **Animations:** Framer Motion
+
+## How It Works
+
+The system generates fictitious aircraft with random coordinates within Europe. Each plane has a specific model, ICAO24 code, and dynamically generated callsign. The planes are displayed on the interactive map with icons that rotate randomly. Clicking on a plane displays a pop-up with its details. The sidebar allows selecting and viewing the aircraft on the map.
+
+## Next Steps
+
+- **Integration with Real Data:** Integrate with real air traffic data.
+- **Dynamic Updates:** Dynamic update of aircraft positions.
+- **Flight Statistics:** Display statistics about the flights.
+- **Expansion:** Expand to other regions beyond Europe.
+`,
+    slug: "air-traffic-simulator",
+  },
+
+  "kinetic-text-app": {
+    title: "Kinetic Text App",
+    description: "A dynamic 3D text visualization tool that allows users to create animated, audio-reactive text effects. Built with Next.js, Three.js, and GLSL shaders, this project offers real-time customization of text, shaders, and animations with an interactive UI.",
+    date: "JANUARY 2025",
+    techStack: "Next.js, Three.js, GLSL, TailwindCSS",
+    imageUrl: ["/kinetic1.png", "/kinetic2.png", "/kinetic3.png", "/kinetic4.png", "/kinetic5.png", "/kinetic6.png"],
+    backgroundStyle: "transparent",
+    readme: `
+# Kinetic Text App
+
+Kinetic Text App is a dynamic 3D text visualization tool that allows users to create animated, audio-reactive text effects. Built with Next.js, Three.js, and GLSL shaders, this project offers real-time customization of text, shaders, and animations with an interactive UI.
+
+## Features
+
+- **Dynamic 3D Text Rendering:** Render user-inputted text as a 3D object in WebGL. Apply different fonts and textures to customize appearance. Utilize @react-three/fiber for optimized rendering.
+- **Customizable Shader Effects:** Apply GLSL-based visual effects such as Mirror, Glass distortion, Wave motion, Line fragmentation, Randomized displacement. Fine-tune animation parameters with UI sliders.
+- **Audio-Reactive Animations:** Capture microphone input via the Web Audio API. Generate real-time visual effects based on sound intensity. Modify text scale, position, and distortion with frequency data.
+- **Interactive User Interface:** Dropdown menus for font and texture selection. Sliders for animation control (speed, intensity, rotation, etc.). Dark-themed UI built with TailwindCSS & Material-UI.
+- **Interactive 3D Controls:** OrbitControls for easy navigation and zooming. Smooth animation updates with useFrame().
+
+## Tech Stack
+
+- **Frontend:** Next.js (React)
+- **3D Graphics:** Three.js, @react-three/fiber
+- **UI Components:** Material-UI, TailwindCSS
+- **Shaders & Effects:** GLSL, Custom Fragment Shaders
+- **Audio Processing:** Web Audio API
+- **State Management:** React Hooks (useState, useEffect, useRef)
+
+## How It Works
+
+The system allows users to input text and customize its appearance and behavior using various controls. The text is rendered as a 3D object in WebGL, with customizable shaders and audio-reactive animations. Users can interact with the 3D scene using OrbitControls and adjust animation parameters in real-time.
+
+## Next Steps
+
+- **Enhance Shader Effects:** Add more customizable shader effects.
+- **Improve Audio Processing:** Enhance the audio-reactive animations with more detailed frequency analysis.
+- **Expand UI Features:** Add more controls for fine-tuning text and animation properties.
+- **Optimize Performance:** Improve rendering performance for complex scenes.
+`,
+    slug: "kinetic-text-app",
+  },
+
 };
 
 export default projectData;

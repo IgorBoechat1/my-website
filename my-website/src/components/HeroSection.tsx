@@ -7,7 +7,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowFirstScreen((prev) => !prev);
-    }, 1000); // Change screen every 1 second
+    }, 3000); // Change screen every 1 second
 
     return () => clearInterval(interval);
   }, []);
