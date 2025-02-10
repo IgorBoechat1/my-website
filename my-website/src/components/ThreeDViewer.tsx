@@ -203,36 +203,32 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
   }, [windowHalfX, windowHalfY]);
 
   const handleScroll = useCallback(() => {
-    if (modelRef.current) {
+    if (window.innerWidth <= 768 && modelRef.current) {
       const scrollY = window.scrollY;
-      modelRef.current.position.y = -1.0 + scrollX * 0.111; // Adjust the multiplier as needed
+      modelRef.current.rotation.y = scrollY * 0.005; // Adjust speed of rotation
     }
   }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
-    // Initialize the scene and load model
+  
     initializeScene();
     loadModel(modelPath);
-
-    // Start the animation loop
     animate();
-
-    // Handle window resize
-    const container = containerRef.current; // Store container in a local variable
+  
+    const container = containerRef.current;
     const handleResize = () => {
       if (!container || !camera.current || !renderer.current) return;
       camera.current.aspect = container.clientWidth / container.clientHeight;
       camera.current.updateProjectionMatrix();
       renderer.current.setSize(container.clientWidth, container.clientHeight);
     };
-
+  
     window.addEventListener("resize", handleResize);
     document.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("scroll", handleScroll);
-
-    // Disable controls for mobile devices
+  
+    // Handle mobile-specific behavior
     const handleMobileControls = () => {
       if (window.innerWidth <= 768) {
         controls.current?.dispose();
@@ -241,31 +237,26 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
         setupControls();
       }
     };
-
+  
     handleMobileControls();
     window.addEventListener("resize", handleMobileControls);
-
+  
     return () => {
-      // Cleanup function
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleMobileControls);
-
-      // Cancel animation frame
+  
       cancelAnimationFrame(animationFrameId.current);
-
-      // Ensure the container is still available before trying to remove the renderer
+  
       if (renderer.current && container) {
         container.removeChild(renderer.current.domElement);
       }
-
-      // Dispose of resources properly
+  
       controls.current?.dispose();
       renderer.current?.dispose();
     };
   }, [modelPath, initializeScene, loadModel, animate, handleMouseMove, handleScroll]);
-
   return (
     <div
       ref={containerRef}
