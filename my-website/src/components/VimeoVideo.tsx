@@ -42,8 +42,11 @@ const VimeoVideo: React.FC<VimeoVideoProps> = ({ videoId }) => {
   useEffect(() => {
     if (videoRef.current) {
       const player = new Player(videoRef.current, {
-        id: parseInt(videoId, 10), // Vimeo video ID
-        width: 640,
+        id: parseInt(videoId, 10),
+        width: 640, // Set width to a numeric value
+        responsive: true, // Make the player responsive
+        autoplay: true, // Enable autoplay
+        muted: true, // Mute the video to allow autoplay
       });
 
       player.on('play', () => {

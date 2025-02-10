@@ -1,6 +1,7 @@
 import React from "react";
 import ProjectCard from "@/components/project-section/ProjectCard";
 import Star, { StarType } from "@/components/Star";
+import VimeoVideo from "@/components/VimeoVideo"; // Import the VimeoVideo component
 
 interface Project {
   title: string;
@@ -74,20 +75,9 @@ const Creative: React.FC = () => {
 
   return (
     <section id="projects" className="w-screen mt-24 mb-22">
-      {/* Video before the project cards */}
-      <div className="video-container">
-        <video
-          className="intro-video"
-          src="/SHOWREEL2024.mov" // Ensure this path is correct and the file is accessible
-          loop
-          controls
-          playsInline
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-          onError={(e) => console.error('Error loading video:', e)}
-        />
+      {/* Vimeo Video before the project cards */}
+      <div className="video-container w-full h-full">
+        <VimeoVideo videoId='1055350902' /> {/* Replace with your Vimeo video ID */}
       </div>
 
       {/* Grid container for project cards */}

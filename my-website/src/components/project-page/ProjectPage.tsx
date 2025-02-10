@@ -67,7 +67,7 @@ const ProjectPage = () => {
   const textColor = isWhiteBackground ? "text-black" : "text-white";
 
   return (
-    <article className={`relative flex flex-col lg:flex-row  p-2 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24  w-full`}>
+    <article className={`relative flex flex-col lg:flex-row p-2 ${isWhiteBackground ? "bg-white" : "bg-transparent"} overflow-hidden mt-24 w-full`}>
       {/* Image Section */}
       <section className="w-full lg:w-[70vw] overflow-hidden">
         {/* Carousel for small screens */}
@@ -104,50 +104,48 @@ const ProjectPage = () => {
       </section>
 
       {/* Project Details Section */}
-      <section className="relative flex flex-col p-4 mb-12 max-w-screen lg:w-[70vw]  uppercase gap-12 filter bg-black bg-opacity-50">
-         <h3 className={`text-4xl lg:text-7xl mb-[-16px] flex text-center justify-center font-light ${textColor} font-primary`}>
+      <section className="relative flex flex-col p-4 mb-12 max-w-screen lg:w-[70vw] uppercase gap-12 filter bg-black bg-opacity-50">
+        <h3 className={`text-4xl lg:text-7xl mb-[-16px] flex text-center justify-center font-light ${textColor} font-primary`}>
           {title}
         </h3>
-          <div className="flex flex-col">
-
-        <h3 className={`text-[12px] mt-[-30px] flex-row mb-12 lg:text-[25px] flex justify-center ${textColor} font-secondary`}>{date}</h3>
-        <div className="flex mb-16 mt-[-24px] flex-wrap justify-center">
-          {techStack.split(",").map((tech: string, index: number) => (
-            <span key={index} className={`text-[10px] lg:text-[20px] ${textColor} ml-2 inline-block font-extrabold font-secondary px-2 py-1`}>
-              {tech.trim()}
-            </span>
-          ))}
-        </div>
-
-        <h3 className={`text-[12px] lg:text-[16px] flex justify-center text-center uppercase mb-12 ${textColor} font-secondary`}>
-          {description}
-        </h3>
-      </div>
-
-      {/* Container for video and README */}
-      <div className="mt-0">
-        {/* Vimeo Video */}
-        {videoUrl && (
-          <div className="mt-[-20%] lg:mt-0 flex justify-center scale-[60%] w-32 lg:scale-100 ">
-            <div className="w-full max-w-screen-lg">
-              <VimeoVideo videoId={videoUrl.toString()} />
-            </div>
+        <div className="flex flex-col">
+          <h3 className={`text-[12px] mt-[-30px] flex-row mb-12 lg:text-[25px] flex justify-center ${textColor} font-secondary`}>{date}</h3>
+          <div className="flex mb-16 mt-[-24px] flex-wrap justify-center">
+            {techStack.split(",").map((tech: string, index: number) => (
+              <span key={index} className={`text-[10px] lg:text-[20px] ${textColor} ml-2 inline-block font-extrabold font-secondary px-2 py-1`}>
+                {tech.trim()}
+              </span>
+            ))}
           </div>
-        )}
-        <h1 className="sm:text-[36px] flex justify-center font-primary text-white">README</h1>
-        <div className={`markdown-content text-[14px] md:text-[18px] max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
-          <MDXRemote {...mdxSource} components={{
-            p: ({ children }) => <p className="font-secondary">{children}</p>,
-            h1: ({ children }) => <h1 className="font-secondary">{children}</h1>,
-            h2: ({ children }) => <h2 className="font-secondary">{children}</h2>,
-            h3: ({ children }) => <h3 className="font-secondary">{children}</h3>,
-            // Add other HTML tags you want to style
-          }} />
+          <h3 className={`text-[12px] lg:text-[16px] flex justify-center text-center uppercase mb-12 ${textColor} font-secondary`}>
+            {description}
+          </h3>
         </div>
-      </div>
-      {/* MDX Content */}
-    </section>
-  </article>
+
+        {/* Container for video and README */}
+        <div className="mt-0">
+          {/* Vimeo Video */}
+          {videoUrl && (
+            <div className="flex justify-center mb-8">
+              <div className="w-full max-w-screen-lg">
+                <VimeoVideo videoId={videoUrl.toString()} />
+              </div>
+            </div>
+          )}
+          <h1 className="sm:text-[36px] flex justify-center font-primary text-white">README</h1>
+          <div className={`markdown-content text-[14px] md:text-[18px] max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
+            <MDXRemote {...mdxSource} components={{
+              p: ({ children }) => <p className="font-secondary">{children}</p>,
+              h1: ({ children }) => <h1 className="font-secondary">{children}</h1>,
+              h2: ({ children }) => <h2 className="font-secondary">{children}</h2>,
+              h3: ({ children }) => <h3 className="font-secondary">{children}</h3>,
+              // Add other HTML tags you want to style
+            }} />
+          </div>
+        </div>
+        {/* MDX Content */}
+      </section>
+    </article>
   );
 };
 

@@ -33,7 +33,7 @@ const HeroSection = () => {
         {/* Combined Screen for Mobile */}
         <section
           className="relative z-20 flex flex-col mt-[-20%] items-center justify-center text-[#ededed] min-h-screen lg:hidden"
-          style={{ lineHeight: "0.8" }}
+          style={{ lineHeight: "0.2" }}
         >
           <h1 className="text-igor sm:text-5xl md:text-6xl lg:text-dev justify-center font-primary min-w-full text-center opacity-90 leading-tight" style={{ lineHeight: "0.9" }}>
             HELLO, I&apos;M IGOR
@@ -54,13 +54,13 @@ const HeroSection = () => {
   className={`absolute mt-[2vh] inset-0 z-20 flex flex-start items-center justify-center text-[#ededed] min-h-screen hidden lg:flex transition-opacity duration-1000 ${
     showFirstScreen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
   }`}
-  style={{ lineHeight: "0.8" }}
+  style={{ lineHeight: "0.2" }}
 >
   <div className="flex flex-col flex-start text-right">
     <h1 className="text-xl sm:text-xl md:text-6xl lg:text-[24vw] font-primary opacity-90 whitespace-nowrap">
       HELLO,
     </h1>
-    <h1 className="text-xl sm:text-xl md:text-6xl lg:text-[24vw] font-primary opacity-90 whitespace-nowrap">
+    <h1 className="text-xl sm:text-xl md:text-6xl lg:text-[24vw]  font-primary opacity-90 whitespace-nowrap">
       I&apos;M IGOR
     </h1>
   </div>
