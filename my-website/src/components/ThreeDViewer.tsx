@@ -23,8 +23,8 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
   const mouseY = useRef(0);
   const targetX = useRef(0);
   const targetY = useRef(0);
-  const windowHalfX = window.innerWidth / 2;
-  const windowHalfY = window.innerHeight / 2;
+  const windowHalfX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0;
+  const windowHalfY = typeof window !== 'undefined' ? window.innerHeight / 2 : 0;
 
   const initializeScene = useCallback(() => {
     const container = containerRef.current;
@@ -197,12 +197,14 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
     }
   }, [rotationSpeed]);
 
-  const handleMouseMove = (event: MouseEvent) => {
+  const handleMouseMove = useCallback((event: MouseEvent) => {
     mouseX.current = (event.clientX - windowHalfX);
     mouseY.current = (event.clientY - windowHalfY);
-  };
+  }, [windowHalfX, windowHalfY]);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     // Initialize the scene and load model
     initializeScene();
     loadModel(modelPath);
@@ -253,7 +255,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
       controls.current?.dispose();
       renderer.current?.dispose();
     };
-  }, [modelPath, initializeScene, loadModel, animate]);
+  }, [modelPath, initializeScene, loadModel, animate, handleMouseMove]);
 
   return (
     <div
