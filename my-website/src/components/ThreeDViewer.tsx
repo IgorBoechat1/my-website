@@ -205,7 +205,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
   const handleScroll = useCallback(() => {
     if (window.innerWidth <= 768 && modelRef.current) {
       const scrollY = window.scrollY;
-      modelRef.current.rotation.y = scrollY * 0.005; // Adjust speed of rotation
+      modelRef.current.rotation.y = scrollY * 0.002; // Adjust speed of rotation
     }
   }, []);
 

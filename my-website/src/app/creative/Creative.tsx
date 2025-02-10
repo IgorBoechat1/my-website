@@ -80,12 +80,12 @@ const Creative: React.FC = () => {
         <video
           className="intro-video"
           src="/SHOWREEL2024.mov" // Add the path to your video file here
-          autoPlay
           loop
-          muted
+          controls
+          
           playsInline
           style={{
-            width: '100%',
+            width: 'auto',
             height: 'auto',
           }}
         />
