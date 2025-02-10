@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useCallback } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { throttle } from "lodash"; // Import lodash throttle function
 
 type ThreeDViewerProps = {
   modelPath: string;
@@ -202,12 +203,12 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
     mouseY.current = (event.clientY - windowHalfY);
   }, [windowHalfX, windowHalfY]);
 
-  const handleScroll = useCallback(() => {
+  const handleScroll = useCallback(throttle(() => {
     if (window.innerWidth <= 768 && modelRef.current) {
       const scrollY = window.scrollY;
       modelRef.current.rotation.y = scrollY * 0.002; // Adjust speed of rotation
     }
-  }, []);
+  }, 100), []); // Throttle the scroll event handler to run at most once every 100ms
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
