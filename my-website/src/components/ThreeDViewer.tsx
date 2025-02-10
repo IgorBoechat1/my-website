@@ -26,6 +26,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
   const targetY = useRef(0);
   const windowHalfX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0;
   const windowHalfY = typeof window !== 'undefined' ? window.innerHeight / 2 : 0;
+  const lastScrollY = useRef(0);
 
   const initializeScene = useCallback(() => {
     const container = containerRef.current;
@@ -205,8 +206,9 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
 
   const handleScroll = useCallback(throttle(() => {
     if (window.innerWidth <= 768 && modelRef.current) {
-      const scrollY = window.scrollY;
-      modelRef.current.rotation.y = scrollY * 0.002; // Adjust speed of rotation
+      const scrollDelta = window.scrollY - lastScrollY.current;
+      modelRef.current.rotation.y += scrollDelta * 0.002; // Adjust speed of rotation
+      lastScrollY.current = window.scrollY;
     }
   }, 100), []); // Throttle the scroll event handler to run at most once every 100ms
 
