@@ -16,7 +16,7 @@ const VimeoVideo: React.FC<VimeoVideoProps> = ({ videoId }) => {
   useEffect(() => {
     const fetchVideoDetails = async () => {
       try {
-        await axios.get(
+        const response = await axios.get(
           `https://api.vimeo.com/videos/${videoId}`,
           {
             headers: {
@@ -24,9 +24,11 @@ const VimeoVideo: React.FC<VimeoVideoProps> = ({ videoId }) => {
             },
           }
         );
+        console.log('Video details fetched successfully:', response.data);
       } catch (error) {
         if (axios.isAxiosError(error) && error.response && error.response.status === 429) {
           // Retry logic - delay for a minute (60000ms) before retrying
+          console.warn('Rate limit exceeded, retrying in 60 seconds...');
           setTimeout(fetchVideoDetails, 60000);
         } else {
           console.error('Error fetching video details:', error);
@@ -46,6 +48,10 @@ const VimeoVideo: React.FC<VimeoVideoProps> = ({ videoId }) => {
 
       player.on('play', () => {
         console.log('Video is playing!');
+      });
+
+      player.on('error', (error) => {
+        console.error('Error with Vimeo player:', error);
       });
     }
   }, [videoId]);

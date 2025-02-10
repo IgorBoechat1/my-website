@@ -48,20 +48,20 @@ export const Navbar: React.FC = () => {
         {/* Burger icon aligned to the right */}
         <div
           ref={burgerRef}
-          className={`burger absolute flex flex-col mt-10 items-center justify-between w-16 h-6 transition-all duration-500 ease-in-out z-50 ${isToggled ? "transform" : " scale-[110%]"}`}
+          className={`burger absolute flex flex-col mt-10 items-center justify-between w-12 h-5 transition-all duration-500 ease-in-out z-50 ${isToggled ? "transform" : " scale-[110%]"}`}
           onClick={handleClick}
           aria-expanded={isToggled}
           role="button"
           tabIndex={0}
         >
           <div
-            className={`burger-line w-9 h-0.5 transition-transform duration-300 ease-in-out ${isToggled ? "bg-black transform rotate-45 translate-y-2" : "bg-white"}`}
+            className={`burger-line w-6 h-0.5 transition-transform duration-300 ease-in-out ${isToggled ? "bg-black transform rotate-45 translate-y-2" : "bg-white"}`}
           ></div>
           <div
-            className={`burger-line w-9 h-0.5 transition-opacity duration-500 ease-in-out ${isToggled ? "opacity-0" : "bg-white"}`}
+            className={`burger-line w-6 h-0.5 transition-opacity duration-500 ease-in-out ${isToggled ? "opacity-0" : "bg-white"}`}
           ></div>
           <div
-            className={`burger-line w-9 h-0.5 transition-transform duration-300 ease-in-out ${isToggled ? "bg-black transform -rotate-45 -translate-y-2" : "bg-white"}`}
+            className={`burger-line w-6 h-0.5 transition-transform duration-300 ease-in-out ${isToggled ? "bg-black transform -rotate-45 -translate-y-2" : "bg-white"}`}
           ></div>
         </div>
 

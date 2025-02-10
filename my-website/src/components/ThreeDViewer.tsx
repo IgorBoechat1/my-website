@@ -202,6 +202,13 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
     mouseY.current = (event.clientY - windowHalfY);
   }, [windowHalfX, windowHalfY]);
 
+  const handleScroll = useCallback(() => {
+    if (modelRef.current) {
+      const scrollY = window.scrollY;
+      modelRef.current.position.y = -1.0 + scrollX * 0.111; // Adjust the multiplier as needed
+    }
+  }, []);
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -223,6 +230,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
 
     window.addEventListener("resize", handleResize);
     document.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
 
     // Disable controls for mobile devices
     const handleMobileControls = () => {
@@ -241,6 +249,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
       // Cleanup function
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleMobileControls);
 
       // Cancel animation frame
@@ -255,7 +264,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
       controls.current?.dispose();
       renderer.current?.dispose();
     };
-  }, [modelPath, initializeScene, loadModel, animate, handleMouseMove]);
+  }, [modelPath, initializeScene, loadModel, animate, handleMouseMove, handleScroll]);
 
   return (
     <div
