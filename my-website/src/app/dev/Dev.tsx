@@ -52,7 +52,7 @@ const DevSection: React.FC = () => {
       date: "DECEMBER 2024",
       techStack: "React.js Leaflet.js Framer Motion",
       imageUrl: "/flight3.png",
-      backgroundStyle: "transparent", // Correctly typed
+      backgroundStyle: "white", // Correctly typed
       slug: "air-traffic-simulator",
       stars: [
         {
@@ -60,7 +60,7 @@ const DevSection: React.FC = () => {
           position: { left: "10px", top: "-10px" },
           scale: 1,
           strokeWidth: 0.2,
-          color: "white",
+          color: "black",
         },
       ],
     },
@@ -88,7 +88,7 @@ const DevSection: React.FC = () => {
       date: "OCTOBER 2024",
       techStack: "JAVA WEB DEVELOPMENT",
       imageUrl: "/foodball_project.png",
-      backgroundStyle: "transparent", // Correctly typed
+      backgroundStyle: "white", // Correctly typed
       slug: "foodball",
       stars: [
         {
@@ -96,7 +96,7 @@ const DevSection: React.FC = () => {
           position: { left: "10px", top: "-10px" },
           scale: 1,
           strokeWidth: 0.2,
-          color: "white",
+          color: "light-green",
         },
       ],
     },
@@ -104,7 +104,7 @@ const DevSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="grid grid-cols-3 mt-24 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    <section id="projects" className="grid grid-cols-1 mt-24 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
       {projects.map((project) => (
         <ProjectCard
           key={project.title}
