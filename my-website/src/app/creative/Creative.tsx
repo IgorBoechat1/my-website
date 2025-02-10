@@ -52,7 +52,6 @@ const Creative: React.FC = () => {
       backgroundStyle: "transparent",
       slug: "fashion-film-hotel-tipografia-do-conto",
     },
-
     {
       title: "CARRIE - TITLE SCENE",
       description: "Academic project recreating the unsettling atmosphere of the iconic blood scene from 'Carrie' using viscous liquids and mannequin to convey discomfort.",
@@ -79,15 +78,15 @@ const Creative: React.FC = () => {
       <div className="video-container">
         <video
           className="intro-video"
-          src="/SHOWREEL2024.mov" // Add the path to your video file here
+          src="/SHOWREEL2024.mov" // Ensure this path is correct and the file is accessible
           loop
           controls
-          
           playsInline
           style={{
-            width: 'auto',
+            width: '100%',
             height: 'auto',
           }}
+          onError={(e) => console.error('Error loading video:', e)}
         />
       </div>
 
