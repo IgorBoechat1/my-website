@@ -210,7 +210,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
       modelRef.current.rotation.y += scrollDelta * 0.002; // Adjust speed of rotation
       lastScrollY.current = window.scrollY;
     }
-  }, 100), []); // Throttle the scroll event handler to run at most once every 100ms
+  }, 1000), []); // Throttle the scroll event handler to run at most once every 100ms
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
