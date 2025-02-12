@@ -13,7 +13,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>Igor Boechat</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favigor.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favigor.svg" />
+
         {/* Primary Meta Tags */}
         <meta name="title" content="Igor Boechat" />
         <meta name="description" content="Welcome to Boechat's portfolio. Explore my projects and portfolio." />
