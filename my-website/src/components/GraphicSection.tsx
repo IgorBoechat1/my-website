@@ -16,10 +16,8 @@ const GraphicsSection = () => {
 
   return (
     <section
-      className={`graphics relative overflow-  min-h-[70vh] bg-white z-80  transition-transform duration-500 ${isExiting ? "-translate-x-full" : ""}`}
+      className={`graphics relative overflow-hidden min-h-[70vh] bg-white z-80 transition-transform duration-500 ${isExiting ? "-translate-x-full" : ""}`}
     >
-      
-
       {/* Buttons */}
       <div className="buttons relative flex flex-col items-center gap-24 justify-center min-h-[90vh] w-full">
         {/* /DEV Button */}
@@ -32,14 +30,12 @@ const GraphicsSection = () => {
 
         {/* CREATIVE Button */}
         <button
-          className="button-creative bg-white w-[168px] text-black h-[68px] rounded-[20px] mt-12 text-3xl font-light font-secondary border-2 border-black transition-all duration-500 hover:bg-[#C7F24F] hover:text-5xl hover:font-primary sm:mt-[5vh] lg:mt-[10vh] scale-[150%] lg:scale-[200%]"
-          onClick={() => handleNavigation("/creative")}
-        >
-          CREATIVE
-        </button>
+  className="button-creative bg-white w-[168px] text-black h-[68px] rounded-[20px] mt-12 text-3xl font-light font-secondary border-2 border-black transition-transform duration-300 ease-in-out hover:bg-[#C7F24F] hover:text-5xl hover:font-primary sm:mt-[5vh] lg:mt-[10vh] scale-[150%] lg:scale-[200%] hover:scale-200 transition-all duration-500 delay-300"
+  onClick={() => handleNavigation("/creative")}
+>
+  CREATIVE
+</button>
       </div>
-
-      
     </section>
   );
 };
