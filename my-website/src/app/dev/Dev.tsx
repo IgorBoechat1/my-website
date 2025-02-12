@@ -47,7 +47,7 @@ const DevSection: React.FC = () => {
       ],
     },
     {
-      title: "FLIGHT RADAR - AIR TRAFFIC SIMULATOR",
+      title: "FLIGHT RADAR - AIR TRAFFIC",
       description: "This project is an interactive air traffic simulator that generates fictitious flights over Europe and displays them on a dynamic map. It uses random coordinates to simulate aircraft movement and allows detailed information about each plane to be viewed.",
       date: "DECEMBER 2024",
       techStack: "React.js Leaflet.js Framer Motion",

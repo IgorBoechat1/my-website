@@ -230,11 +230,11 @@ This project was conceptualized and directed by [Your Name], driving the creativ
   },
 
   "air-traffic-simulator": {
-    title: "Flight Radar - Air Traffic Simulator",
+    title: "Flight Radar - Air Traffic",
     description: "This project is an interactive air traffic simulator that generates fictitious flights over Europe and displays them on a dynamic map. It uses random coordinates to simulate aircraft movement and allows detailed information about each plane to be viewed.",
     date: "DECEMBER 2024",
     techStack: "React.js, Next.js, Tailwind CSS, Leaflet.js, React-Leaflet, Framer Motion",
-    imageUrl: [ "/flight3.png", "/flight.png",  "/flight1.png"],
+    imageUrl: [ "/flight2.png", "/flight3.png", "/flight.png"  ],
     backgroundStyle: "transparent",
     readme: `
 # Flight Radar - Air Traffic Simulator
