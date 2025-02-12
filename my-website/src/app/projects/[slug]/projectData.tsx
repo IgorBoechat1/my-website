@@ -170,8 +170,8 @@ Fundação Gramaxo is a renowned organization based in Maia, Portugal. The found
   carrie: {
     title: "Title Scene - Carrie",
     description: "Academic project recreating the unsettling atmosphere of the iconic scene from 'Carrie' with viscous liquids and mannequin to emphasize discomfort and strangeness.",
-    date: "Academic Period",
-    techStack: "Creative Direction, Cinematography, Editing",
+    date: "2022",
+    techStack: "Creative Direction Cinematography Editing",
     imageUrl: ["/carrie.png", "/carrie1.png", "/carrie2.png", "/carrie3.png", "/carrie4.png"],
     videoUrl: 1045670173,
     backgroundStyle: "transparent",

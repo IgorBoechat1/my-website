@@ -7,6 +7,8 @@ import 'react-multi-carousel/lib/styles.css';
 import { serialize } from "next-mdx-remote/serialize";
 import VimeoVideo from "@/components/VimeoVideo"; // Correct import for VimeoVideo component
 import Image from "next/image";
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import { useRouter, useParams } from "next/navigation"; // Correct import for App Router
 import { Project, projectData } from "@/app/projects/[slug]/projectData"; // Correct import for project data
 
@@ -75,13 +77,15 @@ const ProjectPage = () => {
           <Carousel responsive={responsive} className="w-full">
             {imageUrl.map((url: string, index: number) => (
               <div key={index} className="w-full h-[30vh] lg:h-[70vh]">
-                <Image
-                  src={url}
-                  alt={`Preview of the project titled ${title}`}
-                  className="object-cover lg:object-contain w-full h-full transition-transform duration-500 transform hover:scale-110"
-                  width={1920}
-                  height={1080}
-                />
+                <Zoom>
+                  <Image
+                    src={url}
+                    alt={`Preview of the project titled ${title}`}
+                    className="object-cover lg:object-contain w-full h-full transition-transform duration-500 transform hover:scale-110"
+                    width={1920}
+                    height={1080}
+                  />
+                </Zoom>
               </div>
             ))}
           </Carousel>
@@ -91,13 +95,15 @@ const ProjectPage = () => {
         <div className="hidden lg:block">
           {imageUrl.map((url: string, index: number) => (
             <div key={index} className="w-full h-full mb-2">
-              <Image
-                src={url}
-                alt={`Preview of the project titled ${title}`}
-                className="object-cover lg:object-contain w-full h-full transition-transform duration-500 transform hover:scale-110"
-                width={1920}
-                height={1080}
-              />
+              <Zoom>
+                <Image
+                  src={url}
+                  alt={`Preview of the project titled ${title}`}
+                  className="object-cover lg:object-contain w-full h-full transition-transform duration-500 transform hover:scale-110"
+                  width={1920}
+                  height={1080}
+                />
+              </Zoom>
             </div>
           ))}
         </div>

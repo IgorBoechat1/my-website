@@ -56,7 +56,7 @@ const Creative: React.FC = () => {
     {
       title: "CARRIE - TITLE SCENE",
       description: "Academic project recreating the unsettling atmosphere of the iconic blood scene from 'Carrie' using viscous liquids and mannequin to convey discomfort.",
-      date: "Academic Period",
+      date: "2022",
       stars: [
         {
           path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
