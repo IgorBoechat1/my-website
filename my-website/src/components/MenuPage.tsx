@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 interface MenuPageProps {
   isVisible: boolean;
@@ -7,28 +8,23 @@ interface MenuPageProps {
 }
 
 const MenuPage = ({ isVisible, setIsToggled }: MenuPageProps) => {
+  const router = useRouter(); // Hook for navigation
+
+  const navigateToSection = (sectionId: string) => {
+    router.push(`/#${sectionId}`);
+    setIsToggled(false);
+  };
+
   const scrollToAbout = () => {
-    const aboutElement = document.getElementById("about");
-    if (aboutElement) {
-      aboutElement.scrollIntoView({ behavior: "smooth" });
-      setIsToggled(false);
-    }
+    navigateToSection("about");
   };
 
   const scrollToProjects = () => {
-    const projectsElement = document.getElementById("projects");
-    if (projectsElement) {
-      projectsElement.scrollIntoView({ behavior: "smooth" });
-      setIsToggled(false);
-    }
+    navigateToSection("projects");
   };
 
   const scrollToContact = () => {
-    const contactElement = document.getElementById("contact");
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: "smooth" });
-      setIsToggled(false);
-    }
+    navigateToSection("contact");
   };
 
   return (
