@@ -26,7 +26,9 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
   const targetY = useRef(0);
   const windowHalfX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0;
   const windowHalfY = typeof window !== 'undefined' ? window.innerHeight / 2 : 0;
-  const lastScrollY = useRef(0);
+  const lastTouchX = useRef(0);
+  const lastTouchY = useRef(0);
+  const inertia = useRef({ x: 0, y: 0 });
 
   const initializeScene = useCallback(() => {
     const container = containerRef.current;
@@ -189,8 +191,13 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
         modelRef.current.rotation.y += 0.05 * (targetX.current - modelRef.current.rotation.y);
         modelRef.current.rotation.x += 0.05 * (targetY.current - modelRef.current.rotation.x);
 
-        // Auto-rotate on Y-axis
-        modelRef.current.rotation.y += rotationSpeed;
+        // Apply inertia
+        modelRef.current.rotation.y += inertia.current.x;
+        modelRef.current.rotation.x += inertia.current.y;
+
+        // Decay inertia over time
+        inertia.current.x *= 0.95;
+        inertia.current.y *= 0.95;
       }
 
       // Render the scene
@@ -204,13 +211,32 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
     mouseY.current = (event.clientY - windowHalfY);
   }, [windowHalfX, windowHalfY]);
 
-  const handleScroll = useCallback(throttle(() => {
-    if (window.innerWidth <= 768 && modelRef.current) {
-      const scrollDelta = window.scrollY - lastScrollY.current;
-      modelRef.current.rotation.y += scrollDelta * 0.002; // Adjust speed of rotation
-      lastScrollY.current = window.scrollY;
+  const handleTouchStart = useCallback((event: TouchEvent) => {
+    if (event.touches.length === 1) {
+      lastTouchX.current = event.touches[0].clientX;
+      lastTouchY.current = event.touches[0].clientY;
     }
-  }, 1000), []); // Throttle the scroll event handler to run at most once every 100ms
+  }, []);
+
+  const handleTouchMove = useCallback((event: TouchEvent) => {
+    if (event.touches.length === 1 && modelRef.current) {
+      const touchX = event.touches[0].clientX;
+      const touchY = event.touches[0].clientY;
+
+      const deltaX = touchX - lastTouchX.current;
+      const deltaY = touchY - lastTouchY.current;
+
+      modelRef.current.rotation.y += deltaX * 0.002;
+      modelRef.current.rotation.x += deltaY * 0.002;
+
+      // Update inertia
+      inertia.current.x = deltaX * 0.002;
+      inertia.current.y = deltaY * 0.002;
+
+      lastTouchX.current = touchX;
+      lastTouchY.current = touchY;
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -229,7 +255,8 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
   
     window.addEventListener("resize", handleResize);
     document.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchmove", handleTouchMove);
   
     // Handle mobile-specific behavior
     const handleMobileControls = () => {
@@ -247,7 +274,8 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("resize", handleMobileControls);
   
       cancelAnimationFrame(animationFrameId.current);
@@ -259,7 +287,7 @@ const ThreeDViewer: React.FC<ThreeDViewerProps> = ({ modelPath }) => {
       controls.current?.dispose();
       renderer.current?.dispose();
     };
-  }, [modelPath, initializeScene, loadModel, animate, handleMouseMove, handleScroll]);
+  }, [modelPath, initializeScene, loadModel, animate, handleMouseMove, handleTouchStart, handleTouchMove]);
   return (
     <div
       ref={containerRef}
