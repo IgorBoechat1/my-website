@@ -61,11 +61,11 @@ const ProjectCard: React.FC<ProjectProps> = ({
       </section>
 
       {/* Project Details Section */}
-      <section className="relative p-4 mb-20">
+      <section className="relative p-4 mb-8">
         {/* Date with Star */}
         <div className="flex items-center mb-2">
           <div className="mr-1 transform scale-100 mt-[-14]">{star}</div>
-          <h3 className={`text-xs sm:text- ${textColor}`}>{date}</h3>
+          <h3 className={`text-xs sm:text-xs ${textColor}`}>{date}</h3>
         </div>
 
         {/* Title */}
@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
 
         {/* Description */}
         <div className="mt-5">
-          <h3 className={`text-12px sm:text-xs uppercase ${textColor}`}>{description}</h3>
+          <h3 className={`text-xs sm:text-xs uppercase ${textColor}`}>{description}</h3>
         </div>
 
         {/* More Info Button */}

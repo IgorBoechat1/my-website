@@ -1,19 +1,16 @@
 'use client';
 
 import React from "react";
-import { useState } from "react";
 
 interface ReelSectionProps {
-    id?: string;
-  }
-
+  id?: string;
+}
 
 const ReelSection: React.FC<ReelSectionProps> = ({ id }) => {
-    useState(true);
   return (
-    <section id={id} className="reel-section w-full flex">
+    <section id={id} className="reel-section w-full flex flex-col lg:flex-row">
       {/* Video 1 */}
-      <div className="mt-8 video-container w-1/2 relative overflow-hidden">
+      <div className="mt-8 video-container w-full lg:w-1/2 relative overflow-hidden">
         <div
           style={{
             padding: "56.25% 0 0 0",
@@ -21,9 +18,9 @@ const ReelSection: React.FC<ReelSectionProps> = ({ id }) => {
           }}
         >
           <iframe
-            src="https://player.vimeo.com/video/1069542966?h=7c06a4308f&badge=0&autopause=0&player_id=0&app_id=58479"
+            src="https://player.vimeo.com/video/1069542966?h=7c06a4308f&badge=0&autopause=0&player_id=0&app_id=58479&transparent=0&title=0"
             frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            allow="autoplay; fullscreen"
             style={{
               position: "absolute",
               top: "0",
@@ -41,7 +38,7 @@ const ReelSection: React.FC<ReelSectionProps> = ({ id }) => {
       </div>
 
       {/* Video 2 */}
-      <div className="mt-8 video-container w-1/2 relative overflow-hidden">
+      <div className="mt-8 video-container w-full lg:w-1/2 relative overflow-hidden">
         <div
           style={{
             padding: "56.25% 0 0 0",
@@ -49,9 +46,9 @@ const ReelSection: React.FC<ReelSectionProps> = ({ id }) => {
           }}
         >
           <iframe
-            src="https://player.vimeo.com/video/1069544999?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            src="https://player.vimeo.com/video/1069544999?badge=0&autopause=0&player_id=0&app_id=58479&transparent=0&title=0"
             frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            allow="autoplay; fullscreen"
             style={{
               position: "absolute",
               top: "0",
@@ -72,5 +69,3 @@ const ReelSection: React.FC<ReelSectionProps> = ({ id }) => {
 };
 
 export default ReelSection;
-
-

@@ -14,7 +14,7 @@ const AboutSection: React.FC = () => {
       {/* Title */}
       <div className="absolute flex flex-col items-center w-[80%] z-102">
         <h1
-          className="relative font-light text-[85px] uppercase text-center transform scale-x-[120%] mb-5 scale-y-[120%] z-150 mt-10 leading-tight"
+          className="relative font-light  text-[85px] sm-text-[65px] uppercase text-center transform  mb-5  z-150 mt-10 leading-tight"
           style={{ lineHeight: "0.8" }}
         >
           A BIT MORE<br />ABOUT ME
@@ -23,11 +23,9 @@ const AboutSection: React.FC = () => {
       
 
         {/* Description */}
-        <h3 className="font-[Neue Regrade] font-semibold text-xs mb-4 text-justify line-height-4 uppercase mt-12 max-w-[500px] z-10">
-          A constantly evolving creative, exploring the combination of visual art and programming. 
-          Currently delving into full-stack development.<br />
-          Combining visual acuity and programming, constantly seeking to innovate, 
-          creating digital solutions that unite aesthetics and technology.
+        <h3 className="font-[Neue Regrade] font-semibold text-xs mb-4 text-justify line-height-4 uppercase mt-8 max-w-[450px] z-10">
+        Dynamic Junior Front-End Engineer with bachelor degree in Digital Arts and a focus on programming. Skilled in building responsive, user-friendly interfaces and developing innovative solutions. 
+        Experienced in content creation and delivering engaging digital experiences. Passionate about combining design principles with technical expertise to create seamless and efficient applications.
         </h3>
 
         {/* 3D Viewer */}
