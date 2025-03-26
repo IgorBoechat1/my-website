@@ -30,7 +30,7 @@ const Creative: React.FC = () => {
           color: "black",
         },
       ],
-      techStack: "Videography, Production, Architecture",
+      techStack: "Videography Production Architecture",
       imageUrl: "/FG_project.jpg",
       backgroundStyle: "white",
       slug: "fundacao-gramaxo",
@@ -70,28 +70,66 @@ const Creative: React.FC = () => {
       imageUrl: "/carrie.png",
       backgroundStyle: "white",
       slug: "carrie",
-    }
+    },
+    {
+      title: "PICO SUSARÓN",
+      description:
+        "A documentary project exploring the history of Puebla de Lillo, its natural beauty, and the impact of the Porma Reservoir on local communities and traditions.",
+      date: "2025",
+      stars: [
+        {
+          path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+          position: { left: "10px", top: "-10px" },
+          scale: 1,
+          strokeWidth: 0.2,
+          color: "white",
+        },
+      ],
+      techStack: "Documentary Production Videography Storytelling",
+      imageUrl: "/pico.jpg",
+      backgroundStyle: "transparent",
+      slug: "pico-susaron",
+    },
+    {
+      title: "CARLOFORTE - TRADITION, CHALLENGES, AND RESILIENCE",
+      description:
+        "A documentary project exploring the history, traditions, and modern challenges of Carloforte, a small island town in Sardinia, Italy.",
+      date: "2025",
+      stars: [
+        {
+          path: "M20,5 c0,20,-10,30,-20,30 c10,0,20,10,20,30 c0,-20,10,-30,20,-30 c-10,0,-20,-10,-20,-30 z",
+          position: { left: "10px", top: "-10px" },
+          scale: 1,
+          strokeWidth: 0.2,
+          color: "black",
+        },
+      ],
+      techStack: "Documentary Production Videography Storytelling",
+      imageUrl: "/carloforte.png",
+      backgroundStyle: "white",
+      slug: "carloforte",
+    },
   ];
 
   return (
-    <section id="projects" className="w-screen mt-24 mb-22">
-      {/* Vimeo Video before the project cards */}
-      <div className="video-container w-full h-full">
-        <VimeoVideo videoId='1055350902' /> {/* Replace with your Vimeo video ID */}
-      </div>
+  <section id="projects" className="w-screen mt-24 mb-22" suppressHydrationWarning>
+    {/* Vimeo Video before the project cards */}
+    <div className="video-container w-full h-full">
+      <VimeoVideo videoId="1055350902" /> {/* Replace with your Vimeo video ID */}
+    </div>
 
-      {/* Grid container for project cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.slug}
-            {...project} // Spread properties for cleaner code
-            star={<Star stars={project.stars || []} svgWidth={30} svgHeight={30} />}
-          />
-        ))}
-      </div>
-    </section>
-  );
-};
+    {/* Grid container for project cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      {projects.map((project) => (
+        <ProjectCard
+          key={project.slug}
+          {...project} // Spread properties for cleaner code
+          star={<Star stars={project.stars || []} svgWidth={30} svgHeight={30} />}
+        />
+      ))}
+    </div>
+  </section>
+);
+}
 
 export default Creative;

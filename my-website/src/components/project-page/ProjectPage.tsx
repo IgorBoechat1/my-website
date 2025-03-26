@@ -139,7 +139,7 @@ const ProjectPage = () => {
             </div>
           )}
           <h1 className="sm:text-[36px] flex justify-center font-primary text-white">README</h1>
-          <div className={`markdown-content text-[14px] md:text-[18px] max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
+          <div className={`markdown-content text-12 md:text-[12px] max-w-full gap-12 text-gray-100 overflow-scroll ${textColor}`}>
             <MDXRemote {...mdxSource} components={{
               p: ({ children }) => <p className="font-secondary">{children}</p>,
               h1: ({ children }) => <h1 className="font-secondary">{children}</h1>,

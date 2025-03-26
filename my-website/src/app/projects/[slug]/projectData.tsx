@@ -234,7 +234,7 @@ This project was conceptualized and directed by [Your Name], driving the creativ
     description: "This project is an interactive air traffic simulator that generates fictitious flights over Europe and displays them on a dynamic map. It uses random coordinates to simulate aircraft movement and allows detailed information about each plane to be viewed.",
     date: "DECEMBER 2024",
     techStack: "React.js, Next.js, Tailwind CSS, Leaflet.js, React-Leaflet, Framer Motion",
-    imageUrl: [ "/flight2.png", "/flight3.png", "/flight.png"  ],
+    imageUrl: ["/flight2.png", "/flight3.png", "/flight.png"],
     backgroundStyle: "transparent",
     readme: `
 # Flight Radar - Air Traffic Simulator
@@ -313,6 +313,71 @@ The system allows users to input text and customize its appearance and behavior 
 `,
     slug: "kinetic-text-app",
   },
+
+  "pico-susaron": {
+    title: "Pico Susarón",
+    description:
+      "A documentary project exploring the history of Puebla de Lillo, its natural beauty, and the impact of the Porma Reservoir on local communities and traditions.",
+    date: "2025",
+    techStack: "Documentary Production Videography Storytelling",
+    imageUrl: ["/pico.jpg"],
+    videoUrl: 1069542966, // Ensure this is a valid Vimeo video ID
+    backgroundStyle: "transparent",
+    readme: `
+# Pico Susarón - The Story of Puebla de Lillo
+
+The history of Puebla de Lillo is not just one of natural beauty and tradition—it also carries a somber chapter tied to the construction of the Porma Reservoir (Embalse del Porma), often called the "Pecuarist Represa" due to its impact on local livestock farmers and rural communities.
+
+## A Village Changed Forever
+
+In the 1960s, the Spanish government initiated the construction of the Porma Reservoir as part of a larger project to regulate water supply and provide hydroelectric energy. While the reservoir brought benefits to some areas, its impact on Puebla de Lillo and surrounding villages was devastating. Entire communities were displaced, losing their homes, farmland, and way of life.
+
+## The Death of a Way of Life
+
+Puebla de Lillo had long been a center for mountain livestock farming, particularly cattle and sheep grazing in the lush valleys of the Cantabrian Mountains. The flooding of pastures due to the reservoir dramatically reduced available grazing land, severely impacting the local economy. The reservoir, instead of bringing prosperity, led to the decline of the traditional transhumance system (seasonal movement of livestock) that had sustained the community for centuries.
+
+## A Legacy of Loss and Change
+
+Today, the Porma Reservoir remains a strikingly beautiful yet bittersweet symbol of progress and sacrifice. While it provides water and electricity to many areas, it came at the cost of lost homes, livelihoods, and a deep wound in the region’s cultural heritage. Visitors who hike around its shores or admire it from Pico Susarón may not immediately realize the sorrow hidden beneath its tranquil waters—a history of displacement, broken traditions, and resilience in the face of forced change.
+`,
+    slug: "pico-susaron",
+  },
+
+  "carloforte": {
+    title: "Carloforte",
+    description:
+      "A documentary project exploring the history, traditions, and modern challenges of Carloforte, a small island town in Sardinia, Italy.",
+    date: "2025",
+    techStack: "Documentary Production Videography Storytelling",
+    imageUrl: ["/carloforte.png"],
+    videoUrl: 1069544999, // Replace with the actual Vimeo video ID if available
+    backgroundStyle: "transparent",
+    readme: `
+# Carloforte - Tradition, Challenges, and Resilience
+
+Carloforte, a small island town on San Pietro Island in Sardinia, is a place of deep contrasts—where tradition, nature, and modern challenges intersect. Its history is tied to the sea, particularly through tuna fishing, but it has also been marked by the shadows of organized crime and the controversial impact of wind power projects.
+
+## Tuna Fishing: Tradition and Identity
+
+Carloforte is one of the last places in Italy where the ancient tradition of mattanza, the ritualistic bluefin tuna fishing method, is still practiced. This tradition dates back to the 18th century when Ligurian settlers, originally from Tabarka (Tunisia), brought their expertise in tuna fishing to the island. For centuries, the Tonnara di Carloforte has been one of the most important and well-known tuna fisheries in the Mediterranean. However, in recent decades, industrial overfishing, international trade, and changing environmental conditions have put immense pressure on the bluefin tuna population, threatening not just the species but also the local economy and heritage.
+
+## The Mafia and Illegal Fishing
+
+As the global demand for bluefin tuna skyrocketed—particularly from Japan, where a single tuna can sell for thousands of euros—Carloforte and the broader Sardinian waters became a battleground for illegal fishing. The Italian mafia, particularly factions involved in illicit trade, saw an opportunity in the highly profitable, sometimes illegal tuna market. Smuggling, overfishing beyond legal quotas, and the use of unauthorized fishing methods have plagued the industry. Some fishermen found themselves caught between tradition, economic survival, and the pressures of organized crime. Investigations into the links between the mafia and illegal fishing operations have exposed deep-rooted corruption, affecting not just Sardinia but the entire Mediterranean tuna trade.
+
+## Wind Power: Progress or Exploitation?
+
+In recent years, Carloforte has also been at the center of controversy due to offshore and onshore wind power projects. While Sardinia has become a leader in renewable energy, wind farms have sparked heated debates. On one hand, these projects align with the island’s push toward sustainability, reducing dependence on fossil fuels. On the other hand, local residents argue that large-scale wind farms have been imposed without proper consultation, damaging landscapes, harming wildlife, and benefiting external investors rather than the local population.
+
+There have been allegations of mafia involvement in the wind energy sector, with criminal organizations infiltrating the industry to exploit subsidies and launder money. Several investigative reports have linked wind energy development in southern Italy, including Sardinia, to fraudulent contracts and corruption, raising concerns that Carloforte and surrounding areas are being used as pawns in a much larger game of financial and political maneuvering.
+
+## Carloforte Today: Between Preservation and Change
+
+Today, Carloforte stands at a crossroads. It remains a charming island rich in history, culture, and natural beauty, attracting tourists eager to experience its unique Ligurian-Sardinian identity. However, the struggle between economic survival, environmental sustainability, and the influence of external forces continues to shape its future. Whether it’s the fight to preserve traditional tuna fishing, resist the darker sides of the mafia’s reach, or navigate the impact of renewable energy projects, Carloforte's story is one of resilience, adaptation, and an ongoing battle to protect its heritage.
+`,
+    slug: "carloforte",
+  },
+
 
 };
 
