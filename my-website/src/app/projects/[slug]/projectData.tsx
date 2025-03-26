@@ -321,7 +321,7 @@ The system allows users to input text and customize its appearance and behavior 
     date: "2025",
     techStack: "Documentary Production Videography Storytelling",
     imageUrl: ["/pico.jpg"],
-    videoUrl: 1069542966, // Ensure this is a valid Vimeo video ID
+    videoUrl: 1069542966, // Vimeo video ID
     backgroundStyle: "transparent",
     readme: `
 # Pico Susarón - The Story of Puebla de Lillo
@@ -331,6 +331,8 @@ The history of Puebla de Lillo is not just one of natural beauty and tradition�
 ## A Village Changed Forever
 
 In the 1960s, the Spanish government initiated the construction of the Porma Reservoir as part of a larger project to regulate water supply and provide hydroelectric energy. While the reservoir brought benefits to some areas, its impact on Puebla de Lillo and surrounding villages was devastating. Entire communities were displaced, losing their homes, farmland, and way of life.
+
+One of the most tragic aspects was the forced relocation of many families who had lived in the region for generations. Their homes and ancestral lands were submerged beneath the reservoir’s waters, erasing not just physical structures but also centuries of traditions and local culture. Many of these people, mainly livestock farmers and shepherds, were left without resources and had to migrate to cities or other rural areas where they struggled to rebuild their lives.
 
 ## The Death of a Way of Life
 
