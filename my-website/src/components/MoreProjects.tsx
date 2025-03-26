@@ -1,8 +1,15 @@
 import React from "react";
+import { useState } from "react";
 
-const MoreProjects = () => {
+interface MoreProjectsProps {
+    id?: string;
+  }
+
+
+const MoreProjects: React.FC<MoreProjectsProps> = ({ id }) => {
+  const [showFirstScreen, setShowFirstScreen] = useState(true);
   return (
-    <section className="relative flex-row w-full h-[30vh] sm:h-[25vh] bg-[#C7F24F] font-light z-0">
+    <section id={id} className="relative flex-row w-full h-[30vh] sm:h-[25vh] bg-[#C7F24F] font-light z-0">
       <div className="absolute flex flex-col items-center justify-center w-full h-full z-102">
         <h3 className="text-black text-center text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] lowercase font-[Neue Regrade]">
           Find my most recent <br /> projects below
@@ -24,3 +31,4 @@ const MoreProjects = () => {
 };
 
 export default MoreProjects;
+

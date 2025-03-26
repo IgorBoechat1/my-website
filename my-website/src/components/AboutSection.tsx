@@ -23,7 +23,7 @@ const AboutSection: React.FC = () => {
       
 
         {/* Description */}
-        <h3 className="font-[Neue Regrade] font-semibold text-[13px] mb-4 text-justify line-height-4 uppercase mt-12 max-w-[500px] z-10">
+        <h3 className="font-[Neue Regrade] font-semibold text-xs mb-4 text-justify line-height-4 uppercase mt-12 max-w-[500px] z-10">
           A constantly evolving creative, exploring the combination of visual art and programming. 
           Currently delving into full-stack development.<br />
           Combining visual acuity and programming, constantly seeking to innovate, 

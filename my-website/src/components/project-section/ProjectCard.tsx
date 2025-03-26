@@ -44,12 +44,12 @@ const ProjectCard: React.FC<ProjectProps> = ({
 
   return (
     <article
-      className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} rounded-lg overflow-hidden shadow-lg`}
+      className={`relative ${isWhiteBackground ? "bg-white" : "bg-transparent"} rounded-lg overflow-hidden shadow-lg backdrop-brightness-50`}
       
     >
       {/* Image Section */}
       <section className="w-full overflow-hidden ">
-        <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px] grayscale hover:filter-none transition-all duration-500">
+        <div className="w-full sm:h-80 md:h-[250px] lg:h-[300px] grayscale hover:filter-none transition-all duration-500">
           <Image
             src={imageUrl}
             alt={`Preview of the project titled ${title}`}
@@ -65,7 +65,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {/* Date with Star */}
         <div className="flex items-center mb-2">
           <div className="mr-1 transform scale-100 mt-[-14]">{star}</div>
-          <h3 className={`text-xs sm:text-base ${textColor}`}>{date}</h3>
+          <h3 className={`text-xs sm:text- ${textColor}`}>{date}</h3>
         </div>
 
         {/* Title */}
@@ -75,13 +75,13 @@ const ProjectCard: React.FC<ProjectProps> = ({
         </h1>
 
         {/* Tech Stack with Stars */}
-        <div className={`mt-0 flex font-secondary uppercase text-xs sm:text-base items-center ${textColor}`}>
+        <div className={`mt-0 flex  font-secondary uppercase text-xs sm:text-xs items-center ${textColor}`}>
           {insertStars(techStack, star)}
         </div>
 
         {/* Description */}
         <div className="mt-5">
-          <h3 className={`text-sm sm:text-base uppercase ${textColor}`}>{description}</h3>
+          <h3 className={`text-12px sm:text-xs uppercase ${textColor}`}>{description}</h3>
         </div>
 
         {/* More Info Button */}

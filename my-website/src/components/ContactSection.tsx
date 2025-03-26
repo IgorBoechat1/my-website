@@ -1,8 +1,15 @@
 "use client";
 
 import React from "react";
+import { useState } from "react";
 
-const ContactSection = () => {
+interface ContactSectionProps {
+    id?: string;
+  }
+
+
+const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
+  const [showFirstScreen, setShowFirstScreen] = useState(true);
   const handleClick = () => {
     window.open("https://www.linkedin.com/in/igor-boechat-dev");
   };
@@ -21,7 +28,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="flex  items-center justify-center relative h-screen bg-[#C7F24F]">
+    <section id={id} className="flex  items-center justify-center relative h-screen bg-[#C7F24F]">
       {/* Title */}
       <h1 className="absolute top-24 text-6xl sm:text-7xl md:text-8xl font-light text-black text-center uppercase w-full">
         CONTACT ME
@@ -68,3 +75,6 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
+
+
+

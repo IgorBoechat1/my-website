@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  id?: string;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ id }) => {
   const [showFirstScreen, setShowFirstScreen] = useState(true);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,7 +20,7 @@ const HeroSection = () => {
   return (
     <header className="min-h-[80vh] flex items-center justify-center p-0">
       <main
-        id="hero"
+        id={id}
         className="relative min-h-screen mt-16 flex flex-col items-center justify-center bg-fixed bg-center bg-cover"
       >
         {/* ShapeHero Image */}
