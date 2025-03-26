@@ -20,7 +20,7 @@ interface ProjectsSectionProps {
 
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ id }) => {
-  const [showFirstScreen, setShowFirstScreen] = useState(true);
+  useState(true);
   const projects: Project[] = [
     {
       title: "KINETIC TEXT APP",
