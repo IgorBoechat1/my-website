@@ -9,7 +9,7 @@ interface ContactSectionProps {
 
 
 const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
-  const [showFirstScreen, setShowFirstScreen] = useState(true);
+  useState(true);
   const handleClick = () => {
     window.open("https://www.linkedin.com/in/igor-boechat-dev");
   };

@@ -9,7 +9,7 @@ interface ReelSectionProps {
 
 
 const ReelSection: React.FC<ReelSectionProps> = ({ id }) => {
-  const [showFirstScreen, setShowFirstScreen] = useState(true);
+    useState(true);
   return (
     <section id={id} className="reel-section w-full flex">
       {/* Video 1 */}

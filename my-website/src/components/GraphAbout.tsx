@@ -7,7 +7,7 @@ interface GraphAboutSectionProps {
 }
 
 const GraphAbout: React.FC<GraphAboutSectionProps> = ({ id }) => {
-  const [showFirstScreen, setShowFirstScreen] = useState(true); // Proper useState implementation
+   useState(true); // Proper useState implementation
 
   return (
     <div
